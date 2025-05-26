@@ -1,0 +1,203 @@
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Evolve faster than tech itself"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Tech skills only have a 2.5 year lifespan, leaving 85 million jobs unfilled due to massive skills gaps. Don't get left in the dust—elevate your tech learning today."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "For individuals"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "For businesses"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Hero Section",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="rh-hero-section-care">
+  <div class="container-rh">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <p class="sec-des">
+      {{ section.settings.description }}
+    </p>
+    <div class="sec-buttons">
+      {% if section.settings.primary_button_link != blank %}
+        <a href="{{ section.settings.primary_button_link }}" class="primary-button-ca">
+          {{ section.settings.primary_button_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.secondary_button_link != blank %}
+        <a href="{{ section.settings.secondary_button_link }}" class="secondary-button-ca">
+          {{ section.settings.secondary_button_text }}
+        </a>
+      {% endif %}
+    </div>
+    <div class="rh-video-background">
+      {% if section.settings.video_url != blank %}
+        {% if section.settings.video_url.type == "youtube" %}
+          <iframe
+            class="rh-video"
+            src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        {% elsif section.settings.video_url.type == "vimeo" %}
+          <iframe
+            class="rh-video"
+            src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  /* hero section */
+.rh-hero-section-care {
+    background: #ccf0fe;
+    padding: 70px 20px;
+}
+
+.rh-hero-section-care .container-rh {
+    max-width: 1432px;
+    margin: 0 auto;
+}
+
+.rh-hero-section-care .container-rh .section-title {
+    color: #222875;
+    font-family: "Ghost Trial", sans-serif;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 120%;
+    text-align: center;
+    margin: 0 0 32px;
+}
+
+.rh-hero-section-care .container-rh .sec-des {
+    color: #222875;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    max-width: 745px;
+    margin: 0 auto;
+}
+
+.rh-hero-section-care .container-rh .sec-buttons {
+    margin: 32px 0 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.rh-hero-section-care .container-rh .rh-video-background {
+    background-color: #222875;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.rh-hero-section-care .container-rh .rh-video-background iframe {
+    max-width: 1077px;
+    width: 100%;
+    border-radius: 16px;
+    aspect-ratio: 16/9;
+}
+
+@media (max-width: 991px) {
+    .rh-hero-section-care {
+        padding: 40px 20px;
+    }
+
+    .rh-hero-section-care .container-rh .section-title {
+        font-size: 42px;
+        margin: 0 0 22px;
+    }
+
+    .rh-hero-section-care .container-rh .sec-des {
+        font-size: 14px;
+    }
+
+    .rh-hero-section-care .container-rh .sec-buttons {
+        margin: 22px 0 32px;
+        flex-wrap: wrap;
+    }
+
+    .rh-hero-section-care .container-rh .rh-video-background iframe {
+        top: 20px;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-hero-section-care .container-rh .section-title {
+        font-size: 32px;
+        margin: 0 0 18px;
+    }
+
+    .rh-hero-section-care .container-rh .sec-des {
+        font-size: 14px;
+    }
+
+    .rh-hero-section-care .container-rh .sec-buttons {
+        margin: 18px 0 22px;
+        flex-wrap: wrap;
+    }
+
+    .rh-hero-section-care .container-rh .rh-video-background iframe {
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+}
+{% endstyle %}
