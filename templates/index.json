@@ -153,7 +153,7 @@
       "settings": {
         "heading": "Unlock Your Team's Potential with 2000+ Accredited Courses!",
         "background_color": "#ffffff",
-        "text_color": "#0D0D0D"
+        "text_color": "#0d0d0d"
       }
     },
     "rh_instructor_W3fCft": {
@@ -199,10 +199,95 @@
         "description": "Learn from real experts. Our author list is highly curated with 91% of them backed by at least 10 years experience in their field. Cast a wide learning net or develop a highly specialized learning path, reassured that you're getting top notch, up-to-speed insights.",
         "button_text": "View course library",
         "button_link": "#",
-        "background_color": "#FAFAFA",
+        "background_color": "#fafafa",
         "tag_color": "#222875",
-        "text_color": "#0D0D0D",
-        "button_bg_color": "#0D0D0D"
+        "text_color": "#0d0d0d",
+        "button_bg_color": "#0d0d0d"
+      }
+    },
+    "rh_services_DPiHeX": {
+      "type": "rh-services",
+      "blocks": {
+        "feature_card_3JFUnz": {
+          "type": "feature_card",
+          "settings": {
+            "icon": "shopify://shop_images/gears.png",
+            "title": "AI + Data",
+            "description": "Work smarter (not harder) with artificial intelligence and keep up with Claude AI and more in this rapidly growing tech field.",
+            "button_text": "Generate AI skills",
+            "button_link": "#"
+          }
+        },
+        "feature_card_fPHUWK": {
+          "type": "feature_card",
+          "settings": {
+            "icon": "shopify://shop_images/code.png",
+            "title": "Software dev",
+            "description": "Build fluency in languages like C#, Java, Angular, and JavaScript and keep evolving as they do to develop efficiently.",
+            "button_text": "Speak software dev",
+            "button_link": "#"
+          }
+        },
+        "feature_card_WN7MiB": {
+          "type": "feature_card",
+          "settings": {
+            "icon": "shopify://shop_images/orange-cloud.png",
+            "title": "Cloud + IT Ops",
+            "description": "From AWS to Google Cloud and everything in between, expand your cloud clout for down-to-earth professional returns.",
+            "button_text": "Conquer the cloud",
+            "button_link": "#"
+          }
+        },
+        "feature_card_9P8hYT": {
+          "type": "feature_card",
+          "settings": {
+            "icon": "shopify://shop_images/green-shield.png",
+            "title": "Security",
+            "description": "Stop cyber attacks in their tracks and secure critical skills to position yourself as the expert at keeping data under lock and key. ",
+            "button_text": "security learning",
+            "button_link": "#"
+          }
+        },
+        "company_logo_Ba9hh7": {
+          "type": "company_logo",
+          "settings": {
+            "logo": "shopify://shop_images/cpd-big.png",
+            "company_name": "Company"
+          }
+        },
+        "company_logo_trERhq": {
+          "type": "company_logo",
+          "settings": {
+            "logo": "shopify://shop_images/qls-big.png",
+            "company_name": "Company"
+          }
+        },
+        "company_logo_rtbHXL": {
+          "type": "company_logo",
+          "settings": {
+            "logo": "shopify://shop_images/ukrlp-big.png",
+            "company_name": "Company"
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_3JFUnz",
+        "feature_card_fPHUWK",
+        "feature_card_WN7MiB",
+        "feature_card_9P8hYT",
+        "company_logo_Ba9hh7",
+        "company_logo_trERhq",
+        "company_logo_rtbHXL"
+      ],
+      "name": "RH Services",
+      "settings": {
+        "section_bg": "#CBEFFF",
+        "card_bg": "#222875",
+        "card_text": "#CBEFFF",
+        "confidence_title": "Build confidence with hands-on practice",
+        "confidence_description": "Experiment with new skills in 3,000+ interactive labs and AI or cloud sandboxes to quickly get the hang of them in real-world environments and take your career (and salary!) to the next level.",
+        "confidence_button_text": "Learn More",
+        "confidence_button_link": ""
       }
     }
   },
@@ -210,6 +295,7 @@
     "rh_homepage_hero_FNTMTK",
     "rh_hero_after_info_list_GC6XCD",
     "rh_companies_CmeGRD",
-    "rh_instructor_W3fCft"
+    "rh_instructor_W3fCft",
+    "rh_services_DPiHeX"
   ]
 }
