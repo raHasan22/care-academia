@@ -108,10 +108,12 @@
   <div class="container-rh">
     <div class="image-part">
       {% if section.settings.main_image %}
-        {{ section.settings.main_image | image_url: width: 800 | image_tag: 
-          alt: section.settings.title,
-          loading: 'lazy'
-        }}
+                 {{ section.settings.main_image | image_url: width: 800 | image_tag: 
+           alt: section.settings.title,
+           loading: 'lazy',
+           height: 'auto',
+           style: 'height: auto'
+         }}
       {% endif %}
     </div>
     <div class="text-part">
