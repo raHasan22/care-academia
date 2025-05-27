@@ -1,0 +1,350 @@
+{% schema %}
+{
+  "name": "RH Alternate",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Accelerate business initiatives"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Join the Fortune 500 companies and more than 23,000 businesses that rely on Care academia to:"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "For individuals"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "For businesses"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#CBEFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#222875"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Check Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "List Text",
+          "default": "Identify knowledge gaps and align tech learning to organizational initiatives"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Alternate",
+      "blocks": [
+        {
+          "type": "list_item"
+        },
+        {
+          "type": "list_item"
+        },
+        {
+          "type": "list_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="rh-alternate-care" style="background: {{ section.settings.section_bg }};">
+  <div class="container-rh">
+    <div class="image-part">
+      {% if section.settings.main_image %}
+        {{ section.settings.main_image | image_url: width: 800 | image_tag: 
+          alt: section.settings.title,
+          loading: 'lazy'
+        }}
+      {% endif %}
+    </div>
+    <div class="text-part">
+      <h2 class="alt-title" style="color: {{ section.settings.text_color }};">
+        {{ section.settings.title }}
+      </h2>
+      <p class="alt-des" style="color: {{ section.settings.text_color }};">
+        {{ section.settings.description }}
+      </p>
+      <div class="alt-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'list_item' %}
+            <div class="list-item" {{ block.shopify_attributes }}>
+              {% if block.settings.icon %}
+                {{ block.settings.icon | image_url: width: 24 | image_tag:
+                  alt: 'check-circle',
+                  width: 24,
+                  height: 24,
+                  loading: 'lazy'
+                }}
+              {% endif %}
+              <span style="color: {{ section.settings.text_color }};">
+                {{ block.settings.text }}
+              </span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="alt-buttons">
+        {% if section.settings.primary_button_link != blank %}
+          <a href="{{ section.settings.primary_button_link }}" class="primary-button-ca">
+            {{ section.settings.primary_button_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.secondary_button_link != blank %}
+          <a href="{{ section.settings.secondary_button_link }}" class="secondary-button-ca">
+            {{ section.settings.secondary_button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* alternative section  */
+.rh-alternate-care {
+    padding: 160px 20px;
+}
+
+.rh-alternate-care .container-rh {
+    max-width: 1432px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rh-alternate-care .container-rh .image-part {
+    width: 40%;
+}
+
+.rh-alternate-care .container-rh .image-part img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.rh-alternate-care .container-rh .text-part {
+    width: 50%;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-title {
+    font-family: "Ghost Trial", sans-serif;
+    font-weight: 500;
+    font-size: 60px;
+    letter-spacing: normal;
+    line-height: 100%;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-des {
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: normal;
+    line-height: 150%;
+    margin: 24px 0 46px;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 46px;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-list .list-item {
+    display: flex;
+    gap: 16px;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-list .list-item img {
+    width: 24px;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-list .list-item span {
+    width: calc(100% - 40px);
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 24px;
+}
+
+.rh-alternate-care .container-rh .text-part .alt-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1300px) {
+    .rh-alternate-care .container-rh .text-part {
+        width: 60%;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-des {
+        margin: 18px 0 26px;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-list {
+        gap: 8px;
+        margin: 0 0 26px;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-list .list-item {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-alternate-care {
+        padding: 60px 20px;
+    }
+
+    .rh-alternate-care .container-rh {
+        flex-direction: column;
+    }
+
+    .rh-alternate-care .container-rh .image-part {
+        width: 100%;
+    }
+
+    .rh-alternate-care .container-rh .text-part {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-title {
+        text-align: center;
+        font-size: 42px;
+        letter-spacing: normal;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-des {
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: normal;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-list .list-item img {
+        width: 18px;
+        object-fit: contain;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-list .list-item span {
+        width: calc(100% - 24px);
+        font-size: 12px;
+        letter-spacing: normal;
+        line-height: 20px;
+    }
+
+    .rh-alternate-care .container-rh .text-part .alt-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-alternate-care .container-rh .text-part .alt-title {
+        font-size: 32px;
+        letter-spacing: normal;
+    }
+}
+
+/* Add responsive styles for tab section */
+@media (max-width: 1199px) {
+    .tab-sec {
+        margin-top: 40px;
+        padding: 32px;
+    }
+    
+    .tab-buttons {
+        gap: 12px;
+        margin-bottom: 28px;
+        justify-content: center;
+    }
+    
+    .tab-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tab-sec {
+        margin-top: 32px;
+        padding: 24px;
+    }
+    
+    .tab-buttons {
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+    
+    .tab-button {
+        padding: 8px 16px;
+        font-size: 12px;
+        flex: 0 1 calc(50% - 4px);
+        text-align: center;
+    }
+}
+</style>
