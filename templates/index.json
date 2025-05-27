@@ -9,73 +9,6 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
     "rh_homepage_hero_FNTMTK": {
       "type": "rh-homepage-hero",
       "name": "RH Hero Section",
@@ -88,11 +21,195 @@
         "secondary_button_link": "#",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
       }
+    },
+    "rh_hero_after_info_list_GC6XCD": {
+      "type": "rh-hero-after-info-list",
+      "blocks": {
+        "info_item_zdxkrH": {
+          "type": "info_item",
+          "settings": {
+            "text": "6,500+ tech courses"
+          }
+        },
+        "info_item_Njnhtz": {
+          "type": "info_item",
+          "settings": {
+            "text": "3,500+ hands-on labs"
+          }
+        },
+        "info_item_ByKKdc": {
+          "type": "info_item",
+          "settings": {
+            "text": "500+ skill assessments"
+          }
+        },
+        "info_item_3JEmNm": {
+          "type": "info_item",
+          "settings": {
+            "text": "150+ certification paths"
+          }
+        }
+      },
+      "block_order": [
+        "info_item_zdxkrH",
+        "info_item_Njnhtz",
+        "info_item_ByKKdc",
+        "info_item_3JEmNm"
+      ],
+      "name": "RH Info List",
+      "settings": {
+        "background_color": "#e0f5fe",
+        "text_color": "#222875",
+        "icon_color": "#222875"
+      }
+    },
+    "rh_companies_CmeGRD": {
+      "type": "rh-companies",
+      "blocks": {
+        "company_image_VWAVgx": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3049.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_inMG3g": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3057.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_Fjewbp": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3051.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_twhDQD": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3052.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_Mj4UJy": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3058.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_ebPMqU": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3050.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_aChWVt": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3053.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_rmPFdJ": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3055.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_3V7zRC": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3056.png",
+            "company_name": "Company"
+          }
+        },
+        "company_image_7B9mmx": {
+          "type": "company_image",
+          "settings": {
+            "company_image": "shopify://shop_images/Frame_3054.png",
+            "company_name": "Company"
+          }
+        }
+      },
+      "block_order": [
+        "company_image_VWAVgx",
+        "company_image_inMG3g",
+        "company_image_Fjewbp",
+        "company_image_twhDQD",
+        "company_image_Mj4UJy",
+        "company_image_ebPMqU",
+        "company_image_aChWVt",
+        "company_image_rmPFdJ",
+        "company_image_3V7zRC",
+        "company_image_7B9mmx"
+      ],
+      "name": "RH Companies",
+      "settings": {
+        "heading": "Unlock Your Team's Potential with 2000+ Accredited Courses!",
+        "background_color": "#ffffff",
+        "text_color": "#0D0D0D"
+      }
+    },
+    "rh_instructor_W3fCft": {
+      "type": "rh-instructor",
+      "blocks": {
+        "instructor_AGpxzQ": {
+          "type": "instructor",
+          "settings": {
+            "name": "Jean 'Gladson' Tunis",
+            "experience": "25 yrs. experience",
+            "courses": "4 courses",
+            "profile_link": "#"
+          }
+        },
+        "instructor_KYJ7Ly": {
+          "type": "instructor",
+          "settings": {
+            "name": "Jean 'Gladson' Tunis",
+            "experience": "25 yrs. experience",
+            "courses": "4 courses",
+            "profile_link": "#"
+          }
+        },
+        "instructor_DbKKGM": {
+          "type": "instructor",
+          "settings": {
+            "name": "Jean 'Gladson' Tunis",
+            "experience": "25 yrs. experience",
+            "courses": "4 courses",
+            "profile_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "instructor_AGpxzQ",
+        "instructor_KYJ7Ly",
+        "instructor_DbKKGM"
+      ],
+      "name": "RH Instructors",
+      "settings": {
+        "tag": "Top-tier training",
+        "title": "Tackle tech trends with the best in the industry",
+        "description": "Learn from real experts. Our author list is highly curated with 91% of them backed by at least 10 years experience in their field. Cast a wide learning net or develop a highly specialized learning path, reassured that you're getting top notch, up-to-speed insights.",
+        "button_text": "View course library",
+        "button_link": "#",
+        "background_color": "#FAFAFA",
+        "tag_color": "#222875",
+        "text_color": "#0D0D0D",
+        "button_bg_color": "#0D0D0D"
+      }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection",
-    "rh_homepage_hero_FNTMTK"
+    "rh_homepage_hero_FNTMTK",
+    "rh_hero_after_info_list_GC6XCD",
+    "rh_companies_CmeGRD",
+    "rh_instructor_W3fCft"
   ]
 }
