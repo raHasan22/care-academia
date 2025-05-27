@@ -1,0 +1,304 @@
+{% schema %}
+{
+  "name": "RH Trusted",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Trusted by 100+ of Businesses around the world"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "Care academia connects with the enterprise tools your organization already uses, right out of the box."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "See all our businesses reviews"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "first_slider_image",
+      "name": "First Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt Text",
+          "default": "Company Logo"
+        }
+      ]
+    },
+    {
+      "type": "second_slider_image",
+      "name": "Second Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt Text",
+          "default": "Company Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Trusted"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="rh-trusted-care">
+  <div class="container-rh">
+    <div class="sec-title">
+      {{ section.settings.title }}
+    </div>
+    <div class="text-part">
+      <p class="sec-des">
+        {{ section.settings.description }}
+      </p>
+      {% if section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="primary-button-ca">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="slider-not-container">
+    {% assign first_slider_images = section.blocks | where: "type", "first_slider_image" %}
+    {% assign second_slider_images = section.blocks | where: "type", "second_slider_image" %}
+    
+    {% comment %} First Slider {% endcomment %}
+    <div class="fist-slider">
+      {% for block in first_slider_images %}
+        {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 334 }}"
+            alt="{{ block.settings.alt }}"
+            loading="lazy"
+            {{ block.shopify_attributes }} />
+        {% endif %}
+      {% endfor %}
+      
+      {% comment %} Duplicate images if less than 9 for smooth sliding {% endcomment %}
+      {% if first_slider_images.size < 9 %}
+        {% for block in first_slider_images %}
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 334 }}"
+              alt="{{ block.settings.alt }}"
+              loading="lazy" />
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    {% comment %} Second Slider {% endcomment %}
+    <div class="second-slider">
+      {% for block in second_slider_images %}
+        {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 334 }}"
+            alt="{{ block.settings.alt }}"
+            loading="lazy"
+            {{ block.shopify_attributes }} />
+        {% endif %}
+      {% endfor %}
+      
+      {% comment %} Duplicate images if less than 9 for smooth sliding {% endcomment %}
+      {% if second_slider_images.size < 9 %}
+        {% for block in second_slider_images %}
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 334 }}"
+              alt="{{ block.settings.alt }}"
+              loading="lazy" />
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+/* trusted section  */
+.rh-trusted-care {
+    background: #ffffff;
+    padding: 160px 0px;
+}
+
+.rh-trusted-care .container-rh {
+    max-width: 1472px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.rh-trusted-care .container-rh .sec-title {
+    width: 45%;
+    color: #0D0D0D;
+    font-family: "Ghost Trial";
+    font-weight: 500;
+    font-size: 60px;
+    letter-spacing: normal;
+    line-height: 100%;
+}
+
+.rh-trusted-care .container-rh .text-part {
+    width: 50%;
+}
+
+.rh-trusted-care .container-rh .text-part .sec-des {
+    color: #0D0D0D;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: normal;
+    line-height: 150%;
+    margin: 0 0 24px;
+}
+
+.rh-trusted-care .container-rh .text-part .primary-button-ca {
+    background: #0D0D0D;
+}
+
+.rh-trusted-care .slider-not-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.rh-trusted-care .slider-not-container .fist-slider {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: slide-left 20s linear infinite;
+    margin: 80px 0 0;
+}
+
+.rh-trusted-care .slider-not-container .fist-slider img {
+    width: 334px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.rh-trusted-care .slider-not-container .second-slider {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: slide-right 20s linear infinite;
+    margin: 40px 0 0;
+}
+
+.rh-trusted-care .slider-not-container .second-slider img {
+    width: 334px;
+    flex-shrink: 0;
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-trusted-care {
+        padding: 60px 0px;
+    }
+
+    .rh-trusted-care .container-rh {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rh-trusted-care .container-rh .sec-title {
+        width: 100%;
+        text-align: center;
+        font-size: 42px;
+        letter-spacing: normal;
+    }
+
+    .rh-trusted-care .container-rh .text-part {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rh-trusted-care .container-rh .text-part .sec-des {
+        font-size: 14px;
+        letter-spacing: normal;
+        text-align: center;
+    }
+
+    .rh-trusted-care .slider-not-container .fist-slider {
+        margin: 40px 0 0;
+    }
+
+    .rh-trusted-care .slider-not-container .fist-slider img {
+        width: 234px;
+    }
+
+    .rh-trusted-care .slider-not-container .second-slider {
+        margin: 30px 0 0;
+    }
+
+    .rh-trusted-care .slider-not-container .second-slider img {
+        width: 234px;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-trusted-care .container-rh .sec-title {
+        font-size: 32px;
+        letter-spacing: normal;
+    }
+    .rh-trusted-care .slider-not-container .fist-slider img {
+        width: 204px;
+    }
+    .rh-trusted-care .slider-not-container .second-slider {
+        margin: 20px 0 0;
+    }
+    .rh-trusted-care .slider-not-container .second-slider img {
+        width: 204px;
+    }
+}
+</style>
