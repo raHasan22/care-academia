@@ -1,0 +1,182 @@
+{% schema %}
+{
+  "name": "RH Companies",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Unlock Your Team's Potential with 2000+ Accredited Courses!"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#0D0D0D"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "company_image",
+      "name": "Company Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "company_image",
+          "label": "Company Logo"
+        },
+        {
+          "type": "text",
+          "id": "company_name",
+          "label": "Company Name (for accessibility)",
+          "default": "Company"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Companies",
+      "blocks": [
+        {
+          "type": "company_image"
+        },
+        {
+          "type": "company_image"
+        },
+        {
+          "type": "company_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.rh-companies-care {
+    background: {{ section.settings.background_color }};
+    padding: 40px 20px;
+}
+
+.rh-companies-care .container-rh {
+    max-width: 1432px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.rh-companies-care .container-rh .text-part {
+    width: 35%;
+}
+
+.rh-companies-care .container-rh .text-part h4 {
+    color: {{ section.settings.text_color }};
+    font-family: "Ghost Trial";
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 120%;
+    margin: 0;
+}
+
+.rh-companies-care .container-rh .image-part {
+    width: 65%;
+    overflow: hidden;
+    position: relative;
+}
+
+.rh-companies-care .container-rh .image-part .image-slider {
+    display: flex;
+    gap: 22px;
+    animation: slide 20s linear infinite;
+}
+
+.rh-companies-care .container-rh .image-part .image-slider .single-image {
+    flex: 0 0 auto;
+}
+
+.rh-companies-care .container-rh .image-part .image-slider .single-image img {
+    max-height: 100px;
+    display: block;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-companies-care .container-rh {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .rh-companies-care .container-rh .text-part {
+        width: 100%;
+    }
+
+    .rh-companies-care .container-rh .text-part h4 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .rh-companies-care .container-rh .image-part {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-companies-care .container-rh .text-part h4 {
+        font-size: 20px;
+    }
+
+    .rh-companies-care .container-rh .image-part .image-slider .single-image img {
+        max-width: 60px;
+    }
+}
+</style>
+
+<section class="rh-companies-care">
+  <div class="container-rh">
+    <div class="text-part">
+      <h4>{{ section.settings.heading }}</h4>
+    </div>
+    <div class="image-part">
+      {% assign block_count = section.blocks | size %}
+      {% assign repeat_count = 1 %}
+      {% if block_count < 9 %}
+        {% assign repeat_count = 9 | divided_by: block_count | ceil %}
+      {% endif %}
+      
+      <div class="image-slider">
+        {% for i in (1..repeat_count) %}
+          {% for block in section.blocks %}
+            {% if block.type == 'company_image' and block.settings.company_image %}
+              <div class="single-image" {{ block.shopify_attributes }}>
+                {%- assign img_url = block.settings.company_image | image_url: width: 200 -%}
+                <img src="{{ img_url }}" 
+                     alt="{{ block.settings.company_name | escape }}"
+                     width="{{ block.settings.company_image.width }}"
+                     height="{{ block.settings.company_image.height }}"
+                     loading="lazy">
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

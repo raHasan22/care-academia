@@ -1,0 +1,416 @@
+{% schema %}
+{
+  "name": "RH Instructors",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag Text",
+      "default": "Top-tier training"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Tackle tech trends with the best in the industry"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Learn from real experts. Our author list is highly curated with 91% of them backed by at least 10 years experience in their field. Cast a wide learning net or develop a highly specialized learning path, reassured that you're getting top notch, up-to-speed insights."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View course library"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "#222875"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#0D0D0D"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#0D0D0D"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "instructor",
+      "name": "Instructor",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "profile_image",
+          "label": "Profile Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Instructor Name",
+          "default": "Jean 'Gladson' Tunis"
+        },
+        {
+          "type": "text",
+          "id": "experience",
+          "label": "Experience",
+          "default": "25 yrs. experience"
+        },
+        {
+          "type": "text",
+          "id": "courses",
+          "label": "Number of Courses",
+          "default": "4 courses"
+        },
+        {
+          "type": "url",
+          "id": "profile_link",
+          "label": "Profile Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Instructors",
+      "blocks": [
+        {
+          "type": "instructor"
+        },
+        {
+          "type": "instructor"
+        },
+        {
+          "type": "instructor"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.rh-instructor-care {
+    background: {{ section.settings.background_color }};
+    padding: 60px 20px;
+}
+
+.rh-instructor-care .container-rh {
+    max-width: 1432px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.rh-instructor-care .container-rh .instructors {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rh-instructor-care .container-rh .text-part {
+    width: 45%;
+}
+
+.rh-instructor-care .container-rh .text-part .tag {
+    color: {{ section.settings.tag_color }};
+    font-family: "Karla", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.rh-instructor-care .container-rh .text-part .section-title {
+    color: {{ section.settings.text_color }};
+    font-family: "Ghost Trial", sans-serif;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 120%;
+    margin: 10px 0 20px;
+}
+
+.rh-instructor-care .container-rh .text-part .sec-des {
+    color: {{ section.settings.text_color }};
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    margin: 0 0 10px;
+}
+
+.instructor-card {
+    align-self: stretch;
+    padding: 40px;
+    background: white;
+    border-radius: 16px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    gap: 16px;
+}
+
+.instructor-card .rh-profile {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    display: flex;
+}
+
+.instructor-card .rh-profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+}
+
+.instructor-card .rh-info {
+    max-width: 289px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 14px;
+    display: inline-flex;
+}
+
+.instructor-card .rh-name {
+    align-self: stretch;
+    color: #0D0D0D;
+    font-size: 30px;
+    font-family: 'Ghost Trial', sans-serif;
+    font-weight: 500;
+    line-height: 30px;
+    word-wrap: break-word;
+}
+
+.instructor-card .rh-meta {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    display: inline-flex;
+}
+
+.instructor-card .rh-check-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin: 4px 0 0;
+}
+
+.instructor-card .rh-description {
+    color: #6E6E6E;
+    font-size: 20px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    line-height: 30px;
+    word-wrap: break-word;
+}
+
+.instructor-card .rh-button {
+    width: 60px;
+    height: 60px;
+    padding: 15px;
+    background: {{ section.settings.button_bg_color }};
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+}
+
+@media (max-width: 1300px) {
+    .rh-instructor-care .container-rh .instructors {
+        width: 50%;
+    }
+
+    .rh-instructor-care .container-rh .text-part {
+        width: 50%;
+    }
+
+    .instructor-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 1190px) {
+    .instructor-card .rh-name {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .instructor-card .rh-description {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-instructor-care .container-rh {
+        flex-direction: column-reverse;
+    }
+
+    .rh-instructor-care .container-rh .text-part {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rh-instructor-care .container-rh .instructors {
+        width: 100%;
+    }
+
+    .rh-instructor-care .container-rh .text-part .tag {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .rh-instructor-care .container-rh .text-part .section-title {
+        font-size: 42px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .rh-instructor-care .container-rh .text-part .sec-des {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .instructor-card .rh-button {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+
+    .instructor-card {
+        padding: 15px;
+    }
+
+    .instructor-card .rh-profile {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-instructor-care .container-rh .text-part .section-title {
+        font-size: 32px;
+    }
+
+    .instructor-card {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .instructor-card .rh-profile {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .instructor-card .rh-name {
+        text-align: center;
+    }
+}
+</style>
+
+<section class="rh-instructor-care">
+  <div class="container-rh">
+    <div class="instructors">
+      {% for block in section.blocks %}
+        {% if block.type == 'instructor' %}
+          <div class="instructor-card" {{ block.shopify_attributes }}>
+            <div class="rh-profile">
+              {%- if block.settings.profile_image -%}
+                {%- assign img_url = block.settings.profile_image | image_url: width: 160 -%}
+                <img 
+                  class="rh-profile-img" 
+                  src="{{ img_url }}"
+                  alt="{{ block.settings.name }}"
+                  width="{{ block.settings.profile_image.width }}"
+                  height="{{ block.settings.profile_image.height }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'rh-profile-img placeholder' }}
+              {%- endif -%}
+              <div class="rh-info">
+                <div class="rh-name">{{ block.settings.name }}</div>
+                <div class="rh-meta">
+                  <div class="rh-check-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_2009_829)">
+                        <path d="M14.6663 7.38662V7.99995C14.6655 9.43757 14.2 10.8364 13.3392 11.9878C12.4785 13.1393 11.2685 13.9816 9.88991 14.3892C8.51129 14.7968 7.03785 14.7479 5.68932 14.2497C4.3408 13.7515 3.18944 12.8307 2.40698 11.6247C1.62452 10.4186 1.25287 8.99199 1.34746 7.55749C1.44205 6.12299 1.99781 4.7575 2.93186 3.66467C3.86591 2.57183 5.1282 1.81021 6.53047 1.49338C7.93274 1.17656 9.39985 1.32151 10.713 1.90662" stroke="#18AB6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.6667 2.66663L8 9.33996L6 7.33996" stroke="#18AB6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_2009_829">
+                          <rect width="16" height="16" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div class="rh-description">
+                    {{ block.settings.experience }} • {{ block.settings.courses }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% if block.settings.profile_link != blank %}
+              <a href="{{ block.settings.profile_link }}" class="rh-button">
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.896 10.325C23.2471 9.97342 23.4443 9.49686 23.4443 8.99998C23.4443 8.5031 23.2471 8.02654 22.896 7.67498L15.826 0.601231C15.4742 0.249487 14.9972 0.0518799 14.4997 0.0518799C14.0023 0.0518799 13.5252 0.249487 13.1735 0.601231C12.8217 0.952974 12.6241 1.43004 12.6241 1.92748C12.6241 2.42492 12.8217 2.90199 13.1735 3.25373L17.0435 7.12498L2.62474 7.12498C2.12745 7.12498 1.65054 7.32252 1.29891 7.67416C0.947281 8.02579 0.749737 8.5027 0.749737 8.99998C0.749737 9.49726 0.947281 9.97418 1.29891 10.3258C1.65054 10.6774 2.12745 10.875 2.62474 10.875L17.0435 10.875L13.1735 14.745C12.9993 14.9191 12.8612 15.1259 12.7669 15.3535C12.6727 15.581 12.6241 15.8249 12.6241 16.0712C12.6241 16.3175 12.6727 16.5614 12.7669 16.789C12.8612 17.0166 12.9993 17.2233 13.1735 17.3975C13.3477 17.5716 13.5544 17.7098 13.782 17.8041C14.0095 17.8983 14.2534 17.9468 14.4997 17.9468C14.746 17.9468 14.9899 17.8983 15.2175 17.8041C15.4451 17.7098 15.6518 17.5716 15.826 17.3975L22.896 10.325Z" fill="white"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="text-part">
+      <div class="tag">{{ section.settings.tag }}</div>
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+      <p class="sec-des">{{ section.settings.description }}</p>
+      {% if section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="secondary-button-ca">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

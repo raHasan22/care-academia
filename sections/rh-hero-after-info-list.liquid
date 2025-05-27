@@ -1,0 +1,178 @@
+{% schema %}
+{
+  "name": "Info List Section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#e0f5fe"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#222875"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#222875"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_item",
+      "name": "Info Item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Info Text",
+          "default": "6,500+ tech courses"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Info List",
+      "blocks": [
+        {
+          "type": "info_item",
+          "settings": {
+            "text": "6,500+ tech courses"
+          }
+        },
+        {
+          "type": "info_item",
+          "settings": {
+            "text": "3,500+ hands-on labs"
+          }
+        },
+        {
+          "type": "info_item",
+          "settings": {
+            "text": "500+ skill assessments"
+          }
+        },
+        {
+          "type": "info_item",
+          "settings": {
+            "text": "150+ certification paths"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.rh-list-info-care {
+    background: {{ section.settings.background_color }};
+    padding: 16px 20px;
+}
+
+.rh-list-info-care .container-rh {
+    max-width: 1432px;
+    margin: 0 auto;
+}
+
+.rh-list-info-care .container-rh .list-info {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+.rh-list-info-care .container-rh .list-info.justify-center {
+    justify-content: center;
+}
+
+.rh-list-info-care .container-rh .list-info.justify-between {
+    justify-content: space-between;
+}
+
+.rh-list-info-care .container-rh .list-info .rh-info {
+    display: flex;
+    align-items: center;
+    gap: 4px
+}
+
+.rh-list-info-care .container-rh .list-info .rh-info .list-icon {
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rh-list-info-care .container-rh .list-info .rh-info .list-icon svg {
+    width: 100%;
+}
+
+.rh-list-info-care .container-rh .list-info .rh-info .list-icon svg path {
+    fill: {{ section.settings.icon_color }};
+}
+
+.rh-list-info-care .container-rh .list-info .rh-info .list-text {
+    width: calc(100% - 28px);
+    color: {{ section.settings.text_color }};
+    font-family: "Karla";
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    margin: 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+    .rh-list-info-care .container-rh .list-info {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .rh-list-info-care .container-rh .list-info .rh-info .list-icon {
+        width: 18px;
+    }
+
+    .rh-list-info-care .container-rh .list-info .rh-info .list-text {
+        width: calc(100% - 22px);
+        font-size: 12px;
+    }
+}
+</style>
+
+{%- assign block_count = section.blocks | size -%}
+<section class="rh-list-info-care">
+  <div class="container-rh">
+    <div class="list-info {% if block_count <= 2 %}justify-center{% else %}justify-between{% endif %}">
+      {% for block in section.blocks %}
+        {% if block.type == 'info_item' %}
+          <div class="rh-info" {{ block.shopify_attributes }}>
+            <div class="list-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.64644 12.7819L7.3536 12.0747C7.54885 11.8795 7.86544 11.8795 8.06069 12.0747L10 14.0141L15.9393 8.0748C16.1346 7.87953 16.4512 7.87953 16.6464 8.0748L17.3536 8.7819C17.5488 8.97717 17.5488 9.29375 17.3536 9.48901L10.3536 16.489C10.1583 16.6842 9.84176 16.6842 9.64644 16.489L6.64644 13.489C6.45119 13.2937 6.45119 12.9771 6.64644 12.7819Z"
+                  fill="currentColor" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2 12.4283C2 6.91443 6.48608 2.42834 12 2.42834C17.5139 2.42834 22 6.91443 22 12.4283C22 17.9422 17.5139 22.4283 12 22.4283C6.48608 22.4283 2 17.9422 2 12.4283ZM4 12.4283C4 8.01721 7.58887 4.42834 12 4.42834C16.4111 4.42834 20 8.01721 20 12.4283C20 16.8394 16.4111 20.4283 12 20.4283C7.58887 20.4283 4 16.8394 4 12.4283Z"
+                  fill="currentColor" />
+              </svg>
+            </div>
+            <p class="list-text">{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

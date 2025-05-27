@@ -1,40 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 
 .primary-button-ca {
-    padding: 15px 31px;
-    color: #ffffff;
-    background: #222875;
-    border: 1px solid #222875;
-    border-radius: 999px;
-    font-family: "Karla";
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 150%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+  padding: 15px 31px;
+  color: #ffffff;
+  background: #222875;
+  border: 1px solid #222875;
+  border-radius: 999px;
+  font-family: "Karla";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .secondary-button-ca {
-    padding: 15px 31px;
-    color: #222875;
-    background: transparent;
-    border: 1px solid #222875;
-    border-radius: 999px;
-    font-family: "Karla";
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 150%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+  padding: 15px 31px;
+  color: #222875;
+  background: transparent;
+  border: 1px solid #222875;
+  border-radius: 999px;
+  font-family: "Karla";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 @media (max-width: 991px) {
-
-    .primary-button-ca,
-    .secondary-button-ca {
-        padding: 10px 17px;
-        font-size: 14px;
-    }
+  .primary-button-ca,
+  .secondary-button-ca {
+    padding: 10px 17px;
+    font-size: 14px;
+  }
 }
