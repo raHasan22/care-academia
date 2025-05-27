@@ -281,13 +281,107 @@
       ],
       "name": "RH Services",
       "settings": {
-        "section_bg": "#CBEFFF",
+        "section_bg": "#cbefff",
         "card_bg": "#222875",
-        "card_text": "#CBEFFF",
+        "card_text": "#cbefff",
         "confidence_title": "Build confidence with hands-on practice",
         "confidence_description": "Experiment with new skills in 3,000+ interactive labs and AI or cloud sandboxes to quickly get the hang of them in real-world environments and take your career (and salary!) to the next level.",
         "confidence_button_text": "Learn More",
         "confidence_button_link": ""
+      }
+    },
+    "rh_trusted_qFzDrC": {
+      "type": "rh-trusted",
+      "blocks": {
+        "first_slider_image_YRMzfU": {
+          "type": "first_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301617.png",
+            "alt": "Company Logo"
+          }
+        },
+        "first_slider_image_mBLyWQ": {
+          "type": "first_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301620.png",
+            "alt": "Company Logo"
+          }
+        },
+        "first_slider_image_xN7d99": {
+          "type": "first_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301618.png",
+            "alt": "Company Logo"
+          }
+        },
+        "first_slider_image_BQLmTj": {
+          "type": "first_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301619.png",
+            "alt": "Company Logo"
+          }
+        },
+        "first_slider_image_kCDKMp": {
+          "type": "first_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301621.png",
+            "alt": "Company Logo"
+          }
+        },
+        "second_slider_image_XQGyKx": {
+          "type": "second_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301623.png",
+            "alt": "Company Logo"
+          }
+        },
+        "second_slider_image_fYUtMX": {
+          "type": "second_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301621_7869714b-2a4a-4a83-9ffd-fec801638f31.png",
+            "alt": "Company Logo"
+          }
+        },
+        "second_slider_image_X8LnK4": {
+          "type": "second_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301618_a3da700a-cd88-4c17-bf03-608085e5f5ef.png",
+            "alt": "Company Logo"
+          }
+        },
+        "second_slider_image_Hhp9jF": {
+          "type": "second_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301617_2cae3398-7b4c-4c99-b228-4f6dc67a36c1.png",
+            "alt": "Company Logo"
+          }
+        },
+        "second_slider_image_Cmci7b": {
+          "type": "second_slider_image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6301620_29b02e11-f5ec-4a1a-b1aa-00e638e88034.png",
+            "alt": "Company Logo"
+          }
+        }
+      },
+      "block_order": [
+        "first_slider_image_YRMzfU",
+        "first_slider_image_mBLyWQ",
+        "first_slider_image_xN7d99",
+        "first_slider_image_BQLmTj",
+        "first_slider_image_kCDKMp",
+        "second_slider_image_XQGyKx",
+        "second_slider_image_fYUtMX",
+        "second_slider_image_X8LnK4",
+        "second_slider_image_Hhp9jF",
+        "second_slider_image_Cmci7b"
+      ],
+      "name": "RH Trusted",
+      "settings": {
+        "title": "Trusted by 100+ of Businesses around the world",
+        "description": "Care academia connects with the enterprise tools your organization already uses, right out of the box.",
+        "button_text": "See all our businesses reviews",
+        "button_link": "#"
       }
     }
   },
@@ -296,6 +390,7 @@
     "rh_hero_after_info_list_GC6XCD",
     "rh_companies_CmeGRD",
     "rh_instructor_W3fCft",
-    "rh_services_DPiHeX"
+    "rh_services_DPiHeX",
+    "rh_trusted_qFzDrC"
   ]
 }
