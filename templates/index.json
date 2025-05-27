@@ -398,29 +398,21 @@
           "type": "list_item",
           "settings": {
             "icon": "shopify://shop_images/check-circle.png",
-            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+            "text": "Build skills to transform and retain in-house tech talent"
           }
         },
         "list_item_HyBMYn": {
           "type": "list_item",
           "settings": {
             "icon": "shopify://shop_images/check-circle.png",
-            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
-          }
-        },
-        "list_item_YYDAqz": {
-          "type": "list_item",
-          "settings": {
-            "icon": "shopify://shop_images/check-circle.png",
-            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+            "text": "Validate skills with assessments, certification practice exams, and hands-on practice labs"
           }
         }
       },
       "block_order": [
         "list_item_EYerWX",
         "list_item_Hpd7Cd",
-        "list_item_HyBMYn",
-        "list_item_YYDAqz"
+        "list_item_HyBMYn"
       ],
       "name": "RH Alternate",
       "settings": {
