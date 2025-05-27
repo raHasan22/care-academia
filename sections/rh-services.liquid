@@ -1,0 +1,384 @@
+{% schema %}
+{
+  "name": "RH Services",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#CBEFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#222875"
+    },
+    {
+      "type": "color",
+      "id": "card_text",
+      "label": "Card Text Color",
+      "default": "#CBEFFF"
+    },
+    {
+      "type": "header",
+      "content": "Build Confidence Section"
+    },
+    {
+      "type": "text",
+      "id": "confidence_title",
+      "label": "Title",
+      "default": "Build confidence with hands-on practice"
+    },
+    {
+      "type": "textarea",
+      "id": "confidence_description",
+      "label": "Description",
+      "default": "Experiment with new skills in 3,000+ interactive labs and AI or cloud sandboxes to quickly get the hang of them in real-world environments and take your career (and salary!) to the next level."
+    },
+    {
+      "type": "text",
+      "id": "confidence_button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "confidence_button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "AI + Data"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Work smarter (not harder) with artificial intelligence and keep up with Claude AI and more in this rapidly growing tech field."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Generate AI skills"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    },
+    {
+      "type": "company_logo",
+      "name": "Company Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Company Logo"
+        },
+        {
+          "type": "text",
+          "id": "company_name",
+          "label": "Company Name (for accessibility)",
+          "default": "Company"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Services",
+      "blocks": [
+        {
+          "type": "feature_card"
+        },
+        {
+          "type": "feature_card"
+        },
+        {
+          "type": "feature_card"
+        },
+        {
+          "type": "feature_card"
+        },
+        {
+          "type": "company_logo"
+        },
+        {
+          "type": "company_logo"
+        },
+        {
+          "type": "company_logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+/* services section  */
+.rh-services-care {
+    background: {{ section.settings.section_bg }};
+    padding: 160px 20px;
+}
+
+.rh-services-care .container-rh {
+    max-width: 1432px;
+    margin: 0 auto;
+}
+
+.rh-services-care .container-rh .rh-features-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.rh-feature-card {
+    padding: 30px;
+    background: {{ section.settings.card_bg }};
+    border-radius: 20px;
+    max-width: 335px;
+    width: 100%;
+}
+
+.rh-feature-card .card-title {
+    color: {{ section.settings.card_text }};
+    font-family: "Ghost Trial", sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: normal;
+    line-height: 100%;
+    margin: 24px 0 20px
+}
+
+.rh-feature-card .card-des {
+    color: {{ section.settings.card_text }};
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 150%;
+    margin: 0 0 20px
+}
+
+.rh-feature-card .secondary-button-ca {
+    border-color: {{ section.settings.card_text }};
+    color: {{ section.settings.card_text }};
+}
+
+@media (max-width: 767px) {
+    .rh-feature-card .card-title {
+        font-size: 26px;
+        margin: 18px 0 14px
+    }
+
+    .rh-feature-card .card-des {
+        font-size: 14px;
+        margin: 0 0 14px
+    }
+
+    .rh-services-care {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 1290px) {
+    .rh-services-care .container-rh .rh-features-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+.rh-services-care .container-rh .rh-build-confidence {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin: 60px 0 0;
+}
+
+.rh-services-care .container-rh .rh-build-confidence .image-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 50%;
+    gap: 32px;
+}
+
+.rh-services-care .container-rh .rh-build-confidence .image-part .companies {
+    width: 33%;
+}
+
+.rh-services-care .container-rh .rh-build-confidence .image-part .companies img {
+    width: 100%;
+}
+
+.rh-services-care .container-rh .rh-build-confidence .text-part {
+    width: 40%;
+}
+
+.rh-services-care .container-rh .rh-build-confidence .text-part .build-conf-title {
+    color: #222875;
+    font-family: "Ghost Trial", sans-serif;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 100%;
+}
+
+.rh-services-care .container-rh .rh-build-confidence .text-part .build-conf-des {
+    color: #222875;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    margin: 20px 0 10px;
+}
+
+@media (max-width: 1290px) {
+    .rh-services-care .container-rh .rh-build-confidence .text-part {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1170px) {
+    .rh-services-care .container-rh .rh-build-confidence .image-part {
+        flex-wrap: wrap;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .image-part .companies {
+        width: 45%;
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-services-care .container-rh .rh-build-confidence {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 40px 0 0;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .image-part {
+        width: 100%;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .text-part {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .text-part .build-conf-title {
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .text-part .build-conf-des {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .image-part {
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .image-part .companies {
+        width: 32%;
+    }
+
+    .rh-services-care .container-rh .rh-build-confidence .image-part .companies img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-services-care .container-rh .rh-build-confidence .text-part .build-conf-title {
+        font-size: 32px;
+    }
+}
+</style>
+
+<section class="rh-services-care">
+  <div class="container-rh">
+    <div class="rh-features-cards">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature_card' %}
+          <div class="rh-feature-card" {{ block.shopify_attributes }}>
+            {% if block.settings.icon %}
+              {%- assign img_url = block.settings.icon | image_url: width: 96 -%}
+              <img
+                src="{{ img_url }}"
+                alt="{{ block.settings.title }}"
+                height="48"
+                width="48"
+                class="icon"
+                loading="lazy"
+              />
+            {% endif %}
+            <h3 class="card-title">{{ block.settings.title }}</h3>
+            <p class="card-des">{{ block.settings.description }}</p>
+            {% if block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="secondary-button-ca">
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="rh-build-confidence">
+      <div class="image-part">
+        {% for block in section.blocks %}
+          {% if block.type == 'company_logo' and block.settings.logo %}
+            <div class="companies" {{ block.shopify_attributes }}>
+              {%- assign img_url = block.settings.logo | image_url: width: 300 -%}
+              <img 
+                src="{{ img_url }}" 
+                alt="{{ block.settings.company_name }}"
+                loading="lazy"
+              />
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="text-part">
+        <h2 class="build-conf-title">{{ section.settings.confidence_title }}</h2>
+        <p class="build-conf-des">{{ section.settings.confidence_description }}</p>
+        {% if section.settings.confidence_button_link != blank %}
+          <a href="{{ section.settings.confidence_button_link }}" class="secondary-button-ca">
+            {{ section.settings.confidence_button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
