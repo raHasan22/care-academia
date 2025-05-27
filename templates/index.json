@@ -383,6 +383,46 @@
         "button_text": "See all our businesses reviews",
         "button_link": "#"
       }
+    },
+    "rh_alternate_sec_NNDjrR": {
+      "type": "rh-alternate-sec",
+      "blocks": {
+        "list_item_Hpd7Cd": {
+          "type": "list_item",
+          "settings": {
+            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+          }
+        },
+        "list_item_HyBMYn": {
+          "type": "list_item",
+          "settings": {
+            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+          }
+        },
+        "list_item_YYDAqz": {
+          "type": "list_item",
+          "settings": {
+            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_Hpd7Cd",
+        "list_item_HyBMYn",
+        "list_item_YYDAqz"
+      ],
+      "name": "RH Alternate",
+      "settings": {
+        "main_image": "shopify://shop_images/freepik__five-people-average-age-35-average-race-caucasian-__62314_1.png",
+        "title": "Accelerate business initiatives",
+        "description": "Join the Fortune 500 companies and more than 23,000 businesses that rely on Care academia to:",
+        "primary_button_text": "For individuals",
+        "primary_button_link": "",
+        "secondary_button_text": "For businesses",
+        "secondary_button_link": "",
+        "section_bg": "#CBEFFF",
+        "text_color": "#222875"
+      }
     }
   },
   "order": [
@@ -391,6 +431,7 @@
     "rh_companies_CmeGRD",
     "rh_instructor_W3fCft",
     "rh_services_DPiHeX",
-    "rh_trusted_qFzDrC"
+    "rh_trusted_qFzDrC",
+    "rh_alternate_sec_NNDjrR"
   ]
 }
