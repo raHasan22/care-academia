@@ -387,26 +387,37 @@
     "rh_alternate_sec_NNDjrR": {
       "type": "rh-alternate-sec",
       "blocks": {
+        "list_item_EYerWX": {
+          "type": "list_item",
+          "settings": {
+            "icon": "shopify://shop_images/check-circle.png",
+            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+          }
+        },
         "list_item_Hpd7Cd": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/check-circle.png",
             "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
           }
         },
         "list_item_HyBMYn": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/check-circle.png",
             "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
           }
         },
         "list_item_YYDAqz": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/check-circle.png",
             "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
           }
         }
       },
       "block_order": [
+        "list_item_EYerWX",
         "list_item_Hpd7Cd",
         "list_item_HyBMYn",
         "list_item_YYDAqz"
@@ -419,7 +430,7 @@
         "primary_button_text": "For individuals",
         "primary_button_link": "",
         "secondary_button_text": "For businesses",
-        "secondary_button_link": "",
+        "secondary_button_link": "#",
         "section_bg": "#CBEFFF",
         "text_color": "#222875"
       }
