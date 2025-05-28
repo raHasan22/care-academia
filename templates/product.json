@@ -96,6 +96,40 @@
         "chat_button_text": "Start a live chat"
       }
     },
+    "rh_companies_CKdVVe": {
+      "type": "rh-companies",
+      "blocks": {
+        "company_image_LMxp7p": {
+          "type": "company_image",
+          "settings": {
+            "company_name": "Company"
+          }
+        },
+        "company_image_TnW7xm": {
+          "type": "company_image",
+          "settings": {
+            "company_name": "Company"
+          }
+        },
+        "company_image_74PDbp": {
+          "type": "company_image",
+          "settings": {
+            "company_name": "Company"
+          }
+        }
+      },
+      "block_order": [
+        "company_image_LMxp7p",
+        "company_image_TnW7xm",
+        "company_image_74PDbp"
+      ],
+      "name": "RH Companies",
+      "settings": {
+        "heading": "Unlock Your Team's Potential with 2000+ Accredited Courses!",
+        "background_color": "#ffffff",
+        "text_color": "#0D0D0D"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -118,6 +152,7 @@
   "order": [
     "main",
     "rh_single_course_hero_KLhGgx",
+    "rh_companies_CKdVVe",
     "related-products"
   ]
 }
