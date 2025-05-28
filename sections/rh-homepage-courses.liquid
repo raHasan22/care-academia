@@ -159,20 +159,22 @@
                       <div class="rh-author">by {{ product.vendor }}</div>
                       <div class="rh-libraries">
                         <div class="rh-label">Libraries:</div>
-                        <div class="rh-library-tag">{{ product.type }}</div>
+                        {% for tag in product.tags %}
+                          {% unless tag contains 'Duration:' %}
+                            <div class="rh-library-tag">{{ tag }}</div>
+                          {% endunless %}
+                        {% endfor %}
                       </div>
                     </div>
                     <div class="rh-divider"></div>
                     <div class="rh-course-meta">
+                      <div class="rh-meta-item">
+                        <svg width="14" height="15">
+                          <use href="#icon-level" />
+                        </svg>
+                        <div class="rh-label">{{ product.type }}</div>
+                      </div>
                       {% for tag in product.tags %}
-                        {% if tag contains 'Level:' %}
-                          <div class="rh-meta-item">
-                            <svg width="14" height="15">
-                              <use href="#icon-level" />
-                            </svg>
-                            <div class="rh-label">{{ tag | remove: 'Level:' | strip }}</div>
-                          </div>
-                        {% endif %}
                         {% if tag contains 'Duration:' %}
                           <div class="rh-meta-item">
                             <svg width="16" height="17">
