@@ -11,7 +11,6 @@
   "sections": {
     "rh_homepage_hero_FNTMTK": {
       "type": "rh-homepage-hero",
-      "name": "RH Hero Section",
       "settings": {
         "title": "Evolve faster than tech itself",
         "description": "Tech skills only have a 2.5 year lifespan, leaving 85 million jobs unfilled due to massive skills gaps. Don't get left in the dust—elevate your tech learning today.",
@@ -56,11 +55,42 @@
         "info_item_ByKKdc",
         "info_item_3JEmNm"
       ],
-      "name": "RH Info List",
       "settings": {
         "background_color": "#e0f5fe",
         "text_color": "#222875",
         "icon_color": "#222875"
+      }
+    },
+    "rh_homepage_courses_g6LPUL": {
+      "type": "rh-homepage-courses",
+      "blocks": {
+        "collection_tab_Wajkqk": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "all-courses"
+          }
+        },
+        "collection_tab_JKr9Rd": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "business"
+          }
+        },
+        "collection_tab_QgeyPn": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "technology"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_Wajkqk",
+        "collection_tab_JKr9Rd",
+        "collection_tab_QgeyPn"
+      ],
+      "name": "RH Homepage Courses",
+      "settings": {
+        "title": "Our Top Courses"
       }
     },
     "rh_companies_CmeGRD": {
@@ -149,7 +179,6 @@
         "company_image_3V7zRC",
         "company_image_7B9mmx"
       ],
-      "name": "RH Companies",
       "settings": {
         "heading": "Unlock Your Team's Potential with 2000+ Accredited Courses!",
         "background_color": "#ffffff",
@@ -192,7 +221,6 @@
         "instructor_KYJ7Ly",
         "instructor_DbKKGM"
       ],
-      "name": "RH Instructors",
       "settings": {
         "tag": "Top-tier training",
         "title": "Tackle tech trends with the best in the industry",
@@ -279,7 +307,6 @@
         "company_logo_trERhq",
         "company_logo_rtbHXL"
       ],
-      "name": "RH Services",
       "settings": {
         "section_bg": "#cbefff",
         "card_bg": "#222875",
@@ -376,7 +403,6 @@
         "second_slider_image_Hhp9jF",
         "second_slider_image_Cmci7b"
       ],
-      "name": "RH Trusted",
       "settings": {
         "title": "Trusted by 100+ of Businesses around the world",
         "description": "Care academia connects with the enterprise tools your organization already uses, right out of the box.",
@@ -414,7 +440,6 @@
         "list_item_Hpd7Cd",
         "list_item_HyBMYn"
       ],
-      "name": "RH Alternate",
       "settings": {
         "main_image": "shopify://shop_images/freepik__five-people-average-age-35-average-race-caucasian-__62314_1.png",
         "title": "Accelerate business initiatives",
@@ -423,7 +448,7 @@
         "primary_button_link": "",
         "secondary_button_text": "For businesses",
         "secondary_button_link": "#",
-        "section_bg": "#CBEFFF",
+        "section_bg": "#cbefff",
         "text_color": "#222875"
       }
     }
@@ -431,6 +456,7 @@
   "order": [
     "rh_homepage_hero_FNTMTK",
     "rh_hero_after_info_list_GC6XCD",
+    "rh_homepage_courses_g6LPUL",
     "rh_companies_CmeGRD",
     "rh_instructor_W3fCft",
     "rh_services_DPiHeX",
