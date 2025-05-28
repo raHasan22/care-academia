@@ -137,16 +137,11 @@
               {% for product in block.settings.collection.products %}
                 <a href="{{ product.url }}" class="rh-course-card">
                   <div class="rh-course-image">
-                    {% if product.featured_image != blank %}
-                      {{ product.featured_image | image_url: width: 456 | image_tag: 
-                        class: 'rh-course-image-img',
-                        alt: product.title,
-                        loading: 'lazy',
-                        height: 'auto',
-                      }}
-                    {% else %}
+                    {%- if product.featured_image != blank -%}
+                      {{ product.featured_image | img_url: '456x' | img_tag: product.title, 'rh-course-image-img' }}
+                    {%- else -%}
                       {{ 'product-1' | placeholder_svg_tag: 'rh-course-image-img' }}
-                    {% endif %}
+                    {%- endif -%}
                   </div>
                   <div class="rh-course-content">
                     <div class="rh-course-header">
@@ -299,12 +294,12 @@
 }
 
 .rh-course-image {
+  display: block;
   width: 100%;
   height: 240px;
   overflow: hidden;
   background: #D9D9D9;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
 }
 .rh-course-image > img{
   width: 100%;
