@@ -66,6 +66,7 @@
         "description",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -80,6 +81,19 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "rh_single_course_hero_KLhGgx": {
+      "type": "rh-single-course-hero",
+      "name": "RH Single Course Hero",
+      "settings": {
+        "trial_heading": "Try this course for free",
+        "trial_description": "Access this course and other top-rated tech content with a free trial.",
+        "primary_button_text": "Free Individual trial",
+        "secondary_button_text": "Free Team Trial",
+        "chat_heading": "Have questions?",
+        "chat_description": "Get them answered now.",
+        "chat_button_text": "Start a live chat"
       }
     },
     "related-products": {
@@ -103,6 +117,7 @@
   },
   "order": [
     "main",
+    "rh_single_course_hero_KLhGgx",
     "related-products"
   ]
 }
