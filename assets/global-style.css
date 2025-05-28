@@ -13,6 +13,11 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.primary-button-ca:hover {
+  background: #222875c9;
 }
 
 .secondary-button-ca {
@@ -28,6 +33,11 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.secondary-button-ca:hover {
+  background:  #222875b9;
 }
 
 @media (max-width: 991px) {
