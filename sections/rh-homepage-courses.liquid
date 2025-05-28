@@ -95,7 +95,7 @@
             <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ block.settings.collection.handle }}">
               <div class="course-cards">
                 {% for product in block.settings.collection.products %}
-                  <div class="rh-course-card">
+                  <a href="{{ product.url }}" class="rh-course-card">
                     {% if product.featured_image != blank %}
                       {{ product.featured_image | image_url: width: 456 | image_tag: 
                         class: 'rh-course-image',
@@ -154,7 +154,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 {% endfor %}
               </div>
             </div>
@@ -255,6 +255,7 @@
     outline-offset: -1px;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
 }
 
 .rh-course-image {
