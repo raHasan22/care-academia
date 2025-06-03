@@ -1,6 +1,7 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'course-card.css' | asset_url | stylesheet_tag }}
 
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
@@ -23,17 +24,119 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      }
+    #verticalTitle{
+      display: none;
+    }
+    .facets-vertical{
+      padding: 0;
+    }
+    .facets-container  {
+      border: 0;
+    }
+    aside#main-collection-filters{
+      max-width: 400px;
+      width: 100%;
+      padding-right: 71px;
+    }
+    .facets__form-vertical{
+      width: 100% !important;
+    }
+    .facets-layout-list--text input[type="checkbox"]{
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #131315;
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .facet-checkbox > svg, .facet-checkbox > .svg-wrapper{
+      border-radius: 50%;
+      background: transparent;
+    /*   border: 1px solid #131315; */
+    }
+    #FacetsWrapperDesktop details {
+      width: 100%;
+      border: 0;
+      background: #FFFFFF8C;
+      margin-bottom: 16px;
+      border: 1.19px solid #DCDCDC;
+      padding: 16px 20px;
+      border-radius: 5.95px;
+    }
+    .product-grid li{
+      max-width: 280px !important;
+      width: 100%;
+    }
+    #FacetsWrapperDesktop details summary {
+      padding: 0;
+      font-family: Fustat;
+      font-weight: 700;
+      font-size: 21.42px;
+      line-height: 120%;
+      margin-bottom: 14px;
+      color: #131315;
+    }
+    #FacetsWrapperDesktop details .facet-checkbox__text {
+      font-family: Fustat;
+    font-weight: 600;
+    font-size: 16.66px;
+    line-height: 23.8px;
+      color: #131315;
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .facets-wrap-vertical {
+      margin: 0;
+      padding: 0;
+    }
+    #FacetsWrapperDesktop details .facet-checkbox__text{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: -2.5px;
+    }
+    #FacetsWrapperDesktop details .facet-checkbox__text > span{
+      width: 90%;
+    }
+    .facets-vertical-sort{
+      display: none !important;
+    }
+    .facets__display-vertical{
+      padding-bottom: 0;
+    }
+    #ProductGridContainer ul{
+    justify-content: center;
+  }
+  #FacetsWrapperDesktop details summary{
+    margin-bottom: 0;
+  }
+  .facets__display-vertical{
+    padding-top: 14px !important;
+    padding-bottom: 0 !important;
+  }
+  @media (max-width: 1322px){
+    #ProductGridContainer ul{
+      justify-content: end;
+    }
+    .facets-vertical{
+      padding: 0 20px;
+    }
+    aside#main-collection-filters{
+      max-width: 350px;
+    }
+    #FacetsWrapperDesktop details .facet-checkbox__text {
+      white-space: nowrap;
     }
   }
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
@@ -233,7 +336,7 @@
           "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",

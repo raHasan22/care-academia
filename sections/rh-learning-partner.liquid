@@ -1,0 +1,314 @@
+<section class="rh-learning-partners-sec">
+  <div class="container-rh">
+    <div class="text-part">
+      <h2 class="sec-title">{{ section.settings.title }}</h2>
+      <p class="sec-desc">{{ section.settings.description }}</p>
+      <a href="{{ section.settings.button_link }}" class="rh-btn">{{ section.settings.button_text }}</a>
+    </div>
+    <div class="image-part">
+      <div class="partner-item">
+        {% if section.settings.partner_image %}
+          <img 
+            src="{{ section.settings.partner_image | img_url: '603x403', crop: 'center' }}"
+            alt="{{ section.settings.image_alt | escape }}"
+            loading="lazy"
+          >
+        {% else %}
+          <img src="https://placehold.co/603x403" alt="Partner 1" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+/* Learning Partners Section */
+.rh-learning-partners-sec {
+    padding: 80px 20px;
+    background-color: {{ section.settings.background_color }};
+}
+
+.rh-learning-partners-sec .container-rh {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: {{ section.settings.content_gap }}px;
+    padding: 0 20px 20px 0;
+}
+
+.rh-learning-partners-sec .text-part {
+    flex: 0 0 40%;
+}
+
+.rh-learning-partners-sec .image-part {
+    position: relative;
+    flex: 0 0 50%;
+}
+
+.rh-learning-partners-sec .sec-title {
+    font-family: "Fustat", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, {{ section.settings.title_size }}px);
+    line-height: 56px;
+    color: {{ section.settings.title_color }};
+    margin-bottom: 16px;
+}
+
+.rh-learning-partners-sec .sec-desc {
+    font-family: "Fustat", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, {{ section.settings.desc_size }}px);
+    line-height: 24px;
+    color: {{ section.settings.desc_color }};
+    margin-bottom: 25px;
+}
+
+.rh-learning-partners-sec .rh-btn {
+    display: inline-flex;
+    padding: 16px 32px;
+    background: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    font-family: "Fustat", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.rh-learning-partners-sec .rh-btn:hover {
+    background: {{ section.settings.button_hover_bg_color }};
+    transform: translateY(-2px);
+}
+
+.rh-learning-partners-sec .partner-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.rh-learning-partners-sec .partner-item:after{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: {{ section.settings.image_overlay_color }};
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    border-radius: 10px;
+    z-index: 0;
+  }
+.rh-learning-partners-sec .partner-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1200px) {
+    .rh-learning-partners-sec .container-rh {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-learning-partners-sec .container-rh {
+        max-width: 720px;
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .rh-learning-partners-sec .text-part,
+    .rh-learning-partners-sec .image-part {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-learning-partners-sec {
+        padding: 60px 20px;
+    }
+
+    .rh-learning-partners-sec .container-rh {
+        max-width: 540px;
+        gap: 32px;
+        padding: 0;
+    }
+
+    .rh-learning-partners-sec .text-part {
+        text-align: center;
+    }
+
+    .rh-learning-partners-sec .sec-title {
+        line-height: 1.2;
+    }
+
+    .rh-learning-partners-sec .sec-desc {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .rh-learning-partners-sec .partner-item:after {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .rh-learning-partners-sec {
+        padding: 40px 20px;
+    }
+
+    .rh-learning-partners-sec .container-rh {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .rh-learning-partners-sec .text-part {
+        text-align: center;
+    }
+
+    .rh-learning-partners-sec .rh-btn {
+        justify-content: center;
+    }
+
+    .rh-learning-partners-sec .partner-item:after {
+        top: 8px;
+        left: 8px;
+    }
+}
+    
+    {% endstyle %}
+
+{% schema %}
+{
+  "name": "RH Learning Partner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#131315"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "label": "Container Width",
+      "default": 1170
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Content Gap",
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your language learning partner"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 32,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 48
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "As experts in language learning we will guide and support you every step on the way. With us, you can stay on track and reach your language goals sooner."
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description Size",
+      "default": 18
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View all partners"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#131315"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "rgba(255, 255, 255, 0.9)"
+    },
+    {
+      "type": "image_picker",
+      "id": "partner_image",
+      "label": "Partner Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Language learning partner"
+    },
+    {
+      "type": "color",
+      "id": "image_overlay_color",
+      "label": "Image Overlay Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Learning Partner",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

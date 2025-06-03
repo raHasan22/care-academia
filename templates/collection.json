@@ -9,6 +9,40 @@
  */
 {
   "sections": {
+    "rh_all_courses_sec_tPaF6z": {
+      "type": "rh-all-courses-sec",
+      "name": "RH All Courses Hero",
+      "settings": {
+        "title": "Browse All Popular Courses",
+        "description": "Join one of our short courses and learn new and verifiable skills for your career.",
+        "button_text": "Explore Now",
+        "button_link": "",
+        "show_arrow": true,
+        "hero_image": "shopify://shop_images/Group_1000004185.png",
+        "image_alt": "All courses",
+        "container_width": 1300,
+        "section_padding": 20,
+        "container_padding": 35,
+        "container_padding_sides": 60,
+        "content_gap": 60,
+        "text_width": 40,
+        "image_width": 55,
+        "background_color": "#131315",
+        "title_color": "#ffffff",
+        "desc_color": "#ffffff",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#131315",
+        "button_hover_bg_color": "#ffffffe6",
+        "title_size": 48,
+        "title_margin": 16,
+        "desc_size": 18,
+        "desc_margin": 25,
+        "button_text_size": 18,
+        "button_padding_v": 16,
+        "button_padding_h": 32,
+        "button_radius": 8
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "settings": {
@@ -22,7 +56,7 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 3,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -36,10 +70,83 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "nxt_reviwes_slider_4pf3zX": {
+      "type": "nxt-reviwes-slider",
+      "blocks": {
+        "testimonial_card_F3MF3G": {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "review_text": "The classes were excellently designed, the small group sizes maximized opportunities for speaking, and the variety of class types and topics offered something for everyone. Most of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "testimonial_card_bW6fjL": {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Sarah Lee",
+            "author_title": "Product Manager",
+            "author_company": "InnovateX",
+            "review_text": "The instructors were knowledgeable and supportive, and the course content was always relevant. I appreciated the interactive sessions and the practical approach to learning.",
+            "course_link_text": "View this Product Management course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "testimonial_card_P9QV8M": {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Michael Chen",
+            "author_title": "UX Designer",
+            "author_company": "Creatify",
+            "review_text": "I loved the engaging lessons and the way the teachers encouraged participation. The community was welcoming and the support was always available when needed.",
+            "course_link_text": "View this UX Design course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "testimonial_card_jHtbxC": {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Priya Patel",
+            "author_title": "Data Scientist",
+            "author_company": "DataWiz",
+            "review_text": "Great community and support throughout the course. The instructors made complex topics easy to understand, and I learned a lot while making new friends.",
+            "course_link_text": "View this Data Science course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_card_F3MF3G",
+        "testimonial_card_bW6fjL",
+        "testimonial_card_P9QV8M",
+        "testimonial_card_jHtbxC"
+      ],
+      "name": "NXT Reviews Slider",
+      "settings": {
+        "title": "What students love about us",
+        "subtitle": "We don't just make claims. We deliver results.",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "background_color": "#eff0f0"
+      }
     }
   },
   "order": [
+    "rh_all_courses_sec_tPaF6z",
     "banner",
-    "product-grid"
+    "product-grid",
+    "nxt_reviwes_slider_4pf3zX"
   ]
 }

@@ -1,0 +1,484 @@
+{% schema %}
+{
+  "name": "NXT Footer",
+  "tag": "footer",
+  "class": "nxt-footer__area",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 47
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#131315"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand/Mission",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "brand_title",
+          "label": "Brand Title",
+          "default": "Logo"
+        },
+        {
+          "type": "textarea",
+          "id": "mission",
+          "label": "Mission Statement",
+          "default": "Our mission is to empower global talent with the language, cultural, and technical skills for integration and success."
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Column Title",
+          "default": "Menu Name"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_cta",
+          "label": "Show CTA Button",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Button Text (optional)",
+          "default": "Become a teacher"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA Button Link (optional)",
+          "default": "\/collections\/all"
+        }
+      ]
+    },
+    {
+      "type": "legal",
+      "name": "Legal/Policies",
+      "settings": [
+        {
+          "type": "text",
+          "id": "copyright",
+          "label": "Copyright Text",
+          "default": "Copyright 2025 Lingoda GmbH. Zimmerstr. 69, 10117 Berlin - All Rights Reserved"
+        },
+        {
+          "type": "link_list",
+          "id": "footer_bottom_menu",
+          "label": "Footer Bottom Menu"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social Link",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Social Icon",
+          "options": [
+            { "value": "linkedin", "label": "LinkedIn" },
+            { "value": "x", "label": "X (Twitter)" },
+            { "value": "youtube", "label": "YouTube" },
+            { "value": "facebook", "label": "Facebook" },
+            { "value": "instagram", "label": "Instagram" }
+          ],
+          "default": "linkedin"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "Social URL",
+          "default": "\/collections\/all"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NXT Footer",
+      "category": "Footer",
+      "blocks": [
+        { "type": "brand" },
+        { "type": "menu" },
+        { "type": "menu" },
+        { "type": "menu" },
+        { "type": "menu", "settings": { "show_cta": true } },
+        { "type": "legal" },
+        { "type": "social", "settings": { "icon": "linkedin" } },
+        { "type": "social", "settings": { "icon": "x" } },
+        { "type": "social", "settings": { "icon": "youtube" } },
+        { "type": "social", "settings": { "icon": "facebook" } },
+        { "type": "social", "settings": { "icon": "instagram" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% style %}
+  .nxt-footer__area {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+    @media (min-width: 768px) {
+      .nxt-footer__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{% endstyle %}
+<style>
+  .nxt-footer__area {
+    background: #131315;
+    color: #fff;
+    font-family: 'Fustat', 'Open Sans', Arial, sans-serif;
+    width: 100%;
+  }
+
+  .nxt-footer_container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .nxt-footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nxt-footer__brand {
+    max-width: 380px;
+  }
+
+  .nxt-footer__logo {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .nxt-footer__desc {
+    margin-bottom: 0;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    opacity: 0.85;
+  }
+
+  .nxt-footer__links {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 866px;
+    width: 100%;
+  }
+
+  .nxt-footer__col {
+    min-width: 186px;
+  }
+
+  .nxt-footer__col-title {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 17px;
+    color: #fff;
+  }
+
+  .nxt-footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nxt-footer__list li {
+    margin-bottom: 12px;
+  }
+
+  .nxt-footer__list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  .nxt-footer__list a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .nxt-footer__cta {
+    background: #fff;
+    color: #131315;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 24px;
+    display: inline-block;
+    margin-top: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    border: 1px solid #fff;
+  }
+
+  .nxt-footer__cta:hover {
+    background: transparent;
+    color: #fff;
+  }
+
+  .nxt-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 47px;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nxt-footer__legal {
+    max-width: 470px;
+    width: 100%;
+    opacity: 0.75;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .nxt-footer__policies {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nxt-footer__policies a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .nxt-footer__policies a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .nxt-footer__socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .nxt-footer__socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .nxt-footer__socials a:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 1024px) {
+    .nxt-footer__wrapper {
+      flex-direction: column;
+    }
+
+    .nxt-footer__col {
+      min-width: 0;
+    }
+
+    .nxt-footer__brand {
+      max-width: 100%;
+    }
+
+    .nxt-footer__bottom {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .nxt-footer__cta {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nxt-footer__wrapper {
+      flex-direction: column;
+    }
+    .nxt-footer__col {
+      min-width: 0;
+      width: 100%;
+    }
+    .nxt-footer__links {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (min-width: 360px) and (max-width: 767px) {
+    .nxt-footer__links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+</style>
+
+<div class="nxt-footer_container {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="nxt-footer__wrapper">
+    {% for block in section.blocks %}
+      {% if block.type == 'brand' %}
+        <div class="nxt-footer__brand">
+          <div class="nxt-footer__logo">
+            {% if block.settings.logo != blank %}
+              <img
+                src="{{ block.settings.logo | img_url: '200x' }}"
+                alt="{{ block.settings.brand_title }}"
+                style="max-width:120px;max-height:60px;"
+                width="120"
+                height="60"
+              >
+            {% else %}
+              {{ block.settings.brand_title }}
+            {% endif %}
+          </div>
+          <div class="nxt-footer__desc">{{ block.settings.mission }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <nav class="nxt-footer__links" aria-label="Footer">
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <div class="nxt-footer__col">
+            <div class="nxt-footer__col-title">{{ block.settings.title }}</div>
+            <ul class="nxt-footer__list">
+              {% for link in block.settings.menu.links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% if block.settings.show_cta %}
+              <a href="{{ block.settings.cta_url }}" class="nxt-footer__cta">{{ block.settings.cta_text }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+  <div class="nxt-footer__bottom">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'legal' %}
+          <div class="nxt-footer__legal">{{ block.settings.copyright }}</div>
+          <div class="nxt-footer__policies">
+            {% for link in block.settings.footer_bottom_menu.links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+      {% endcase %}
+    {% endfor %}
+    <div class="nxt-footer__socials">
+      {% for block in section.blocks %}
+        {% if block.type == 'social' %}
+          {% assign icon = block.settings.icon %}
+          {% assign url = block.settings.url %}
+          <a href="{{ url }}" aria-label="{{ icon | capitalize }}">
+            {% case icon %}
+              {% when 'linkedin' %}
+                <!-- LinkedIn SVG -->
+                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.3715 14.7305H0.471075V5.3886H3.3715V14.7305ZM1.91973 4.11428C0.992265 4.11428 0.23999 3.34595 0.23999 2.41832C0.23999 1.97274 0.416962 1.54542 0.731974 1.23035C1.04699 0.915285 1.47423 0.738281 1.91973 0.738281C2.36522 0.738281 2.79247 0.915285 3.10748 1.23035C3.42249 1.54542 3.59946 1.97274 3.59946 2.41832C3.59946 3.34595 2.84688 4.11428 1.91973 4.11428ZM14.2269 14.7305H11.3327V10.1829C11.3327 9.09911 11.3108 7.70923 9.8247 7.70923C8.31672 7.70923 8.08563 8.88673 8.08563 10.1048V14.7305H5.18833V5.3886H7.97009V6.66292H8.01069C8.39791 5.92894 9.3438 5.15435 10.755 5.15435C13.6904 5.15435 14.23 7.08769 14.23 9.59884V14.7305H14.2269Z" fill="white"/>
+                </svg>
+              {% when 'x' %}
+                <!-- X SVG -->
+                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.261934 0.744177C0.254959 0.754637 0.819866 1.52518 1.5138 2.45262C2.20773 3.38007 3.68277 5.3535 4.79166 6.83534L6.80722 9.53048L6.67817 9.67691C6.60497 9.7571 5.12294 11.3575 3.38637 13.2333C1.6498 15.1125 0.223576 16.6606 0.220088 16.678C0.213114 16.6955 0.516491 16.7094 0.952376 16.7059L1.69513 16.7025L1.93922 16.434C2.07522 16.2875 3.33755 14.9243 4.74633 13.4006C6.15512 11.877 7.34767 10.5869 7.39652 10.5311L7.48367 10.43L8.18112 11.3644C8.56467 11.877 9.62127 13.2925 10.5279 14.5059L12.1808 16.7094H14.7089C16.8117 16.7094 17.2336 16.7025 17.2196 16.6641C17.2092 16.6362 16.5676 15.7716 15.7934 14.736C15.0193 13.704 14.1336 12.5185 13.8267 12.1071C13.5164 11.6957 12.6062 10.4719 11.7972 9.3945C10.9882 8.31364 10.3257 7.41411 10.3257 7.40016C10.3257 7.37576 14.6008 2.73504 16.055 1.18349L16.4699 0.740691H15.7062L14.9461 0.744177L14.0569 1.70649C13.5687 2.23645 12.3726 3.53348 11.3962 4.58295L9.62827 6.49363L7.48367 3.62762L5.33567 0.758124L2.80751 0.740691C1.41616 0.73023 0.268908 0.733718 0.261934 0.744177ZM6.25277 3.83333C7.07917 4.94208 8.35547 6.64701 9.08777 7.62678C9.82002 8.60305 11.445 10.7787 12.7004 12.4557C13.9557 14.1363 14.9949 15.5275 15.0123 15.5519C15.0332 15.5833 14.7857 15.5937 13.8825 15.5937H12.7283L10.4407 12.5325C5.16129 5.47902 2.49716 1.91568 2.46577 1.86338C2.44485 1.832 2.68197 1.82154 3.5921 1.82154H4.74633L6.25277 3.83333Z" fill="white"/>
+                </svg>
+              {% when 'youtube' %}
+                <!-- YouTube SVG -->
+                <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.367 4.61248C17.1709 3.8736 16.5929 3.29168 15.859 3.0942C14.5288 2.73535 9.19486 2.73535 9.19486 2.73535C9.19486 2.73535 3.86095 2.73535 2.53072 3.0942C1.79685 3.29171 1.21886 3.8736 1.02269 4.61248C0.66626 5.95173 0.66626 8.74597 0.66626 8.74597C0.66626 8.74597 0.66626 11.5402 1.02269 12.8795C1.21886 13.6183 1.79685 14.176 2.53072 14.3735C3.86095 14.7324 9.19486 14.7324 9.19486 14.7324C9.19486 14.7324 14.5288 14.7324 15.859 14.3735C16.5929 14.176 17.1709 13.6183 17.367 12.8795C17.7235 11.5402 17.7235 8.74597 17.7235 8.74597C17.7235 8.74597 17.7235 5.95173 17.367 4.61248ZM7.45036 11.2829V6.20901L11.9085 8.74604L7.45036 11.2829Z" fill="white"/>
+                </svg>
+              {% when 'facebook' %}
+                <!-- Facebook SVG -->
+                <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.9041 9.73272L9.34803 6.84014H6.57237V4.96305C6.57237 4.1717 6.96011 3.40033 8.20324 3.40033H9.4651V0.937607C9.4651 0.937607 8.32 0.742188 7.22516 0.742188C4.93932 0.742188 3.44519 2.1276 3.44519 4.63559V6.84014H0.904297V9.73272H3.44519V16.7254H6.57237V9.73272H8.9041Z" fill="white"/>
+                </svg>
+              {% when 'instagram' %}
+                <!-- Instagram SVG -->
+                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.15794 5.14134C5.17186 5.14134 3.56988 6.7436 3.56988 8.73004C3.56988 10.7165 5.17186 12.3187 7.15794 12.3187C9.14402 12.3187 10.746 10.7165 10.746 8.73004C10.746 6.7436 9.14402 5.14134 7.15794 5.14134ZM7.15794 11.0632C5.87448 11.0632 4.82523 10.0168 4.82523 8.73004C4.82523 7.44323 5.87136 6.39691 7.15794 6.39691C8.44452 6.39691 9.49064 7.44323 9.49064 8.73004C9.49064 10.0168 8.44139 11.0632 7.15794 11.0632ZM11.7297 4.99454C11.7297 5.45992 11.3549 5.83159 10.8928 5.83159C10.4275 5.83159 10.0559 5.45679 10.0559 4.99454C10.0559 4.53229 10.4306 4.15749 10.8928 4.15749C11.3549 4.15749 11.7297 4.53229 11.7297 4.99454ZM14.1061 5.84408C14.053 4.72281 13.7969 3.72959 12.9757 2.91128C12.1575 2.09297 11.1644 1.83686 10.0434 1.78064C8.88795 1.71505 5.4248 1.71505 4.26938 1.78064C3.15142 1.83373 2.15838 2.08985 1.3371 2.90816C0.515808 3.72647 0.262864 4.71969 0.206654 5.84096C0.141076 6.99659 0.141076 10.4604 0.206654 11.616C0.259741 12.7373 0.515808 13.7305 1.3371 14.5488C2.15838 15.3671 3.1483 15.6232 4.26938 15.6794C5.4248 15.745 8.88795 15.745 10.0434 15.6794C11.1644 15.6263 12.1575 15.3702 12.9757 14.5488C13.7938 13.7305 14.0499 12.7373 14.1061 11.616C14.1717 10.4604 14.1717 6.99972 14.1061 5.84408ZM12.6134 12.856C12.3698 13.4681 11.8983 13.9397 11.2831 14.1865C10.3619 14.5519 8.17596 14.4676 7.15794 14.4676C6.13991 14.4676 3.95085 14.5488 3.03276 14.1865C2.4207 13.9429 1.94916 13.4712 1.70246 12.856C1.3371 11.9346 1.42141 9.74824 1.42141 8.73004C1.42141 7.71183 1.34022 5.52238 1.70246 4.60412C1.94604 3.99195 2.41757 3.52033 3.03276 3.27359C3.95398 2.90816 6.13991 2.99249 7.15794 2.99249C8.17596 2.99249 10.365 2.91128 11.2831 3.27359C11.8952 3.51721 12.3667 3.98883 12.6134 4.60412C12.9788 5.52551 12.8945 7.71183 12.8945 8.73004C12.8945 9.74824 12.9788 11.9377 12.6134 12.856Z" fill="white"/>
+                </svg>
+            {% endcase %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

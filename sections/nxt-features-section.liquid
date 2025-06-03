@@ -1,0 +1,674 @@
+{% schema %}
+{
+  "name": "NXT Features Section",
+  "tag": "section",
+  "class": "nxt-animatedCard__area",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#eff0f0"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "Features"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Feature description goes here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card Link",
+          "default": "\/collections\/all"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NXT Features Section",
+      "category": "Features",
+      "blocks": [
+        {
+          "type": "feature_card",
+          "settings": {
+            "tag": "Features",
+            "heading": "Smallest classes on the market",
+            "description": "Take group classes with up to 5 other students or learn1-on-1 with your teacher"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "tag": "Features",
+            "heading": "775K live classes per year",
+            "description": "Get personalised feedback from your native-level teachers after each class"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "tag": "Features",
+            "heading": "Learn to speak real-life language",
+            "description": "Speak confidently in everyday situations and feel like a local from the start"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% style %}
+  .nxt-animatedCard__area {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+    @media (min-width: 768px) {
+      .nxt-animatedCard__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{% endstyle %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+>
+<style>
+  .gridCards {
+    overflow: hidden;
+    position: relative;
+    background-color: inherit;
+  }
+  .gridCards .theme-container {
+    margin: 0 auto;
+  }
+  .gridCards .cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+
+  .gridCards .cards-row .card {
+    align-items: flex-start;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
+    transition: width 0.8s ease !important;
+    width: 340px;
+  }
+
+  .gridCards .cards-row .card.active {
+    width: 570px;
+  }
+
+  .gridCards .cards-row .card .card-link {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .gridCards .cards-row .card .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 35px 39px;
+    width: 340px;
+  }
+
+  .gridCards .cards-row .card .card-text * {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .gridCards .cards-row .card .card-text .card-heading {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  .gridCards .cards-row .card .card-text .tag {
+    border-radius: 100px;
+    line-height: 21px;
+    max-width: max-content;
+    padding: 3px 13px;
+    transition: all 0.3s ease-in-out;
+    width: auto;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .gridCards .cards-row .card .card-image {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: center;
+    max-height: inherit;
+    min-height: inherit;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: -100%;
+    top: 0;
+    transition: right 0.8s ease;
+    width: 249px;
+  }
+
+  .gridCards .cards-row .card.active .card-image {
+    opacity: 1;
+    right: 0;
+  }
+
+  .gridCards .cards-row .card .card-image img {
+    display: block;
+    margin-left: auto;
+    max-height: inherit !important;
+    object-fit: contain;
+    object-position: center;
+    width: auto;
+  }
+
+  .gridCards .cards-row .card .theme-buttons {
+    z-index: 1;
+  }
+
+  .gridCards .cards-row .card .card-text .theme-btn.btn-normal.link * {
+    color: inherit !important;
+  }
+
+  .gridCards .cards-row .card .theme-btn svg path {
+    stroke: currentColor !important;
+  }
+
+  @media (min-width: 1440px) {
+    .gridCards .cards-row .card .card-image img {
+      height: 100% !important;
+      max-width: unset !important;
+      object-fit: cover;
+      width: 100% !important;
+    }
+    .gridCards .cards-row .card .card-text .card-heading {
+      max-width: 184px;
+      text-wrap: balance;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .gridCards .theme-container {
+      max-width: 1300px !important;
+      width: 100% !important;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    .gridCards .theme-container {
+      max-width: 1195px !important;
+      width: 100% !important;
+    }
+
+    .gridCards .cards-row {
+      gap: 26px;
+    }
+
+    .gridCards .cards-row .card,
+    .gridCards .cards-row .card .card-text {
+      width: 273px;
+    }
+
+    .gridCards .cards-row .card .card-image {
+      width: 298px;
+    }
+
+    .gridCards .cards-row .card.active {
+      width: 570px;
+    }
+
+    .gridCards .cards-row .card .card-text .tag {
+      margin-bottom: -4px;
+    }
+  }
+
+  @media (max-width: 1439px) {
+    .gridCards .cards-row {
+      justify-content: flex-start;
+    }
+
+    .gridCards .cards-row .card {
+      height: auto !important;
+    }
+
+    .gridCards .cards-row .card .card-text {
+      height: auto;
+      width: 100%;
+    }
+
+    .gridCards .cards-row .card .card-image,
+    .gridCards .cards-row .card.active .card-image {
+      height: auto !important;
+      margin-top: auto;
+      max-height: 170px !important;
+      opacity: 1;
+      position: relative;
+      right: unset !important;
+      top: unset !important;
+      width: 100%;
+    }
+
+    .gridCards .cards-row .card .card-image img {
+      object-fit: cover;
+      object-position: center;
+      transform: unset;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .gridCards .theme-container {
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
+    }
+
+    .gridCards .slick-slider {
+      margin-bottom: 0 !important;
+    }
+
+    .gridCards .slick-slider .slick-track {
+      display: flex !important;
+    }
+
+    .gridCards .slick-slider .slick-list {
+      padding: 0 6.25%;
+    }
+
+    .gridCards .cards-row .card {
+      height: inherit !important;
+      margin: 0 12px 0 0;
+      max-height: unset;
+      min-height: unset;
+    }
+
+    .gridCards .cards-row .card .card-text {
+      flex-wrap: nowrap;
+      margin: 0;
+      max-height: unset;
+      padding: 24px 32px;
+    }
+
+    .gridCards .cards-row .card .card-image,
+    .gridCards .cards-row .card.active .card-image {
+      max-height: inherit;
+    }
+    .gridCards .cards-row .card .card-text * {
+      font-size: 13px;
+      line-height: 18px;
+    }
+    .gridCards .cards-row .card .card-text .tag {
+      font-size: 12px;
+    }
+    .gridCards .cards-row .card .card-text .card-heading {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="gridCards color-scheme-sea_blue color-{{ section.settings.color_scheme }} gradient {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="theme-container">
+    <div class="cards-row">
+      {% for block in section.blocks %}
+        {% assign card_index = forloop.index %}
+        <div class="card card-{{ card_index }} {% if card_index == 1 %}active{% endif %}" style="height: 250px;">
+          <div class="card-text">
+            <span class="tag tag-card-{{ card_index }} text-extra-small">{{ block.settings.tag }}</span>
+            <h6 class="h6 card-heading">{{ block.settings.heading }}</h6>
+            <div class="description">
+              <div>{{ block.settings.description }}</div>
+            </div>
+          </div>
+          <div class="card-image" style="height: 250px;">
+            {% if block.settings.image != blank %}
+              <img
+                class="nxt-category__image"
+                src="{{ block.settings.image | image_url: width: 64, height: 64, crop: 'center' }}"
+                alt="{{ block.settings.category_name }}"
+                width="auto"
+                height="auto"
+                loading="lazy"
+              >
+            {% else %}
+              <img
+                src="{{ 'features-image.webp' | asset_url }}"
+                alt="feature-image"
+                loading="lazy"
+                width="600"
+                height="444"
+              >
+            {% endif %}
+          </div>
+          <a class="card-link" href="{{ block.settings.link }}"></a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .nxt-animatedCard__area .gridCards .cards-row .card {
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #0564ff;
+  }
+
+  .nxt-animatedCard__area .gridCards .cards-row .card.active {
+    background-color: #00235c;
+  }
+
+  .nxt-animatedCard__area .gridCards .cards-row .card.active .card-text * {
+    color: #ffffff;
+  }
+
+  .nxt-animatedCard__area .gridCards .cards-row .card .card-text .tag {
+    color: #131315;
+    background-color: #e1edff;
+  }
+
+  .nxt-animatedCard__area .gridCards .cards-row .card.active .card-text .tag {
+    color: #ffffff;
+    background-color: #0564ff;
+  }
+
+  .nxt-animatedCard__area .gridCards .cards-row .card .card-text .theme-btn.btn-normal.link:hover {
+    color: #ccdfff;
+  }
+
+  .nxt-animatedCard__area .gridCards .cards-row .card .card-text .theme-btn.btn-normal.link:active {
+    color: #003284;
+  }
+
+  @media (max-width: 1439.9px) {
+    .nxt-animatedCard__area .gridCards {
+      padding-top: 32px;
+      padding-right: 0px;
+      padding-bottom: 32px;
+      padding-left: 0px;
+    }
+
+    .nxt-animatedCard__area .gridCards .cards-row {
+      gap: 18px;
+    }
+
+    .nxt-animatedCard__area .gridCards .cards-row .card {
+      width: calc(100% / 3 - 12px);
+      background-color: #00235c;
+    }
+
+    .nxt-animatedCard__area .gridCards .cards-row .card .card-text * {
+      color: #ffffff;
+    }
+
+    .nxt-animatedCard__area .gridCards .cards-row .card .card-text .tag,
+    .nxt-animatedCard__area .gridCards .cards-row .card.active .card-text .tag {
+      color: #383a3d;
+      background-color: #ccdfff;
+    }
+
+    .nxt-animatedCard__area .gridCards .cards-row .card.card-1 .card-text .tag {
+      color: #ffffff;
+      background-color: #0564ff;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nxt-animatedCard__area .gridCards .cards-row {
+      gap: 0;
+    }
+
+    .nxt-animatedCard__area .gridCards .cards-row .card {
+      width: 100%;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let lastActiveCard = null; // Store the last hovered card
+
+    // Debounce function to limit how often the resize event fires
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    }
+
+    function setCardHeights() {
+      document.querySelectorAll('.gridCards').forEach((grid) => {
+        const rows = grid.querySelectorAll('.cards-row');
+
+        rows.forEach((row) => {
+          const cards = row.querySelectorAll('.card');
+
+          // Reset heights before recalculating
+          cards.forEach((card) => {
+            card.style.height = 'auto';
+            const cardImage = card.querySelector('.card-image');
+            if (cardImage) {
+              cardImage.style.height = 'auto'; // Reset image height
+            }
+          });
+
+          // Find max height among cards
+          let maxHeight = 0;
+          cards.forEach((card) => {
+            const cardText = card.querySelector('.card-text');
+            if (cardText) {
+              const textHeight = cardText.offsetHeight;
+              if (textHeight > maxHeight) {
+                maxHeight = textHeight;
+              }
+            }
+          });
+
+          // Apply max height to all cards and their images
+          cards.forEach((card) => {
+            card.style.height = `${maxHeight}px`;
+            const cardImage = card.querySelector('.card-image');
+            if (cardImage) {
+              cardImage.style.height = `${maxHeight}px`; // Set the same height for image
+            }
+          });
+        });
+      });
+    }
+
+    function activateGridCards() {
+      setCardHeights(); // Set card heights including images
+
+      document.querySelectorAll('.gridCards').forEach((grid) => {
+        const rows = grid.querySelectorAll('.cards-row');
+
+        rows.forEach((row) => {
+          const cards = row.querySelectorAll('.card');
+
+          // Add hover effect
+          cards.forEach((card) => {
+            card.addEventListener('mouseenter', function () {
+              cards.forEach((c) => c.classList.remove('active'));
+              this.classList.add('active');
+              lastActiveCard = this; // Update last active card
+            });
+          });
+        });
+      });
+
+      // If there was a last hovered card, make sure it remains active
+      if (lastActiveCard) {
+        lastActiveCard.classList.add('active');
+      }
+    }
+
+    // Initial call
+    activateGridCards();
+
+    // Debounced resize event
+    const debouncedActivateGridCards = debounce(activateGridCards, 50);
+    window.addEventListener('resize', debouncedActivateGridCards);
+
+    // Handle layout changes (e.g., zoom)
+    const mediaQuery = window.matchMedia('(min-width: 1440px)');
+    mediaQuery.addEventListener('change', activateGridCards);
+  });
+
+  //   Slick slider
+  $(document).ready(function () {
+    function initializeSlick() {
+      if ($(window).width() <= 767) {
+        if (!$('.gridCards .cards-row').hasClass('slick-initialized')) {
+          $('.gridCards .cards-row').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            infinite: false,
+            autoplay: true,
+            speed: 600,
+            autoplaySpeed: 2500,
+            responsive: [
+              {
+                breakpoint: 421,
+                settings: {
+                  slidesToShow: 1,
+                },
+              },
+            ],
+          });
+        }
+      } else {
+        if ($('.gridCards .cards-row').hasClass('slick-initialized')) {
+          $('.gridCards .cards-row').slick('unslick');
+        }
+      }
+    }
+
+    // Initialize on page load
+    initializeSlick();
+
+    // Re-check on window resize
+    $(window).resize(function () {
+      initializeSlick();
+    });
+    setTimeout(function () {}, 1500);
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<script>
+  mobileOnlySlider('.slider-holder', false, false, true, 767);
+
+  function mobileOnlySlider($slidername, $dots, $arrows, $autoplay, $breakpoint) {
+    var slider = $($slidername);
+    var settings = {
+      mobileFirst: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: $dots,
+      arrows: $arrows,
+      autoplay: $autoplay,
+      responsive: [
+        {
+          breakpoint: $breakpoint,
+          settings: 'unslick',
+        },
+      ],
+    };
+
+    slider.slick(settings);
+
+    $(window).on('resize', function () {
+      if ($(window).width() > $breakpoint) {
+        return;
+      }
+      if (!slider.hasClass('slick-initialized')) {
+        return slider.slick(settings);
+      }
+    });
+  } // Mobile Only Slider
+</script>

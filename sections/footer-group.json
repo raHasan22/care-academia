@@ -11,8 +11,122 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "nxt_footer_6tGeAA": {
+      "type": "nxt-footer",
+      "blocks": {
+        "brand_pwGqBW": {
+          "type": "brand",
+          "settings": {
+            "brand_title": "Logo",
+            "mission": "Our mission is to empower global talent with the language, cultural, and technical skills for integration and success."
+          }
+        },
+        "menu_ezNwMi": {
+          "type": "menu",
+          "settings": {
+            "title": "Company",
+            "menu": "company",
+            "show_cta": false,
+            "cta_text": "Become a teacher",
+            "cta_url": "shopify://collections/all"
+          }
+        },
+        "menu_9j66YF": {
+          "type": "menu",
+          "settings": {
+            "title": "Language",
+            "menu": "language",
+            "show_cta": false,
+            "cta_text": "Become a teacher",
+            "cta_url": "shopify://collections/all"
+          }
+        },
+        "menu_WGp3VE": {
+          "type": "menu",
+          "settings": {
+            "title": "How it works",
+            "menu": "how-it-works",
+            "show_cta": false,
+            "cta_text": "Become a teacher",
+            "cta_url": "shopify://collections/all"
+          }
+        },
+        "menu_JbAV9G": {
+          "type": "menu",
+          "settings": {
+            "title": "Support",
+            "menu": "support",
+            "show_cta": true,
+            "cta_text": "Become a teacher",
+            "cta_url": "shopify://collections/all"
+          }
+        },
+        "legal_azWUAT": {
+          "type": "legal",
+          "settings": {
+            "copyright": "Copyright 2025 Lingoda GmbH. Zimmerstr. 69, 10117 Berlin - All Rights Reserved",
+            "footer_bottom_menu": "footer-bottom-menu"
+          }
+        },
+        "social_wgp4FY": {
+          "type": "social",
+          "settings": {
+            "icon": "linkedin",
+            "url": "/collections/all"
+          }
+        },
+        "social_PGGrFY": {
+          "type": "social",
+          "settings": {
+            "icon": "x",
+            "url": "/collections/all"
+          }
+        },
+        "social_r9U6Gj": {
+          "type": "social",
+          "settings": {
+            "icon": "youtube",
+            "url": "/collections/all"
+          }
+        },
+        "social_ng6aqH": {
+          "type": "social",
+          "settings": {
+            "icon": "facebook",
+            "url": "/collections/all"
+          }
+        },
+        "social_RJACBP": {
+          "type": "social",
+          "settings": {
+            "icon": "instagram",
+            "url": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "brand_pwGqBW",
+        "menu_ezNwMi",
+        "menu_9j66YF",
+        "menu_WGp3VE",
+        "menu_JbAV9G",
+        "legal_azWUAT",
+        "social_wgp4FY",
+        "social_PGGrFY",
+        "social_r9U6Gj",
+        "social_ng6aqH",
+        "social_RJACBP"
+      ],
+      "name": "NXT Footer",
+      "settings": {
+        "padding_top": 47,
+        "padding_bottom": 24,
+        "background_color": "#131315"
+      }
+    },
     "footer": {
       "type": "footer",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
@@ -30,6 +144,7 @@
     }
   },
   "order": [
+    "nxt_footer_6tGeAA",
     "footer"
   ]
 }

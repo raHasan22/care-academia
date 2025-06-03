@@ -1,67 +1,443 @@
+<svg style="display: none">
+  <defs>
+    <symbol id="icon-teaches" viewBox="0 0 18 14">
+      <path
+        d="M16.4909 4.75671L8.9951 1.00879L1.49927 4.75671L8.9951 8.50462L16.4909 4.75671ZM16.4909 4.75671V9.25421M14.2422 5.88108V10.3786L8.9951 13.0021L3.74802 10.3786V5.88108"
+        stroke="white"
+        stroke-width="1.49917"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+    </symbol>
+    <symbol id="icon-speaks" viewBox="0 0 16 16">
+      <path
+        d="M13.5421 12.0426C13.8296 11.4803 13.9917 10.8434 13.9917 10.1686C13.9917 7.89172 12.1459 6.04591 9.86899 6.04591C7.59208 6.04591 5.74628 7.89172 5.74628 10.1686C5.74628 12.4456 7.59208 14.2913 9.86899 14.2913H14.7413C14.7413 14.2913 13.9917 13.5417 13.5526 12.0645M13.1297 7.54508C13.2034 7.18178 13.2421 6.80576 13.2421 6.4207C13.2421 3.31583 10.7251 0.798828 7.62024 0.798828C4.51536 0.798828 1.99836 3.31583 1.99836 6.4207C1.99836 7.07778 2.11109 7.70853 2.31825 8.29466C3.12348 10.5522 1.24878 12.0426 1.24878 12.0426H6.12107"
+        stroke="white"
+        stroke-width="1.49917"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+    </symbol>
+  </defs>
+</svg>
+
+<style>
+  .rh-instructor-sec {
+    background: {{ section.settings.background }};
+  }
+</style>
+
+<section class="rh-instructor-sec">
+  <div class="container-rh">
+    <h2 class="sec-title">{{ section.settings.title }}</h2>
+    <p class="sec-desc">{{ section.settings.description }}</p>
+    <div class="rh-instructor-slider swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'instructor' %}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <div class="rh-instructor-card">
+                <div class="rh-instructor-card-overlay"></div>
+                <div class="rh-instructor-card-bg"></div>
+                {% if block.settings.instructor_image %}
+                  {{
+                    block.settings.instructor_image
+                    | image_url: width: 380
+                    | image_tag: class: 'rh-instructor-card-img', alt: block.settings.name, loading: 'lazy'
+                  }}
+                {% else %}
+                  {{
+                    'instructor-placeholder.jpg'
+                    | asset_url
+                    | image_tag: class: 'rh-instructor-card-img', alt: 'Instructor placeholder'
+                  }}
+                {% endif %}
+                <div class="rh-instructor-card-gradient"></div>
+                <div class="rh-instructor-info">
+                  <div class="rh-instructor-header">
+                    <div class="rh-instructor-name-wrap">
+                      {% if block.settings.flag_image %}
+                        <img
+                          class="rh-instructor-avatar"
+                          src="{{ block.settings.flag_image | img_url: '24x24', crop: 'center' }}"
+                          alt="{{ block.settings.name | append: ' country flag' }}"
+                          loading="lazy"
+                          width="24"
+                          height="24"
+                        >
+                      {% else %}
+                        <img class="rh-instructor-avatar" src="https://placehold.co/24x24" alt="Haitham avatar">
+                      {% endif %}
+                      <div class="rh-instructor-name">{{ block.settings.name }}</div>
+                    </div>
+                    <div class="ks-star-rating">
+                      <svg viewBox="0 0 1000 200" class="rating">
+                        <defs>
+                          <polygon
+                            id="star"
+                            points="100,0 131,66 200,76 150,128 162,200 100,166 38,200 50,128 0,76 69,66 "
+                          ></polygon>
+                          <clipPath id="stars">
+                            <use xlink:href="#star"></use>
+                            <use xlink:href="#star" x="20%"></use>
+                            <use xlink:href="#star" x="40%"></use>
+                            <use xlink:href="#star" x="60%"></use>
+                            <use xlink:href="#star" x="80%"></use>
+                          </clipPath>
+                        </defs>
+                        <rect
+                          class="rating__background"
+                          clip-path="url(#stars)"
+                        ></rect>
+                        <rect
+                          width="{{ block.settings.rating }}%"
+                          class="rating__value"
+                          clip-path="url(#stars)"
+                        ></rect>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="rh-instructor-details">
+                    <div class="rh-instructor-detail-item">
+                      <div class="rh-detail-icon">
+                        <svg>
+                          <use xlink:href="#icon-teaches" />
+                        </svg>
+                      </div>
+                      <div class="rh-detail-text">Teaches: {{ block.settings.teaches }}</div>
+                    </div>
+                    <div class="rh-instructor-detail-item">
+                      <div class="rh-detail-icon">
+                        <svg>
+                          <use xlink:href="#icon-speaks" />
+                        </svg>
+                      </div>
+                      <div class="rh-detail-text">Speaks: {{ block.settings.speaks }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper-nav-btns">
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+      /* Swiper Essential Styles */
+  .rh-instructor-slider.swiper {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    transition-timing-function: ease-out;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    flex-shrink: 0;
+    width: auto;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Swiper Custom Styles */
+  .swiper-nav-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: static !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent;
+    border-radius: 50%;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 18px !important;
+    font-weight: 700;
+    color: #0564FF;
+  }
+
+  .swiper-button-disabled {
+    opacity: 0.5 !important;
+  }
+
+  .ks-star-rating {
+      width: 70px;
+  }
+
+  .ks-star-rating .rating__background {
+      fill: #bfc3ca;
+      stroke: red;
+      stroke-width: 1;
+      height: 100%;
+      width: 100%;
+  }
+
+  .ks-star-rating .rating__value {
+      fill: #FFC177;
+      height: 100%;
+  }
+
+
+
+  /* instructor section */
+
+  .rh-instructor-sec {
+    padding: 40px 20px;
+    overflow: hidden;
+  }
+
+
+  .rh-instructor-sec .container-rh .sec-title {
+    font-family: "Fustat", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #131315;
+    margin: 0;
+  }
+
+  .rh-instructor-sec .container-rh .sec-desc {
+    font-family: "Fustat", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-align: center;
+    color: #313135;
+    margin: 5px 0 40px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-slider {
+    width: 100%;
+    overflow: visible;
+    padding: 0 0 0 100px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-slider-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-card {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    flex-shrink: 0;
+    background: #131315;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-card-overlay {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: #131315;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-card-bg {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: #D9D9D9;
+    border-radius: 10px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-card-img {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    object-fit: cover;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-card-gradient {
+      display: block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(19, 19, 21, 0) 30%, #131315 100%);
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-info {
+    width: 85%;
+    left: 28px;
+    bottom: 30px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-name-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-avatar {
+    width: 24px;
+    height: 24px;
+    position: relative;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-name {
+    color: white;
+    font-size: 24px;
+    font-family: "Fustat", sans-serif;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-rating {
+    display: flex;
+    gap: 5px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-star {
+    width: 10px;
+    height: 10px;
+    background: #FFC177;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-details {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-instructor-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rh-instructor-sec .container-rh .rh-detail-icon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rh-instructor-sec .container-rh .rh-detail-icon svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .rh-instructor-sec .container-rh .rh-detail-text {
+    color: white;
+    font-size: 16px;
+    font-family: "Fustat", sans-serif;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  /* Responsive Styles */
+
+  @media (max-width: 991px) {
+    .rh-instructor-sec .container-rh .rh-instructor-card {
+      width: 100%;
+      height: 320px;
+    }
+  }
+
+  @media (max-width: 767px) {
+
+    .rh-instructor-sec .container-rh {
+      max-width: 540px;
+    }
+
+    .rh-instructor-sec .container-rh .rh-instructor-card {
+      width: 100%;
+      height: 280px;
+    }
+
+    .rh-instructor-sec .container-rh .rh-instructor-name {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 575px) {
+      .rh-instructor-sec .container-rh .rh-instructor-slider {
+          padding: 0 0 0 0;
+        }
+    .rh-instructor-sec .container-rh {
+      max-width: 100%;
+    }
+
+    .rh-instructor-sec .container-rh .rh-instructor-card {
+      width: 100%;
+      height: 340px;
+    }
+  }
+</style>
 {% schema %}
 {
-  "name": "RH Instructors",
+  "name": "RH Expert Teachers",
   "settings": [
     {
-      "type": "header",
-      "content": "Content Settings"
-    },
-    {
-      "type": "text",
-      "id": "tag",
-      "label": "Tag Text",
-      "default": "Top-tier training"
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "linear-gradient(#eff0f0, #eff0f0)"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Section Title",
-      "default": "Tackle tech trends with the best in the industry"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Learn from real experts. Our author list is highly curated with 91% of them backed by at least 10 years experience in their field. Cast a wide learning net or develop a highly specialized learning path, reassured that you're getting top notch, up-to-speed insights."
+      "default": "Meet our expert teachers"
     },
     {
       "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "View course library"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Section Background",
-      "default": "#FAFAFA"
-    },
-    {
-      "type": "color",
-      "id": "tag_color",
-      "label": "Tag Color",
-      "default": "#222875"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#0D0D0D"
-    },
-    {
-      "type": "color",
-      "id": "button_bg_color",
-      "label": "Button Background",
-      "default": "#0D0D0D"
+      "id": "description",
+      "label": "Section Description",
+      "default": "Progress faster with personalised feedback from our 1.9K certified teachers."
     }
   ],
   "blocks": [
@@ -71,45 +447,49 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "profile_image",
-          "label": "Profile Image"
+          "id": "instructor_image",
+          "label": "Instructor Image"
         },
         {
           "type": "text",
           "id": "name",
           "label": "Instructor Name",
-          "default": "Jean 'Gladson' Tunis"
+          "default": "Instructor Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "flag_image",
+          "label": "Country Flag Image"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Rating",
+          "default": 90
         },
         {
           "type": "text",
-          "id": "experience",
-          "label": "Experience",
-          "default": "25 yrs. experience"
+          "id": "teaches",
+          "label": "Teaches",
+          "default": "English"
         },
         {
           "type": "text",
-          "id": "courses",
-          "label": "Number of Courses",
-          "default": "4 courses"
-        },
-        {
-          "type": "url",
-          "id": "profile_link",
-          "label": "Profile Link"
+          "id": "speaks",
+          "label": "Speaks",
+          "default": "English"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "RH Instructors",
+      "name": "RH Expert Teachers",
       "blocks": [
-        {
-          "type": "instructor"
-        },
-        {
-          "type": "instructor"
-        },
         {
           "type": "instructor"
         }
@@ -118,304 +498,3 @@
   ]
 }
 {% endschema %}
-
-<style>
-.rh-instructor-care {
-    background: {{ section.settings.background_color }};
-    padding: 60px 20px;
-}
-
-.rh-instructor-care .container-rh {
-    max-width: 1432px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    justify-content: space-between;
-}
-
-.rh-instructor-care .container-rh .instructors {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.rh-instructor-care .container-rh .text-part {
-    width: 45%;
-}
-
-.rh-instructor-care .container-rh .text-part .tag {
-    color: {{ section.settings.tag_color }};
-    font-family: "Karla", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 150%;
-    letter-spacing: normal;
-}
-
-.rh-instructor-care .container-rh .text-part .section-title {
-    color: {{ section.settings.text_color }};
-    font-family: "Ghost Trial", sans-serif;
-    font-weight: 500;
-    font-size: 60px;
-    line-height: 120%;
-    margin: 10px 0 20px;
-    letter-spacing: normal;
-}
-
-.rh-instructor-care .container-rh .text-part .sec-des {
-    color: {{ section.settings.text_color }};
-    font-family: "Karla", sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 150%;
-    margin: 0 0 10px;
-    letter-spacing: normal;
-}
-
-.instructor-card {
-    align-self: stretch;
-    padding: 40px;
-    background: white;
-    border-radius: 16px;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    gap: 16px;
-}
-
-.instructor-card .rh-profile {
-    justify-content: flex-start;
-    align-items: center;
-    gap: 24px;
-    display: flex;
-}
-
-.instructor-card .rh-profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 4px;
-}
-
-.instructor-card .rh-info {
-    max-width: 289px;
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 14px;
-    display: inline-flex;
-}
-
-.instructor-card .rh-name {
-    align-self: stretch;
-    color: #0D0D0D;
-    font-size: 30px;
-    font-family: 'Ghost Trial', sans-serif;
-    font-weight: 500;
-    line-height: 30px;
-    word-wrap: break-word;
-    letter-spacing: normal;
-}
-
-.instructor-card .rh-meta {
-    align-self: stretch;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 8px;
-    display: inline-flex;
-}
-
-.instructor-card .rh-check-icon {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    margin: 4px 0 0;
-}
-
-.instructor-card .rh-description {
-    color: #6E6E6E;
-    font-size: 20px;
-    font-family: 'Karla', sans-serif;
-    font-weight: 400;
-    line-height: 30px;
-    word-wrap: break-word;
-    letter-spacing: normal;
-}
-
-.instructor-card .rh-button {
-    width: 60px;
-    height: 60px;
-    padding: 15px;
-    background: {{ section.settings.button_bg_color }};
-    border-radius: 30px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    display: flex;
-}
-
-@media (max-width: 1300px) {
-    .rh-instructor-care .container-rh .instructors {
-        width: 50%;
-    }
-
-    .rh-instructor-care .container-rh .text-part {
-        width: 50%;
-    }
-
-    .instructor-card {
-        padding: 25px;
-    }
-}
-
-@media (max-width: 1190px) {
-    .instructor-card .rh-name {
-        font-size: 20px;
-        line-height: 25px;
-    }
-
-    .instructor-card .rh-description {
-        font-size: 14px;
-        line-height: 20px;
-    }
-}
-
-@media (max-width: 991px) {
-    .rh-instructor-care .container-rh {
-        flex-direction: column-reverse;
-    }
-
-    .rh-instructor-care .container-rh .text-part {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .rh-instructor-care .container-rh .instructors {
-        width: 100%;
-    }
-
-    .rh-instructor-care .container-rh .text-part .tag {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .rh-instructor-care .container-rh .text-part .section-title {
-        font-size: 42px;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .rh-instructor-care .container-rh .text-part .sec-des {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .instructor-card .rh-button {
-        width: 40px;
-        height: 40px;
-        padding: 10px;
-    }
-
-    .instructor-card {
-        padding: 15px;
-    }
-
-    .instructor-card .rh-profile {
-        gap: 14px;
-    }
-}
-
-@media (max-width: 767px) {
-    .rh-instructor-care .container-rh .text-part .section-title {
-        font-size: 32px;
-    }
-
-    .instructor-card {
-        flex-wrap: wrap;
-        justify-content: center;
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    .instructor-card .rh-profile {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .instructor-card .rh-name {
-        text-align: center;
-    }
-}
-</style>
-
-<section class="rh-instructor-care">
-  <div class="container-rh">
-    <div class="instructors">
-      {% for block in section.blocks %}
-        {% if block.type == 'instructor' %}
-          <div class="instructor-card" {{ block.shopify_attributes }}>
-            <div class="rh-profile">
-              {%- if block.settings.profile_image -%}
-                {%- assign img_url = block.settings.profile_image | image_url: width: 160 -%}
-                <img 
-                  class="rh-profile-img" 
-                  src="{{ img_url }}"
-                  alt="{{ block.settings.name }}"
-                  width="{{ block.settings.profile_image.width }}"
-                  height="{{ block.settings.profile_image.height }}"
-                  loading="lazy"
-                >
-              {%- else -%}
-                {{ 'image' | placeholder_svg_tag: 'rh-profile-img placeholder' }}
-              {%- endif -%}
-              <div class="rh-info">
-                <div class="rh-name">{{ block.settings.name }}</div>
-                <div class="rh-meta">
-                  <div class="rh-check-icon">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_2009_829)">
-                        <path d="M14.6663 7.38662V7.99995C14.6655 9.43757 14.2 10.8364 13.3392 11.9878C12.4785 13.1393 11.2685 13.9816 9.88991 14.3892C8.51129 14.7968 7.03785 14.7479 5.68932 14.2497C4.3408 13.7515 3.18944 12.8307 2.40698 11.6247C1.62452 10.4186 1.25287 8.99199 1.34746 7.55749C1.44205 6.12299 1.99781 4.7575 2.93186 3.66467C3.86591 2.57183 5.1282 1.81021 6.53047 1.49338C7.93274 1.17656 9.39985 1.32151 10.713 1.90662" stroke="#18AB6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M14.6667 2.66663L8 9.33996L6 7.33996" stroke="#18AB6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_2009_829">
-                          <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </div>
-                  <div class="rh-description">
-                    {{ block.settings.experience }} • {{ block.settings.courses }}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% if block.settings.profile_link != blank %}
-              <a href="{{ block.settings.profile_link }}" class="rh-button">
-                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.896 10.325C23.2471 9.97342 23.4443 9.49686 23.4443 8.99998C23.4443 8.5031 23.2471 8.02654 22.896 7.67498L15.826 0.601231C15.4742 0.249487 14.9972 0.0518799 14.4997 0.0518799C14.0023 0.0518799 13.5252 0.249487 13.1735 0.601231C12.8217 0.952974 12.6241 1.43004 12.6241 1.92748C12.6241 2.42492 12.8217 2.90199 13.1735 3.25373L17.0435 7.12498L2.62474 7.12498C2.12745 7.12498 1.65054 7.32252 1.29891 7.67416C0.947281 8.02579 0.749737 8.5027 0.749737 8.99998C0.749737 9.49726 0.947281 9.97418 1.29891 10.3258C1.65054 10.6774 2.12745 10.875 2.62474 10.875L17.0435 10.875L13.1735 14.745C12.9993 14.9191 12.8612 15.1259 12.7669 15.3535C12.6727 15.581 12.6241 15.8249 12.6241 16.0712C12.6241 16.3175 12.6727 16.5614 12.7669 16.789C12.8612 17.0166 12.9993 17.2233 13.1735 17.3975C13.3477 17.5716 13.5544 17.7098 13.782 17.8041C14.0095 17.8983 14.2534 17.9468 14.4997 17.9468C14.746 17.9468 14.9899 17.8983 15.2175 17.8041C15.4451 17.7098 15.6518 17.5716 15.826 17.3975L22.896 10.325Z" fill="white"/>
-                </svg>
-              </a>
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-    <div class="text-part">
-      <div class="tag">{{ section.settings.tag }}</div>
-      <h2 class="section-title">{{ section.settings.title }}</h2>
-      <p class="sec-des">{{ section.settings.description }}</p>
-      {% if section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="secondary-button-ca">
-          {{ section.settings.button_text }}
-        </a>
-      {% endif %}
-    </div>
-  </div>
-</section>

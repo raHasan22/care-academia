@@ -1,0 +1,460 @@
+<section class="rh-faq-sec">
+        <div class="container-rh">
+            <div class="rh-faq-wrapper">
+                <h2 class="sec-title">{{ section.settings.title }}</h2>
+                <div class="rh-faq-list">
+                    {% for block in section.blocks %}
+                        <div class="rh-faq-item" {{ block.shopify_attributes }}>
+                            <div class="rh-faq-header">
+                                <div class="rh-faq-number">{{ forloop.index | prepend: '0' }}</div>
+                                <div class="rh-faq-question">{{ block.settings.question }}</div>
+                                <button class="rh-faq-toggle">
+                                    <span class="plus">+</span>
+                                    <span class="minus">-</span>
+                                </button>
+                            </div>
+                            <div class="rh-faq-content">
+                                {{ block.settings.answer }}
+                            </div>
+                            <div class="rh-faq-divider"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% style %}
+    /* FAQ Section Styles */
+.rh-faq-sec {
+    padding: {{ section.settings.section_padding }}px 20px;
+    background-color: {{ section.settings.background_color }};
+}
+
+.rh-faq-sec .container-rh {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+}
+
+.rh-faq-sec .rh-faq-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: {{ section.settings.wrapper_gap }}px;
+}
+
+.rh-faq-sec .sec-title {
+    text-align: center;
+    color: {{ section.settings.title_color }};
+    font-size: clamp(32px, 4vw, {{ section.settings.title_size }}px);
+    font-family: "Fustat", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.rh-faq-sec .rh-faq-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.item_gap }}px;
+}
+
+.rh-faq-sec .rh-faq-item {
+    width: 100%;
+}
+
+.rh-faq-sec .rh-faq-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.rh-faq-sec .rh-faq-number {
+    min-width: 28px;
+    color: {{ section.settings.number_color }};
+    font-size: {{ section.settings.number_size }}px;
+    font-family: "Fustat", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.rh-faq-sec .rh-faq-question {
+    flex: 1;
+    color: {{ section.settings.question_color }};
+    font-size: {{ section.settings.question_size }}px;
+    font-family: "Fustat", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-right: 20px;
+}
+
+.rh-faq-sec .rh-faq-toggle {
+    width: {{ section.settings.toggle_size }}px;
+    height: {{ section.settings.toggle_size }}px;
+    background: {{ section.settings.toggle_color }};
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.rh-faq-sec .rh-faq-toggle .plus,
+.rh-faq-sec .rh-faq-toggle .minus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.rh-faq-sec .rh-faq-toggle .minus {
+    display: none;
+}
+
+.rh-faq-sec .rh-faq-content {
+    padding: 0 58px 20px;
+    display: none;
+}
+
+.rh-faq-sec .rh-faq-content p {
+    color: {{ section.settings.answer_color }};
+    font-size: {{ section.settings.answer_size }}px;
+    font-family: "Fustat", sans-serif;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.rh-faq-sec .rh-faq-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rh-faq-sec .rh-faq-content li {
+    color: {{ section.settings.answer_color }};
+    font-size: {{ section.settings.answer_list_size }}px;
+    font-family: "Fustat", sans-serif;
+    line-height: 1.5;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.rh-faq-sec .rh-faq-content li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: {{ section.settings.answer_color }};
+}
+
+.rh-faq-sec .rh-faq-divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: {{ section.settings.divider_color }};
+    margin-top: 20px;
+}
+
+.rh-faq-sec .rh-faq-item.active .rh-faq-toggle {
+    background: {{ section.settings.toggle_active_color }};
+}
+
+.rh-faq-sec .rh-faq-item.active .rh-faq-toggle .plus {
+    display: none;
+}
+
+.rh-faq-sec .rh-faq-item.active .rh-faq-toggle .minus {
+    display: block;
+}
+
+.rh-faq-sec .rh-faq-item.active .rh-faq-content {
+    display: block;
+}
+
+/* Responsive Styles for FAQ Section */
+@media (max-width: 1200px) {
+    .rh-faq-sec .container-rh {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-faq-sec .container-rh {
+        max-width: 720px;
+    }
+    
+    .rh-faq-sec .rh-faq-question {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-faq-sec {
+        padding: 60px 20px;
+    }
+
+    .rh-faq-sec .container-rh {
+        max-width: 540px;
+    }
+    
+    .rh-faq-sec .rh-faq-list {
+        gap: 20px;
+    }
+    
+    .rh-faq-sec .rh-faq-header {
+        gap: 15px;
+    }
+    
+    .rh-faq-sec .rh-faq-question {
+        font-size: 18px;
+    }
+    
+    .rh-faq-sec .rh-faq-content {
+        padding: 0 43px 15px;
+    }
+}
+
+@media (max-width: 575px) {
+    .rh-faq-sec {
+        padding: 40px 20px;
+    }
+
+    .rh-faq-sec .container-rh {
+        max-width: 100%;
+    }
+    
+    .rh-faq-sec .rh-faq-wrapper {
+        gap: 40px;
+    }
+    
+    .rh-faq-sec .rh-faq-question {
+        font-size: 16px;
+    }
+    
+    .rh-faq-sec .rh-faq-number {
+        font-size: 18px;
+    }
+    
+    .rh-faq-sec .rh-faq-toggle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .rh-faq-sec .rh-faq-content {
+        padding: 0 30px 15px;
+    }
+    
+    .rh-faq-sec .rh-faq-content p {
+        font-size: 16px;
+    }
+    
+    .rh-faq-sec .rh-faq-content li {
+        font-size: 14px;
+    }
+} 
+    {% endstyle %}
+
+{% schema %}
+{
+  "name": "RH FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#eff0f0"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1200,
+      "step": 10,
+      "unit": "px",
+      "label": "Container Width",
+      "default": 1090
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Section Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "wrapper_gap",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Wrapper Gap",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Item Gap",
+      "default": 31
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#131315"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 48
+    },
+    {
+      "type": "color",
+      "id": "number_color",
+      "label": "Number Color",
+      "default": "#131315"
+    },
+    {
+      "type": "range",
+      "id": "number_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Number Size",
+      "default": 22
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question Color",
+      "default": "#131315"
+    },
+    {
+      "type": "range",
+      "id": "question_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Question Size",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "toggle_size",
+      "min": 24,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Toggle Button Size",
+      "default": 37
+    },
+    {
+      "type": "color",
+      "id": "toggle_color",
+      "label": "Toggle Button Color",
+      "default": "#C0C0C0"
+    },
+    {
+      "type": "color",
+      "id": "toggle_active_color",
+      "label": "Toggle Active Color",
+      "default": "#131315"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer Text Color",
+      "default": "#131315"
+    },
+    {
+      "type": "range",
+      "id": "answer_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Answer Text Size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "answer_list_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Answer List Size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider Color",
+      "default": "rgba(19, 19, 21, 0.2)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What are the benefits of eLearning courses for business?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>eLearning courses offer numerous benefits for businesses including:</p><ul><li>Cost-effective training solution</li><li>Flexible learning schedules</li><li>Consistent training quality</li><li>Easy tracking of employee progress</li><li>Scalable across multiple locations</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH FAQ Section",
+      "blocks": [
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20
+}
+{% endschema %}

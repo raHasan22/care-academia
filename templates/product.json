@@ -79,65 +79,113 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "rh_single_course_hero_KLhGgx": {
-      "type": "rh-single-course-hero",
-      "name": "RH Single Course Hero",
+    "ling_single_hero_RaJzJR": {
+      "type": "ling-single-hero",
+      "name": "Ling Single Hero Section",
       "settings": {
-        "trial_heading": "Try this course for free",
-        "trial_description": "Access this course and other top-rated tech content with a free trial.",
-        "primary_button_text": "Free Individual trial",
-        "secondary_button_text": "Free Team Trial",
-        "chat_heading": "Have questions?",
-        "chat_description": "Get them answered now.",
-        "chat_button_text": "Start a live chat"
+        "background_image": "shopify://shop_images/Background.png"
       }
     },
-    "rh_companies_CKdVVe": {
-      "type": "rh-companies",
+    "ling_program_details_BhfjWa": {
+      "type": "ling-program-details",
+      "name": "Ling Program Details",
+      "settings": {
+        "show_section": true,
+        "title_override": "",
+        "description_override": "",
+        "top_margin": 60,
+        "title_size": 48,
+        "description_size": 25
+      }
+    },
+    "nxt_reviwes_slider_JpWCGH": {
+      "type": "nxt-reviwes-slider",
       "blocks": {
-        "company_image_LMxp7p": {
-          "type": "company_image",
+        "testimonial_card_WcKz96": {
+          "type": "testimonial_card",
           "settings": {
-            "company_name": "Company"
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "author_image": "shopify://shop_images/Ellipse_1_1.png",
+            "review_text": "The classes were excellently designed (based on good pedagogy in language instruction), the small group sizes maximized the opportunities for speaking, the variety of class types and topics offers something for everyone, and (most) of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
           }
         },
-        "company_image_TnW7xm": {
-          "type": "company_image",
+        "testimonial_card_KDxyLj": {
+          "type": "testimonial_card",
           "settings": {
-            "company_name": "Company"
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "author_image": "shopify://shop_images/Ellipse_1_1.png",
+            "review_text": "The classes were excellently designed (based on good pedagogy in language instruction), the small group sizes maximized the opportunities for speaking, the variety of class types and topics offers something for everyone, and (most) of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
           }
         },
-        "company_image_74PDbp": {
-          "type": "company_image",
+        "testimonial_card_EVReNU": {
+          "type": "testimonial_card",
           "settings": {
-            "company_name": "Company"
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "author_image": "shopify://shop_images/Ellipse_1_1.png",
+            "review_text": "The classes were excellently designed (based on good pedagogy in language instruction), the small group sizes maximized the opportunities for speaking, the variety of class types and topics offers something for everyone, and (most) of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "testimonial_card_mEbhzw": {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "author_image": "shopify://shop_images/Ellipse_1_1.png",
+            "review_text": "The classes were excellently designed (based on good pedagogy in language instruction), the small group sizes maximized the opportunities for speaking, the variety of class types and topics offers something for everyone, and (most) of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
           }
         }
       },
       "block_order": [
-        "company_image_LMxp7p",
-        "company_image_TnW7xm",
-        "company_image_74PDbp"
+        "testimonial_card_WcKz96",
+        "testimonial_card_KDxyLj",
+        "testimonial_card_EVReNU",
+        "testimonial_card_mEbhzw"
       ],
-      "name": "RH Companies",
+      "name": "NXT Reviews Slider",
       "settings": {
-        "heading": "Unlock Your Team's Potential with 2000+ Accredited Courses!",
-        "background_color": "#ffffff",
-        "text_color": "#0D0D0D"
+        "title": "What students love about us",
+        "subtitle": "We don't just make claims. We deliver results.",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "background_color": "#eff0f0"
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
+        "heading": "Related courses",
+        "sub-heading": "Browse courses across an array of topics and disciplines.",
+        "heading_size": "h0",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
@@ -151,8 +199,9 @@
   },
   "order": [
     "main",
-    "rh_single_course_hero_KLhGgx",
-    "rh_companies_CKdVVe",
+    "ling_single_hero_RaJzJR",
+    "ling_program_details_BhfjWa",
+    "nxt_reviwes_slider_JpWCGH",
     "related-products"
   ]
 }

@@ -1,0 +1,270 @@
+{% schema %}
+{
+  "name": "NXT Category Area",
+  "tag": "section",
+  "class": "nxt-category__area",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f5f6f6"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Category Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "category_name",
+          "label": "Category Name"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "category_description",
+          "label": "Category Description"
+        },
+        {
+          "type": "url",
+          "id": "category_link",
+          "label": "Category Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NXT Category Area",
+      "category": "Category",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "German",
+            "category_description": "7.3k Learners"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "English",
+            "category_description": "6.8k Learners"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "Business English",
+            "category_description": "5.3k Learners "
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "French",
+            "category_description": "4.9k Learners"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "Spanish",
+            "category_description": "3.3k Learners"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "Italian",
+            "category_description": "NEW"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% style %}
+  .nxt-category__area {
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+    @media (min-width: 768px) {
+      .nxt-category__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+    .nxt-category__container {
+      background-color: {{ section.settings.background_color }};
+    }
+{% endstyle %}
+<style>
+  .nxt-category__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    padding: 24px 56px;
+  }
+  .nxt-category__item {
+    display: flex;
+    gap: 16px;
+    background: transparent;
+    text-decoration: none;
+  }
+  .nxt-category__image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    filter: grayscale(100%);
+  }
+  .nxt-category__info {
+    display: flex;
+    flex-direction: column;
+  }
+  .nxt-category__name {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #031638;
+  }
+  .nxt-category__desc {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #031638;
+    padding-top: 3px;
+  }
+  @media (max-width: 991px) {
+    .nxt-category__container {
+      gap: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 24px 32px;
+      row-gap: 30px;
+    }
+  }
+  @media (max-width: 600px) {
+    .nxt-category__container {
+      align-items: stretch;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 16px;
+    }
+    .nxt-category__item {
+      gap: 10px;
+    }
+    .nxt-category__image {
+      width: 32px;
+      height: 32px;
+    }
+    .nxt-category__name {
+      font-size: 12px;
+    }
+    .nxt-category__desc {
+      font-size: 10px;
+      padding-top: 0;
+    }
+  }
+</style>
+
+<div
+  class="nxt-category__container color-{{ section.settings.color_scheme }} gradient {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+>
+  {% comment %} Render category blocks {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.settings.category_link != blank %}
+      <a
+        class="nxt-category__item"
+        href="{{ block.settings.category_link }}"
+        {{ block.shopify_attributes }}
+      >
+        {% if block.settings.category_image != blank %}
+          <img
+            class="nxt-category__image"
+            src="{{ block.settings.category_image | image_url: width: 64, height: 64, crop: 'center' }}"
+            alt="{{ block.settings.category_name }}"
+            width="48"
+            height="48"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg nxt-category__image nxt-category__placeholder' }}
+        {% endif %}
+        <div class="nxt-category__info">
+          <span class="nxt-category__name">{{ block.settings.category_name }}</span>
+          <span class="nxt-category__desc">{{ block.settings.category_description }}</span>
+        </div>
+      </a>
+    {% else %}
+      <div
+        class="nxt-category__item"
+        {{ block.shopify_attributes }}
+      >
+        {% if block.settings.category_image != blank %}
+          <img
+            class="nxt-category__image"
+            src="{{ block.settings.category_image | image_url: width: 64, height: 64, crop: 'center' }}"
+            alt="{{ block.settings.category_name }}"
+            width="48"
+            height="48"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg nxt-category__image nxt-category__placeholder' }}
+        {% endif %}
+        <div class="nxt-category__info">
+          <span class="nxt-category__name">{{ block.settings.category_name }}</span>
+          <span class="nxt-category__desc">{{ block.settings.category_description }}</span>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

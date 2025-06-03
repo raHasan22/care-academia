@@ -1,0 +1,425 @@
+<section class="rh-all-courses-hero">
+  <div class="container-rh">
+    <div class="text-part">
+      <h2 class="sec-title">{{ section.settings.title }}</h2>
+      <p class="sec-desc">{{ section.settings.description }}</p>
+      <a href="{{ section.settings.button_link }}" class="rh-btn">
+        {{ section.settings.button_text }}
+        {% if section.settings.show_arrow %}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.21 8.25391H0.5" stroke="currentColor"/>
+            <path d="M7.34961 1.39258C8.88961 4.07258 14.2096 8.25258 14.2096 8.25258C14.2096 8.25258 8.88961 12.4325 7.34961 15.1125" stroke="currentColor"/>
+          </svg>
+        {% endif %}
+      </a>
+    </div>
+    <div class="image-part">
+      {% if section.settings.hero_image %}
+        <img
+          src="{{ section.settings.hero_image | img_url: '658x480', crop: 'center' }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          loading="lazy"
+          width="auto"
+          height="auto"
+        >
+      {% else %}
+        <img src="https://placehold.co/658x480" alt="All courses placeholder">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  /* All Courses Hero Section */
+  .rh-all-courses-hero {
+      padding: {{ section.settings.section_padding }}px 20px;
+  }
+
+  .rh-all-courses-hero .container-rh {
+      max-width: {{ section.settings.container_width }}px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: {{ section.settings.content_gap }}px;
+      padding: {{ section.settings.container_padding }}px {{ section.settings.container_padding_sides }}px;
+      background-color: {{ section.settings.background_color }};
+  }
+
+  .rh-all-courses-hero .text-part {
+      flex: 0 0 {{ section.settings.text_width }}%;
+  }
+
+  .rh-all-courses-hero .image-part {
+      position: relative;
+      flex: 0 0 {{ section.settings.image_width }}%;
+  }
+
+  .rh-all-courses-hero .sec-title {
+      font-family: "Fustat", sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, {{ section.settings.title_size }}px);
+      line-height: 56px;
+      color: {{ section.settings.title_color }};
+      margin-bottom: {{ section.settings.title_margin }}px;
+  }
+
+  .rh-all-courses-hero .sec-desc {
+      font-family: "Fustat", sans-serif;
+      font-weight: 400;
+      font-size: clamp(16px, 2vw, {{ section.settings.desc_size }}px);
+      line-height: 24px;
+      color: {{ section.settings.desc_color }};
+      margin-bottom: {{ section.settings.desc_margin }}px;
+  }
+
+  .rh-all-courses-hero .rh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: {{ section.settings.button_padding_v }}px {{ section.settings.button_padding_h }}px;
+      background: {{ section.settings.button_bg_color }};
+      color: {{ section.settings.button_text_color }};
+      font-family: "Fustat", sans-serif;
+      font-weight: 600;
+      font-size: {{ section.settings.button_text_size }}px;
+      line-height: 24px;
+      text-decoration: none;
+      border-radius: {{ section.settings.button_radius }}px;
+      transition: all 0.3s ease;
+  }
+
+  .rh-all-courses-hero .rh-btn:hover {
+      background: {{ section.settings.button_hover_bg_color }};
+      transform: translateY(-2px);
+  }
+
+  .rh-all-courses-hero .image-part img {
+      width: 100%;
+      height: auto;
+  }
+
+  /* Keep existing media queries */
+  @media (max-width: 1200px) {
+      .rh-all-courses-hero .container-rh {
+          max-width: 960px;
+          padding: 30px 40px;
+          gap: 40px;
+      }
+  }
+
+  @media (max-width: 991px) {
+      .rh-all-courses-hero .container-rh {
+          max-width: 720px;
+          flex-direction: column-reverse;
+          gap: 30px;
+          padding: 30px;
+      }
+
+      .rh-all-courses-hero .text-part,
+      .rh-all-courses-hero .image-part {
+          flex: 0 0 100%;
+      }
+  }
+
+  @media (max-width: 767px) {
+      .rh-all-courses-hero {
+          padding: 15px 20px;
+      }
+
+      .rh-all-courses-hero .container-rh {
+          max-width: 540px;
+          gap: 25px;
+          padding: 25px 20px;
+      }
+
+      .rh-all-courses-hero .text-part {
+          text-align: center;
+      }
+
+      .rh-all-courses-hero .sec-title {
+          line-height: 1.2;
+      }
+
+      .rh-all-courses-hero .sec-desc {
+          font-size: 16px;
+          line-height: 22px;
+      }
+  }
+
+  @media (max-width: 575px) {
+      .rh-all-courses-hero {
+          padding: 10px 15px;
+      }
+
+      .rh-all-courses-hero .container-rh {
+          max-width: 100%;
+          padding: 20px 15px;
+          gap: 20px;
+      }
+
+      .rh-all-courses-hero .text-part {
+          text-align: center;
+      }
+
+      .rh-all-courses-hero .rh-btn {
+          justify-content: center;
+      }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "RH All Courses Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Browse All Popular Courses"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Join one of our short courses and learn new and verifiable skills for your career."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show Arrow Icon",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "All courses"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "label": "Container Width",
+      "default": 1300
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Container Padding Vertical",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "container_padding_sides",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Container Padding Sides",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Content Gap",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "text_width",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "label": "Text Width",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 40,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Width",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#131315"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#131315"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "rgba(255, 255, 255, 0.9)"
+    },
+    {
+      "type": "header",
+      "content": "Typography Settings"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_margin",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Bottom Margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description Size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "desc_margin",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Description Bottom Margin",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Text Size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "button_padding_v",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Button Padding Vertical",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_h",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "label": "Button Padding Horizontal",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Border Radius",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH All Courses Hero",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

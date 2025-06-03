@@ -1,0 +1,174 @@
+{% schema %}
+{
+  "name": "NXT Hero Area",
+  "tag": "section",
+  "class": "nxt-hero__area",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_background_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Don't wait for someday. Learn a language today."
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#eff0f0"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_text",
+      "name": "Featured Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Get Started"
+        },
+        {
+          "type": "textarea",
+          "id": "button_svg_icon",
+          "label": "Button SVG Icon",
+          "info": "Enter the SVG icon code here.",
+          "default": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.21 8.23047H0.5\" stroke=\"#383A3D\"/><path d=\"M7.34961 1.36914C8.88961 4.04914 14.2096 8.22914 14.2096 8.22914C14.2096 8.22914 8.88961 12.4091 7.34961 15.0891\" stroke=\"#383A3D\"/></svg>"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link",
+          "default": "\/collections\/all"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "NXT Hero Area",
+      "category": "Hero",
+      "blocks": [
+        {
+          "type": "featured_text",
+          "settings": {
+            "text": "Free 7-day trial"
+          }
+        },
+        {
+          "type": "featured_text",
+          "settings": {
+            "text": "60-minute live classes online 24/7"
+          }
+        },
+        {
+          "type": "featured_text",
+          "settings": {
+            "text": "Practice speaking in small groups or 1-on1"
+          }
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{{ 'hero-area.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .nxt-hero__area {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+    @media (min-width: 768px) {
+      .nxt-hero__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+    .nxt-hero__container {
+        background-image: url(
+          {% if section.settings.hero_background_image != blank %}
+            {{ section.settings.hero_background_image | image_url: width: 1920 }}
+          {% else %}
+            {{ 'Hero.webp' | asset_url }}
+          {% endif %}
+        );
+        padding: 75px 0 198px;
+        border-radius: 10px;
+    }
+{% endstyle %}
+
+<div class="nxt-hero__container color-{{ section.settings.color_scheme }} gradient {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="nxt-hero__content">
+    <h1 class="nxt-hero__heading">{{ section.settings.heading }}</h1>
+    <ul class="nxt-hero__featured-texts">
+      {% for block in section.blocks %}
+        {% if block.type == 'featured_text' %}
+          <li class="nxt-hero__featured-text">{{ block.settings.text }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <div class="nxt-hero__buttons">
+      {% for block in section.blocks %}
+        {% if block.type == 'button' %}
+          <a href="{{ block.settings.button_link }}" class="nxt-hero__btn">
+            {{ block.settings.button_text }}
+            {% if block.settings.button_svg_icon != blank %}{{ block.settings.button_svg_icon }} {% endif %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

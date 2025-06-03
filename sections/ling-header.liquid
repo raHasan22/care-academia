@@ -1,0 +1,694 @@
+<style>
+          /* Header styles */
+          .ling-header {
+              /* position: fixed; */
+              top: 0;
+              left: 0;
+              width: 100%;
+              background: #EFF0F0;
+              z-index: 1000;
+          }
+
+          .header-container {
+              max-width: 1300px;
+              margin: 0 auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 15px 20px;
+          }
+
+          .logo-container {
+              width: 595.26px;
+              height: 48px;
+              position: relative;
+          }
+
+          .logo-background {
+              width: 250.96px;
+              height: 47.99px;
+              position: absolute;
+              left: 0;
+              top: 0;
+          }
+
+          .logo-text {
+              width: 115px;
+              height: 42px;
+              position: absolute;
+              left: 4px;
+              top: 3px;
+              background: #141415;
+              border-radius: 100px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+
+          .logo-text span {
+              color: white;
+              font-size: 20px;
+              font-weight: 800;
+              line-height: 24px;
+          }
+
+          .nav-menu {
+              width: 458.20px;
+              height: 48px;
+              position: absolute;
+              left: 137.06px;
+              top: 0;
+              background: white;
+              border-radius: 56px;
+          }
+
+          .nav-items {
+              width: 393px;
+              height: 43px;
+              position: absolute;
+              left: 32px;
+              top: 2px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
+
+          .nav-item {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 5px;
+              color: #383A3D;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 24px;
+              position: relative;
+              cursor: pointer;
+              transition: all 0.2s ease;
+          }
+
+          .nav-item:hover {
+              color: #141415;
+              font-weight: 500;
+          }
+
+          /* Mega Menu Styles */
+          .mega-menu {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 600px;
+              background: white;
+              border-radius: 12px;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              padding: 24px;
+              display: none;
+              z-index: 1000;
+              opacity: 0;
+              transform: translateY(10px);
+              transition: all 0.3s ease;
+          }
+
+          .mega-menu.active {
+              display: block;
+              opacity: 1;
+              transform: translateY(0);
+          }
+
+          .mega-menu-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 24px;
+          }
+
+          .mega-menu-column {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+          }
+
+          .mega-menu-title {
+              font-weight: 600;
+              color: #141415;
+              margin-bottom: 8px;
+              font-size: 16px;
+          }
+
+          .mega-menu-link {
+              color: #383A3D;
+              text-decoration: none;
+              font-size: 14px;
+              transition: color 0.2s;
+              padding: 4px 0;
+              display: block;
+          }
+
+          .mega-menu-link:hover {
+              color: #141415;
+              font-weight: 500;
+          }
+
+          .auth-buttons {
+              display: inline-flex;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 12px;
+          }
+
+          .login-button {
+              width: 59px;
+              height: 36px;
+              position: relative;
+              background: white;
+              border-radius: 48px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+          }
+
+          .login-button-inner {
+              width: 63.68px;
+              padding-left: 11px;
+              padding-right: 11px;
+              left: 30px;
+              top: 0px;
+              position: absolute;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              gap: 8px;
+              display: inline-flex;
+          }
+
+          .login-text {
+              left: 12.56px;
+              top: 6px;
+              position: absolute;
+              justify-content: center;
+              display: flex;
+              flex-direction: column;
+              color: #383A3D;
+              font-size: 14px;
+              font-family: Fustat;
+              font-weight: 500;
+              line-height: 24px;
+              word-wrap: break-word;
+          }
+
+          .get-started-button {
+              padding: 6px 19px;
+              background: #fff;
+              border-radius: 48px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              display: flex;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              color: #383A3D;
+            text-decoration: none;
+          }
+          .get-started-text {
+              justify-content: center;
+              display: flex;
+              flex-direction: column;
+              color: #383A3D;
+              font-size: 14px;
+              font-family: Fustat;
+              font-weight: 500;
+              line-height: 24px;
+              word-wrap: break-word;
+            text-decoration: none;
+          }
+
+          /* Mobile Menu Button */
+          .mobile-menu-button {
+              display: none;
+              flex-direction: column;
+              justify-content: center;
+              gap: 6px;
+              padding: 8px;
+              background: none;
+              border: none;
+              cursor: pointer;
+              z-index: 1100;
+          }
+
+          .mobile-menu-button span {
+              display: block;
+              width: 24px;
+              height: 2px;
+              background: #141415;
+              transition: all 0.3s ease;
+              border-radius: 2px;
+          }
+
+          /* Mobile menu styles */
+          .mobile-menu-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0,0,0,0.5);
+              z-index: 900;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s ease;
+          }
+
+          .mobile-menu-overlay.active {
+              opacity: 1;
+              visibility: visible;
+          }
+
+          @media (max-width: 768px) {
+              .logo-container{
+                  width: 251px;
+                  margin-left: auto;
+              }
+              .mobile-menu-button {
+      display: flex;
+      position: absolute;
+      right: 38px;
+      top: 7px;
+  }
+
+              .mobile-menu-button.active span:nth-child(1) {
+                  transform: translateY(8px) rotate(45deg);
+              }
+
+              .mobile-menu-button.active span:nth-child(2) {
+                  opacity: 0;
+                  transform: scale(0);
+              }
+
+              .mobile-menu-button.active span:nth-child(3) {
+                  transform: translateY(-8px) rotate(-45deg);
+              }
+
+              .nav-menu {
+                  display: block;
+                  position: fixed;
+                  top: 0;
+                  left: -100%;
+                  width: 320px;
+                  height: 100vh;
+                  background: white;
+                  padding: 80px 30px 30px;
+                  border-radius: 0;
+                  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                  z-index: 1000;
+                  transition: right 0.4s ease;
+                  overflow-y: auto;
+                  opacity: 0;
+                  pointer-events: none;
+              }
+
+              .nav-menu.active {
+                  left: 0;
+                  opacity: 1;
+                  pointer-events: auto;
+              }
+
+              .nav-items {
+                  position: static;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 0;
+                  width: 100%;
+                  height: auto;
+              }
+
+              .nav-item {
+                  width: 100%;
+                  justify-content: flex-start;
+                  padding: 15px 0;
+                  border-bottom: 1px solid #eee;
+                  font-size: 16px;
+                  gap: 10px;
+              }
+
+              .nav-item:last-child {
+                  border-bottom: none;
+              }
+
+              .mega-menu {
+                  position: static;
+                  width: 100%;
+                  box-shadow: none;
+                  padding: 16px 0 0 15px;
+                  display: none;
+                  opacity: 1;
+                  transform: none;
+                  transition: none;
+              }
+
+              .mega-menu.active {
+                  display: block;
+              }
+
+              .mega-menu-grid {
+                  grid-template-columns: 1fr;
+                  gap: 15px;
+              }
+
+              .mega-menu-column {
+                  gap: 12px;
+              }
+
+              .mega-menu-title {
+                  font-size: 15px;
+                  margin-bottom: 5px;
+              }
+
+              .mega-menu-link {
+                  font-size: 14px;
+                  padding: 6px 0;
+              }
+
+              .auth-buttons {
+                  display: none;
+              }
+
+              .auth-buttons.mobile {
+                  display: none;
+                  flex-direction: column;
+                  width: 100%;
+                  gap: 12px;
+                  margin-top: 30px;
+                  padding-top: 20px;
+                  border-top: 1px solid #eee;
+              }
+
+              .login-button, .get-started-button {
+                  width: 100%;
+                  justify-content: center;
+              }
+
+              .login-button {
+                  background: #f5f5f5;
+                  height: 48px;
+              }
+
+              .login-text {
+                  position: static;
+                  width: 100%;
+                  text-align: center;
+              }
+
+              .get-started-button {
+                  height: 48px;
+              }
+          }
+
+          /* Tablet styles */
+          @media (min-width: 769px) and (max-width: 1024px) {
+              .header-container {
+                  padding: 15px 20px;
+              }
+
+              .logo-container {
+                  width: 500px;
+              }
+
+              .nav-menu {
+                  width: 400px;
+                  left: 120px;
+              }
+
+              .nav-items {
+                  width: 350px;
+                  left: 25px;
+              }
+
+              .nav-item {
+                  font-size: 13px;
+              }
+
+              .mega-menu {
+                  width: 500px;
+              }
+          }
+</style>
+
+<header class="ling-header">
+  <div class="header-container">
+    <div class="mobile-menu-overlay"></div>
+    <div class="logo-container">
+      <div class="logo-background">
+        <svg width="251" height="48" viewBox="0 0 251 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0153809 23.995C0.0153809 10.7478 10.7683 0 24.0219 0H100.042C107.554 0 114.256 3.44928 118.657 8.83816C121.888 12.7973 126.219 16.2766 131.341 16.2766C136.462 16.2766 140.783 12.7973 144.024 8.83816C148.425 3.43928 155.127 0 162.639 0H226.947C240.2 0 250.953 10.7478 250.953 23.995C250.953 37.2422 240.2 47.99 226.947 47.99H162.639C155.127 47.99 148.425 44.5407 144.024 39.1518C140.793 35.1927 136.462 31.7134 131.341 31.7134C126.219 31.7134 121.898 35.1927 118.657 39.1518C114.256 44.5507 107.554 47.99 100.042 47.99H24.0219C10.7683 47.99 0.0153809 37.2422 0.0153809 23.995Z" fill="white" />
+        </svg>
+      </div>
+      <div class="logo-text">
+        {% if section.settings.logo_image != blank %}
+          <img
+            src="{{ section.settings.logo_image | img_url: '200x' }}"
+            alt="{{ shop.name }}"
+            loading="lazy"
+            width="{{ section.settings.logo_image.width }}"
+            height="{{ section.settings.logo_image.height }}"
+          >
+        {% else %}
+          <span>{{ section.settings.logo_text }}</span>
+        {% endif %}
+      </div>
+      <button class="mobile-menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-menu">
+        <div class="nav-items">
+          {% for link in linklists[section.settings.main_menu].links %}
+            <div class="nav-item {% if link.links != blank %}has-mega-menu{% endif %}">
+              <a
+                href="{{ link.url }}"
+                class="nav-link"
+                style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;"
+              >
+                {{ link.title }}
+                {% if link.links != blank %}
+                  <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.90562 1L5.48234 5.42533L1.05908 1" stroke="#141415" stroke-width="0.999313" />
+                  </svg>
+                {% endif %}
+              </a>
+              {% if link.links != blank %}
+                <div class="mega-menu">
+                  <div class="mega-menu-grid">
+                    {% for child_link in link.links %}
+                      <div class="mega-menu-column">
+                        <h3 class="mega-menu-title">
+                          <a
+                            href="{{ child_link.url }}"
+                            style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;"
+                          >
+                            {{- child_link.title -}}
+                          </a>
+                        </h3>
+                        {% if child_link.links != blank %}
+                          {% for grandchild_link in child_link.links %}
+                            <a
+                              href="{{ grandchild_link.url }}"
+                              class="mega-menu-link"
+                              style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;"
+                            >
+                              {{- grandchild_link.title -}}
+                            </a>
+                          {% endfor %}
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-buttons">
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a
+            href="/cart"
+            class="login-button"
+            style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;"
+          >
+            <div class="login-button-inner">
+              <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M-44.4006 18C-44.4006 8.06143 -36.3395 0 -26.4012 0H-0.0449867C6.73693 0 12.6446 3.74786 15.7109 9.28929C16.6366 10.9607 18.2887 12.2143 20.2043 12.2143C22.12 12.2143 23.7721 10.9671 24.6978 9.28929C27.7641 3.74786 33.6717 0 40.4537 0H96.3803C106.319 0 114.38 8.06143 114.38 18C114.38 27.9386 106.319 36 96.3803 36H40.4537C33.6717 36 27.7641 32.2521 24.6978 26.7107C23.7721 25.0393 22.12 23.7857 20.2043 23.7857C18.2887 23.7857 16.6366 25.0329 15.7109 26.7107C12.6446 32.2521 6.73693 36 -0.0449867 36H-26.4012C-36.3395 36 -44.4006 27.9386 -44.4006 18Z" fill="white" />
+              </svg>
+            </div>
+            <div class="login-text">Cart</div>
+          </a>
+        {% else %}
+          <a
+            href="/account/login"
+            class="login-button"
+            style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;"
+          >
+            <div class="login-button-inner">
+              <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M-44.4006 18C-44.4006 8.06143 -36.3395 0 -26.4012 0H-0.0449867C6.73693 0 12.6446 3.74786 15.7109 9.28929C16.6366 10.9607 18.2887 12.2143 20.2043 12.2143C22.12 12.2143 23.7721 10.9671 24.6978 9.28929C27.7641 3.74786 33.6717 0 40.4537 0H96.3803C106.319 0 114.38 8.06143 114.38 18C114.38 27.9386 106.319 36 96.3803 36H40.4537C33.6717 36 27.7641 32.2521 24.6978 26.7107C23.7721 25.0393 22.12 23.7857 20.2043 23.7857C18.2887 23.7857 16.6366 25.0329 15.7109 26.7107C12.6446 32.2521 6.73693 36 -0.0449867 36H-26.4012C-36.3395 36 -44.4006 27.9386 -44.4006 18Z" fill="white" />
+              </svg>
+            </div>
+            <div class="login-text" style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;">
+              Login
+            </div>
+          </a>
+        {% endif %}
+      {% endif %}
+
+      <a
+        href="{{ section.settings.get_started_link }}"
+        class="get-started-button"
+        style="text-decoration: none; color: inherit; font-family: 'Fustat', sans-serif;"
+      >
+        <div class="get-started-text">{{ section.settings.get_started_text }}</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const navMenu = document.querySelector('.nav-menu');
+  const authButtons = document.querySelector('.auth-buttons');
+  const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+  const body = document.body;
+
+  // Function to open mobile menu
+  function openMobileMenu() {
+      navMenu.classList.add('active');
+      authButtons.classList.add('mobile');
+      mobileMenuButton.classList.add('active');
+      mobileOverlay.classList.add('active');
+      body.style.overflow = 'hidden';
+  }
+
+  // Function to close mobile menu
+  function closeMobileMenu() {
+      navMenu.classList.remove('active');
+      authButtons.classList.remove('mobile');
+      mobileMenuButton.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      body.style.overflow = '';
+      // Also close any open mega menu
+      megaMenu.classList.remove('active');
+  }
+
+  // Toggle mobile menu
+  mobileMenuButton.addEventListener('click', () => {
+      if (navMenu.classList.contains('active')) {
+          closeMobileMenu();
+      } else {
+          openMobileMenu();
+      }
+  });
+
+  // Close menu when clicking on overlay
+  mobileOverlay.addEventListener('click', () => {
+      closeMobileMenu();
+  });
+
+  // Close menu when clicking outside on desktop
+  document.addEventListener('click', (e) => {
+      if (!languagesItem.contains(e.target)) {
+          megaMenu.classList.remove('active');
+      }
+  });
+
+  // Mega menu toggle
+  const languagesItem = document.querySelector('.nav-item.languages');
+  const megaMenu = document.querySelector('.mega-menu');
+
+  languagesItem.addEventListener('click', (e) => {
+      // Prevent closing mobile menu when opening mega menu
+      if (window.innerWidth <= 768) {
+          e.preventDefault();
+      }
+      e.stopPropagation();
+      megaMenu.classList.toggle('active');
+  });
+
+  // Close mobile menu when resizing to desktop
+  window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+          closeMobileMenu();
+      }
+  });
+
+  // Close menu when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+          closeMobileMenu();
+      }
+  });
+</script>
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Logo Settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Logo Image",
+            "info": "Recommended size: 200x50px"
+        },
+        {
+            "type": "text",
+            "id": "logo_text",
+            "label": "Logo Text",
+            "default": "logo",
+            "info": "Will be used if logo image is not set"
+        },
+        {
+            "type": "header",
+            "content": "Navigation"
+        },
+        {
+            "type": "link_list",
+            "id": "main_menu",
+            "label": "Main Menu",
+            "default": "main-menu"
+        },
+        {
+            "type": "header",
+            "content": "Buttons"
+        },
+        {
+            "type": "text",
+            "id": "get_started_text",
+            "label": "Get Started Button Text",
+            "default": "Get Started"
+        },
+        {
+            "type": "url",
+            "id": "get_started_link",
+            "label": "Get Started Button Link",
+            "default": "/"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Ling Header",
+            "category": "Navigation",
+            "settings": {
+                "logo_text": "logo",
+                "main_menu": "main-menu",
+                "get_started_text": "Get Started",
+                "get_started_link": "/"
+            }
+        }
+    ]
+}
+{% endschema %}

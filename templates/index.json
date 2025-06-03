@@ -9,458 +9,552 @@
  */
 {
   "sections": {
-    "rh_homepage_hero_FNTMTK": {
-      "type": "rh-homepage-hero",
-      "settings": {
-        "title": "Evolve faster than tech itself",
-        "description": "Tech skills only have a 2.5 year lifespan, leaving 85 million jobs unfilled due to massive skills gaps. Don't get left in the dust—elevate your tech learning today.",
-        "primary_button_text": "For individuals",
-        "primary_button_link": "#",
-        "secondary_button_text": "For businesses",
-        "secondary_button_link": "#",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
-      }
-    },
-    "rh_hero_after_info_list_GC6XCD": {
-      "type": "rh-hero-after-info-list",
+    "ling_homepage_hero_area_H8wapR": {
+      "type": "ling-homepage-hero-area",
       "blocks": {
-        "info_item_zdxkrH": {
-          "type": "info_item",
+        "featured_text_nGyGJV": {
+          "type": "featured_text",
           "settings": {
-            "text": "6,500+ tech courses"
+            "text": "Free 7-day trial"
           }
         },
-        "info_item_Njnhtz": {
-          "type": "info_item",
+        "featured_text_hjexUb": {
+          "type": "featured_text",
           "settings": {
-            "text": "3,500+ hands-on labs"
+            "text": "60-minute live classes online 24/7"
           }
         },
-        "info_item_ByKKdc": {
-          "type": "info_item",
+        "featured_text_ejfwqw": {
+          "type": "featured_text",
           "settings": {
-            "text": "500+ skill assessments"
+            "text": "Practice speaking in small groups or 1-on1"
           }
         },
-        "info_item_3JEmNm": {
-          "type": "info_item",
+        "button_D76qBd": {
+          "type": "button",
           "settings": {
-            "text": "150+ certification paths"
+            "button_text": "Get Started",
+            "button_svg_icon": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.21 8.23047H0.5\" stroke=\"#383A3D\"></path><path d=\"M7.34961 1.36914C8.88961 4.04914 14.2096 8.22914 14.2096 8.22914C14.2096 8.22914 8.88961 12.4091 7.34961 15.0891\" stroke=\"#383A3D\"></path></svg>",
+            "button_link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
-        "info_item_zdxkrH",
-        "info_item_Njnhtz",
-        "info_item_ByKKdc",
-        "info_item_3JEmNm"
+        "featured_text_nGyGJV",
+        "featured_text_hjexUb",
+        "featured_text_ejfwqw",
+        "button_D76qBd"
       ],
+      "name": "NXT Hero Area",
       "settings": {
-        "background_color": "#e0f5fe",
-        "text_color": "#222875",
-        "icon_color": "#222875"
+        "heading": "Don't wait for someday. Learn a language today.",
+        "padding_top": 25,
+        "padding_bottom": 35,
+        "background_color": "#eff0f0",
+        "color_scheme": ""
       }
     },
-    "rh_homepage_courses_g6LPUL": {
-      "type": "rh-homepage-courses",
+    "category_area_aViD4q": {
+      "type": "category-area",
       "blocks": {
-        "collection_tab_Wajkqk": {
-          "type": "collection_tab",
+        "category_MadfQV": {
+          "type": "category",
           "settings": {
-            "collection": "all-courses"
+            "category_image": "shopify://shop_images/german-flag_svg_c1a21eb9-5cac-42c4-92d6-9a924eefce00.png",
+            "category_name": "German",
+            "category_description": "7.3k Learners",
+            "category_link": ""
           }
         },
-        "collection_tab_JKr9Rd": {
-          "type": "collection_tab",
+        "category_qMcmBP": {
+          "type": "category",
           "settings": {
-            "collection": "business"
+            "category_image": "shopify://shop_images/british-flag_svg.png",
+            "category_name": "English",
+            "category_description": "6.8k Learners",
+            "category_link": ""
           }
         },
-        "collection_tab_QgeyPn": {
-          "type": "collection_tab",
+        "category_VC4w8m": {
+          "type": "category",
           "settings": {
-            "collection": "technology"
+            "category_image": "shopify://shop_images/british-flag_svg.png",
+            "category_name": "Business English",
+            "category_description": "5.3k Learners",
+            "category_link": ""
+          }
+        },
+        "category_WWX8zc": {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/french-flag_svg.png",
+            "category_name": "French",
+            "category_description": "4.9k Learners",
+            "category_link": ""
+          }
+        },
+        "category_tBXJVH": {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/spanish-flag_svg.png",
+            "category_name": "Spanish",
+            "category_description": "3.3k Learners",
+            "category_link": ""
+          }
+        },
+        "category_kLV67q": {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/italian-flag_svg.png",
+            "category_name": "Italian",
+            "category_description": "NEW",
+            "category_link": ""
           }
         }
       },
       "block_order": [
-        "collection_tab_Wajkqk",
-        "collection_tab_JKr9Rd",
-        "collection_tab_QgeyPn"
+        "category_MadfQV",
+        "category_qMcmBP",
+        "category_VC4w8m",
+        "category_WWX8zc",
+        "category_tBXJVH",
+        "category_kLV67q"
       ],
-      "name": "RH Homepage Courses",
+      "name": "NXT Category Area",
       "settings": {
-        "title": "Our Top Courses"
+        "padding_top": 25,
+        "padding_bottom": 35,
+        "background_color": "#f5f6f6",
+        "color_scheme": ""
       }
     },
-    "rh_companies_CmeGRD": {
-      "type": "rh-companies",
+    "nxt_features_section_MErAYK": {
+      "type": "nxt-features-section",
       "blocks": {
-        "company_image_VWAVgx": {
-          "type": "company_image",
+        "feature_card_ek8tnr": {
+          "type": "feature_card",
           "settings": {
-            "company_image": "shopify://shop_images/Frame_3049.png",
-            "company_name": "Company"
+            "tag": "Features",
+            "heading": "Smallest classes on the market",
+            "description": "Take group classes with up to 5 other students or learn1-on-1 with your teacher",
+            "link": "shopify://collections/all"
           }
         },
-        "company_image_inMG3g": {
-          "type": "company_image",
+        "feature_card_h3NRBf": {
+          "type": "feature_card",
           "settings": {
-            "company_image": "shopify://shop_images/Frame_3057.png",
-            "company_name": "Company"
+            "tag": "Features",
+            "heading": "775K live classes per year",
+            "description": "Get personalised feedback from your native-level teachers after each class",
+            "link": "shopify://collections/all"
           }
         },
-        "company_image_Fjewbp": {
-          "type": "company_image",
+        "feature_card_panqa8": {
+          "type": "feature_card",
           "settings": {
-            "company_image": "shopify://shop_images/Frame_3051.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_twhDQD": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3052.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_Mj4UJy": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3058.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_ebPMqU": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3050.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_aChWVt": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3053.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_rmPFdJ": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3055.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_3V7zRC": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3056.png",
-            "company_name": "Company"
-          }
-        },
-        "company_image_7B9mmx": {
-          "type": "company_image",
-          "settings": {
-            "company_image": "shopify://shop_images/Frame_3054.png",
-            "company_name": "Company"
+            "tag": "Features",
+            "heading": "Learn to speak real-life language",
+            "description": "Speak confidently in everyday situations and feel like a local from the start",
+            "link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
-        "company_image_VWAVgx",
-        "company_image_inMG3g",
-        "company_image_Fjewbp",
-        "company_image_twhDQD",
-        "company_image_Mj4UJy",
-        "company_image_ebPMqU",
-        "company_image_aChWVt",
-        "company_image_rmPFdJ",
-        "company_image_3V7zRC",
-        "company_image_7B9mmx"
+        "feature_card_ek8tnr",
+        "feature_card_h3NRBf",
+        "feature_card_panqa8"
       ],
+      "name": "NXT Features Section",
       "settings": {
-        "heading": "Unlock Your Team's Potential with 2000+ Accredited Courses!",
-        "background_color": "#ffffff",
-        "text_color": "#0d0d0d"
+        "padding_top": 35,
+        "padding_bottom": 35,
+        "background_color": "#eff0f0",
+        "color_scheme": ""
       }
     },
-    "rh_instructor_W3fCft": {
+    "rh_instructor_ihCQ8p": {
       "type": "rh-instructor",
       "blocks": {
-        "instructor_AGpxzQ": {
+        "instructor_tnRTCg": {
           "type": "instructor",
           "settings": {
-            "name": "Jean 'Gladson' Tunis",
-            "experience": "25 yrs. experience",
-            "courses": "4 courses",
-            "profile_link": "#"
+            "instructor_image": "shopify://shop_images/business-communication-concept-handsome-smiling-man-casual-shirt_05e1f7f1-cd75-4cc4-92e7-e577a0e425a0.png",
+            "name": "Instructor Name",
+            "flag_image": "shopify://shop_images/british-flag_svg.png",
+            "rating": 90,
+            "teaches": "English",
+            "speaks": "English"
           }
         },
-        "instructor_KYJ7Ly": {
+        "instructor_r8T4AH": {
           "type": "instructor",
           "settings": {
-            "name": "Jean 'Gladson' Tunis",
-            "experience": "25 yrs. experience",
-            "courses": "4 courses",
-            "profile_link": "#"
+            "instructor_image": "shopify://shop_images/business-communication-concept-handsome-smiling-man-casual-shirt_05e1f7f1-cd75-4cc4-92e7-e577a0e425a0.png",
+            "name": "Instructor Name",
+            "flag_image": "shopify://shop_images/british-flag_svg.png",
+            "rating": 90,
+            "teaches": "English",
+            "speaks": "English"
           }
         },
-        "instructor_DbKKGM": {
+        "instructor_AKBB9K": {
           "type": "instructor",
           "settings": {
-            "name": "Jean 'Gladson' Tunis",
-            "experience": "25 yrs. experience",
-            "courses": "4 courses",
-            "profile_link": "#"
+            "instructor_image": "shopify://shop_images/business-communication-concept-handsome-smiling-man-casual-shirt_05e1f7f1-cd75-4cc4-92e7-e577a0e425a0.png",
+            "name": "Instructor Name",
+            "flag_image": "shopify://shop_images/british-flag_svg.png",
+            "rating": 90,
+            "teaches": "English",
+            "speaks": "English"
+          }
+        },
+        "instructor_zH6ThP": {
+          "type": "instructor",
+          "settings": {
+            "instructor_image": "shopify://shop_images/business-communication-concept-handsome-smiling-man-casual-shirt_05e1f7f1-cd75-4cc4-92e7-e577a0e425a0.png",
+            "name": "Instructor Name",
+            "flag_image": "shopify://shop_images/british-flag_svg.png",
+            "rating": 90,
+            "teaches": "English",
+            "speaks": "English"
+          }
+        },
+        "instructor_E4pjLm": {
+          "type": "instructor",
+          "settings": {
+            "instructor_image": "shopify://shop_images/business-communication-concept-handsome-smiling-man-casual-shirt_05e1f7f1-cd75-4cc4-92e7-e577a0e425a0.png",
+            "name": "Instructor Name",
+            "flag_image": "shopify://shop_images/british-flag_svg.png",
+            "rating": 90,
+            "teaches": "English",
+            "speaks": "English"
           }
         }
       },
       "block_order": [
-        "instructor_AGpxzQ",
-        "instructor_KYJ7Ly",
-        "instructor_DbKKGM"
+        "instructor_tnRTCg",
+        "instructor_r8T4AH",
+        "instructor_AKBB9K",
+        "instructor_zH6ThP",
+        "instructor_E4pjLm"
       ],
+      "name": "RH Expert Teachers",
       "settings": {
-        "tag": "Top-tier training",
-        "title": "Tackle tech trends with the best in the industry",
-        "description": "Learn from real experts. Our author list is highly curated with 91% of them backed by at least 10 years experience in their field. Cast a wide learning net or develop a highly specialized learning path, reassured that you're getting top notch, up-to-speed insights.",
-        "button_text": "View course library",
-        "button_link": "#",
-        "background_color": "#fafafa",
-        "tag_color": "#222875",
-        "text_color": "#0d0d0d",
-        "button_bg_color": "#0d0d0d"
+        "background": "linear-gradient(180deg, rgba(239, 240, 240, 1), rgba(239, 240, 240, 1) 100%)",
+        "title": "Meet our expert teachers",
+        "description": "Progress faster with personalised feedback from our 1.9K certified teachers."
       }
     },
-    "rh_services_DPiHeX": {
-      "type": "rh-services",
-      "blocks": {
-        "feature_card_3JFUnz": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/gears.png",
-            "title": "AI + Data",
-            "description": "Work smarter (not harder) with artificial intelligence and keep up with Claude AI and more in this rapidly growing tech field.",
-            "button_text": "Generate AI skills",
-            "button_link": "#"
-          }
-        },
-        "feature_card_fPHUWK": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/code.png",
-            "title": "Software dev",
-            "description": "Build fluency in languages like C#, Java, Angular, and JavaScript and keep evolving as they do to develop efficiently.",
-            "button_text": "Speak software dev",
-            "button_link": "#"
-          }
-        },
-        "feature_card_WN7MiB": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/orange-cloud.png",
-            "title": "Cloud + IT Ops",
-            "description": "From AWS to Google Cloud and everything in between, expand your cloud clout for down-to-earth professional returns.",
-            "button_text": "Conquer the cloud",
-            "button_link": "#"
-          }
-        },
-        "feature_card_9P8hYT": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/green-shield.png",
-            "title": "Security",
-            "description": "Stop cyber attacks in their tracks and secure critical skills to position yourself as the expert at keeping data under lock and key. ",
-            "button_text": "security learning",
-            "button_link": "#"
-          }
-        },
-        "company_logo_Ba9hh7": {
-          "type": "company_logo",
-          "settings": {
-            "logo": "shopify://shop_images/cpd-big.png",
-            "company_name": "Company"
-          }
-        },
-        "company_logo_trERhq": {
-          "type": "company_logo",
-          "settings": {
-            "logo": "shopify://shop_images/qls-big.png",
-            "company_name": "Company"
-          }
-        },
-        "company_logo_rtbHXL": {
-          "type": "company_logo",
-          "settings": {
-            "logo": "shopify://shop_images/ukrlp-big.png",
-            "company_name": "Company"
-          }
-        }
-      },
-      "block_order": [
-        "feature_card_3JFUnz",
-        "feature_card_fPHUWK",
-        "feature_card_WN7MiB",
-        "feature_card_9P8hYT",
-        "company_logo_Ba9hh7",
-        "company_logo_trERhq",
-        "company_logo_rtbHXL"
-      ],
+    "rh_promo_sec_KtJkYr": {
+      "type": "rh-promo-sec",
+      "name": "RH Promo Section",
       "settings": {
-        "section_bg": "#cbefff",
-        "card_bg": "#222875",
-        "card_text": "#cbefff",
-        "confidence_title": "Build confidence with hands-on practice",
-        "confidence_description": "Experiment with new skills in 3,000+ interactive labs and AI or cloud sandboxes to quickly get the hang of them in real-world environments and take your career (and salary!) to the next level.",
-        "confidence_button_text": "Learn More",
-        "confidence_button_link": ""
+        "background": "linear-gradient(180deg, rgba(239, 240, 240, 1), rgba(239, 240, 240, 1) 100%)",
+        "promo_image": "shopify://shop_images/happy-students-posing-together_2_e1dc4b97-5211-4a9e-a608-96e49a337792.png",
+        "image_alt": "Students speaking confidently",
+        "promo_text": "90% of our students speak more confidently after taking Lingoda classes",
+        "overlay_color": "#d9d9d9",
+        "content_max_width": 900
       }
     },
-    "rh_trusted_qFzDrC": {
-      "type": "rh-trusted",
-      "blocks": {
-        "first_slider_image_YRMzfU": {
-          "type": "first_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301617.png",
-            "alt": "Company Logo"
-          }
-        },
-        "first_slider_image_mBLyWQ": {
-          "type": "first_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301620.png",
-            "alt": "Company Logo"
-          }
-        },
-        "first_slider_image_xN7d99": {
-          "type": "first_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301618.png",
-            "alt": "Company Logo"
-          }
-        },
-        "first_slider_image_BQLmTj": {
-          "type": "first_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301619.png",
-            "alt": "Company Logo"
-          }
-        },
-        "first_slider_image_kCDKMp": {
-          "type": "first_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301621.png",
-            "alt": "Company Logo"
-          }
-        },
-        "second_slider_image_XQGyKx": {
-          "type": "second_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301623.png",
-            "alt": "Company Logo"
-          }
-        },
-        "second_slider_image_fYUtMX": {
-          "type": "second_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301621_7869714b-2a4a-4a83-9ffd-fec801638f31.png",
-            "alt": "Company Logo"
-          }
-        },
-        "second_slider_image_X8LnK4": {
-          "type": "second_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301618_a3da700a-cd88-4c17-bf03-608085e5f5ef.png",
-            "alt": "Company Logo"
-          }
-        },
-        "second_slider_image_Hhp9jF": {
-          "type": "second_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301617_2cae3398-7b4c-4c99-b228-4f6dc67a36c1.png",
-            "alt": "Company Logo"
-          }
-        },
-        "second_slider_image_Cmci7b": {
-          "type": "second_slider_image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_6301620_29b02e11-f5ec-4a1a-b1aa-00e638e88034.png",
-            "alt": "Company Logo"
-          }
-        }
-      },
-      "block_order": [
-        "first_slider_image_YRMzfU",
-        "first_slider_image_mBLyWQ",
-        "first_slider_image_xN7d99",
-        "first_slider_image_BQLmTj",
-        "first_slider_image_kCDKMp",
-        "second_slider_image_XQGyKx",
-        "second_slider_image_fYUtMX",
-        "second_slider_image_X8LnK4",
-        "second_slider_image_Hhp9jF",
-        "second_slider_image_Cmci7b"
-      ],
+    "rh_learning_partner_3Kmga9": {
+      "type": "rh-learning-partner",
+      "name": "RH Learning Partner",
       "settings": {
-        "title": "Trusted by 100+ of Businesses around the world",
-        "description": "Care academia connects with the enterprise tools your organization already uses, right out of the box.",
-        "button_text": "See all our businesses reviews",
-        "button_link": "#"
+        "background_color": "#131315",
+        "container_width": 1170,
+        "content_gap": 60,
+        "title": "Your language learning partner",
+        "title_color": "#ffffff",
+        "title_size": 48,
+        "description": "As experts in language learning we will guide and support you every step on the way. With us, you can stay on track and reach your language goals sooner.",
+        "desc_color": "#ffffff",
+        "desc_size": 18,
+        "button_text": "View all partners",
+        "button_link": "",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#131315",
+        "button_hover_bg_color": "#ffffffe6",
+        "partner_image": "shopify://shop_images/portrait-female-travel-agent-suit-headset-working-indoors-world-map-background_1_2b5612a1-1c51-4b20-baa8-122ecc5c9d07.png",
+        "image_alt": "Language learning partner",
+        "image_overlay_color": "#ffffff"
       }
     },
-    "rh_alternate_sec_NNDjrR": {
-      "type": "rh-alternate-sec",
+    "nxt_reviwes_slider_Hk9TyL": {
+      "type": "nxt-reviwes-slider",
       "blocks": {
-        "list_item_EYerWX": {
-          "type": "list_item",
+        "testimonial_card_arnUXa": {
+          "type": "testimonial_card",
           "settings": {
-            "icon": "shopify://shop_images/check-circle.png",
-            "text": "Identify knowledge gaps and align tech learning to organizational initiatives"
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "author_image": "shopify://shop_images/Ellipse_1_1.png",
+            "review_text": "The classes were excellently designed, the small group sizes maximized opportunities for speaking, and the variety of class types and topics offered something for everyone. Most of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
           }
         },
-        "list_item_Hpd7Cd": {
-          "type": "list_item",
+        "testimonial_card_eFgFB8": {
+          "type": "testimonial_card",
           "settings": {
-            "icon": "shopify://shop_images/check-circle.png",
-            "text": "Build skills to transform and retain in-house tech talent"
+            "author_name": "Sarah Lee",
+            "author_title": "Product Manager",
+            "author_company": "InnovateX",
+            "review_text": "The instructors were knowledgeable and supportive, and the course content was always relevant. I appreciated the interactive sessions and the practical approach to learning.",
+            "course_link_text": "View this Product Management course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
           }
         },
-        "list_item_HyBMYn": {
-          "type": "list_item",
+        "testimonial_card_UP8Hhq": {
+          "type": "testimonial_card",
           "settings": {
-            "icon": "shopify://shop_images/check-circle.png",
-            "text": "Validate skills with assessments, certification practice exams, and hands-on practice labs"
+            "author_name": "Michael Chen",
+            "author_title": "UX Designer",
+            "author_company": "Creatify",
+            "review_text": "I loved the engaging lessons and the way the teachers encouraged participation. The community was welcoming and the support was always available when needed.",
+            "course_link_text": "View this UX Design course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "testimonial_card_GRqBdF": {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Priya Patel",
+            "author_title": "Data Scientist",
+            "author_company": "DataWiz",
+            "review_text": "Great community and support throughout the course. The instructors made complex topics easy to understand, and I learned a lot while making new friends.",
+            "course_link_text": "View this Data Science course",
+            "course_link_url": "shopify://collections/all",
+            "rating": 5,
+            "verified": true
           }
         }
       },
       "block_order": [
-        "list_item_EYerWX",
-        "list_item_Hpd7Cd",
-        "list_item_HyBMYn"
+        "testimonial_card_arnUXa",
+        "testimonial_card_eFgFB8",
+        "testimonial_card_UP8Hhq",
+        "testimonial_card_GRqBdF"
       ],
+      "name": "NXT Reviews Slider",
       "settings": {
-        "main_image": "shopify://shop_images/freepik__five-people-average-age-35-average-race-caucasian-__62314_1.png",
-        "title": "Accelerate business initiatives",
-        "description": "Join the Fortune 500 companies and more than 23,000 businesses that rely on Care academia to:",
-        "primary_button_text": "For individuals",
-        "primary_button_link": "",
-        "secondary_button_text": "For businesses",
-        "secondary_button_link": "#",
-        "section_bg": "#cbefff",
-        "text_color": "#222875"
+        "title": "What students love about us",
+        "subtitle": "We don't just make claims. We deliver results.",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "background_color": "#eff0f0"
+      }
+    },
+    "rh_companies_sec_WDRVPY": {
+      "type": "rh-companies-sec",
+      "blocks": {
+        "company_n3MTyF": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium_svg_95389cf6-2689-4a8d-9493-aec2ac13b520.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_87XNQe": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Link_3.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_t64jge": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium.svg_3.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_JHG8y7": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium.svg_1_317dfee9-6d32-4038-a4c6-1ce4411e34a3.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_VngLRH": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Link_2.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_CdKiHz": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium.svg_2.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_kt6cNA": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Link_1_a566186b-f129-4b07-a857-8e9de78a70c7.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_LJiaPi": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium.svg_3.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_bqRziV": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium.svg_2.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_MrWged": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium_svg_95389cf6-2689-4a8d-9493-aec2ac13b520.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_w7KVVf": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Picture_homepage-revamp-press-logo-medium.svg_1_317dfee9-6d32-4038-a4c6-1ce4411e34a3.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_tUytUT": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Link_3.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_FddYyR": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Link_2.png",
+            "company_name": "Company Name"
+          }
+        },
+        "company_fVjFtU": {
+          "type": "company",
+          "settings": {
+            "company_logo": "shopify://shop_images/Link_1_a566186b-f129-4b07-a857-8e9de78a70c7.png",
+            "company_name": "Company Name"
+          }
+        }
+      },
+      "block_order": [
+        "company_n3MTyF",
+        "company_87XNQe",
+        "company_t64jge",
+        "company_JHG8y7",
+        "company_VngLRH",
+        "company_CdKiHz",
+        "company_kt6cNA",
+        "company_LJiaPi",
+        "company_bqRziV",
+        "company_MrWged",
+        "company_w7KVVf",
+        "company_tUytUT",
+        "company_FddYyR",
+        "company_fVjFtU"
+      ],
+      "name": "RH Companies Section",
+      "settings": {
+        "title": "Lingoda in the press",
+        "background_color": "#eff0f0",
+        "title_color": "#131315",
+        "title_size": 48,
+        "container_width": 1320,
+        "section_padding": 40,
+        "section_padding_mobile": 20,
+        "vertical_gap": 40,
+        "title_bottom_margin": 40,
+        "logo_width": 150,
+        "logo_height": 66,
+        "logo_gap": 44,
+        "logo_width_tablet": 120,
+        "logo_height_tablet": 55,
+        "logo_gap_tablet": 25,
+        "logo_width_mobile": 100,
+        "logo_height_mobile": 40,
+        "logo_gap_mobile": 15
+      }
+    },
+    "rh_faq_sec_j7TcfG": {
+      "type": "rh-faq-sec",
+      "blocks": {
+        "faq_item_EjpiW4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are the benefits of eLearning courses for business?",
+            "answer": "<p>eLearning courses offer numerous benefits for businesses including:</p><ul><li>Cost-effective training solution</li><li>Flexible learning schedules</li><li>Consistent training quality</li><li>Easy tracking of employee progress</li><li>Scalable across multiple locations</li></ul>"
+          }
+        },
+        "faq_item_ND8Tjr": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are the benefits of eLearning courses for business?",
+            "answer": "<p>eLearning courses offer numerous benefits for businesses including:</p><ul><li>Cost-effective training solution</li><li>Flexible learning schedules</li><li>Consistent training quality</li><li>Easy tracking of employee progress</li><li>Scalable across multiple locations</li></ul>"
+          }
+        },
+        "faq_item_BRab6w": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are the benefits of eLearning courses for business?",
+            "answer": "<p>eLearning courses offer numerous benefits for businesses including:</p><ul><li>Cost-effective training solution</li><li>Flexible learning schedules</li><li>Consistent training quality</li><li>Easy tracking of employee progress</li><li>Scalable across multiple locations</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_EjpiW4",
+        "faq_item_ND8Tjr",
+        "faq_item_BRab6w"
+      ],
+      "name": "RH FAQ Section",
+      "settings": {
+        "title": "Frequently asked questions",
+        "background_color": "#eff0f0",
+        "container_width": 1090,
+        "section_padding": 80,
+        "wrapper_gap": 60,
+        "item_gap": 31,
+        "title_color": "#131315",
+        "title_size": 48,
+        "number_color": "#131315",
+        "number_size": 22,
+        "question_color": "#131315",
+        "question_size": 22,
+        "toggle_size": 37,
+        "toggle_color": "#c0c0c0",
+        "toggle_active_color": "#131315",
+        "answer_color": "#131315",
+        "answer_size": 18,
+        "answer_list_size": 16,
+        "divider_color": "#13131533"
       }
     }
   },
   "order": [
-    "rh_homepage_hero_FNTMTK",
-    "rh_hero_after_info_list_GC6XCD",
-    "rh_homepage_courses_g6LPUL",
-    "rh_companies_CmeGRD",
-    "rh_instructor_W3fCft",
-    "rh_services_DPiHeX",
-    "rh_trusted_qFzDrC",
-    "rh_alternate_sec_NNDjrR"
+    "ling_homepage_hero_area_H8wapR",
+    "category_area_aViD4q",
+    "nxt_features_section_MErAYK",
+    "rh_instructor_ihCQ8p",
+    "rh_promo_sec_KtJkYr",
+    "rh_learning_partner_3Kmga9",
+    "nxt_reviwes_slider_Hk9TyL",
+    "rh_companies_sec_WDRVPY",
+    "rh_faq_sec_j7TcfG"
   ]
 }

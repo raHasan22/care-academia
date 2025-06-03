@@ -1,26 +1,68 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+{{ 'course-card.css' | asset_url | stylesheet_tag }}
 
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+  .related-product-section .course-card .course-card-content{
+    padding: 25px;
+    padding-top: 14px;
   }
+  .related-product-section .course-card .course-title{
+    font-size: 25px;
+    height: 74px;
+  }
+  .related-product-section .course-card .course-description{
+    font-size: 20px;
+  }
+  .related-product-section .course-card .course-price{
+    font-size: 36px;
+  }
+  .related-product-section .rating-stars svg{
+    width: 20px;
+    height: 20px;
+  }
+  .related-product-section .rating-count{
+    font-size: 20px;
+  }
+    .title-heading{
+      font-family: Fustat;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -2.46px;
+  vertical-align: middle;
+  color: #131315;
+      margin-bottom: 20px;
+    }
+    .des-sub-heading{
+      font-family: Fustat;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: -0.59px;
+  vertical-align: middle;
+  color: #131315;
+      margin: 0;
+      margin-bottom: 40px;
+    }
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="color-{{ section.settings.color_scheme }} gradient related-product-section">
   <product-recommendations
     class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
@@ -28,9 +70,12 @@
     data-product-id="{{ product.id }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }} title-heading">
         {{ section.settings.heading }}
       </h2>
+      <p class="des-sub-heading">
+        {{ section.settings['sub-heading'] }}
+      </p>
       <ul
         class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
         role="list"
@@ -73,6 +118,12 @@
       "id": "heading",
       "default": "t:sections.related-products.settings.paragraph__1.default",
       "label": "t:sections.related-products.settings.heading.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "sub-heading",
+      "default": "t:sections.related-products.settings.paragraph__1.default",
+      "label": "t:sections.related-products.settings.sub-heading.label"
     },
     {
       "type": "select",
@@ -134,7 +185,7 @@
           "value": "2",
           "label": "t:sections.related-products.settings.columns_mobile.options__2.label"
         }
-      ]    
+      ]
     },
     {
       "type": "color_scheme",

@@ -1,0 +1,611 @@
+{% schema %}
+{
+  "name": "NXT Reviews Slider",
+  "tag": "section",
+  "class": "nxt-reviews__area",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What students love about us"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We don't just make claims. We deliver results."
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 70
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#eff0f0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial_card",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Adams Jimmy"
+        },
+        {
+          "type": "text",
+          "id": "author_title",
+          "label": "Author Title",
+          "default": "Technical Co-Founder, CTO at"
+        },
+        {
+          "type": "text",
+          "id": "author_company",
+          "label": "Author Company",
+          "default": "Dimensional"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "The classes were excellently designed, the small group sizes maximized opportunities for speaking, and the variety of class types and topics offered something for everyone. Most of the teachers were excellent, warm, and encouraging."
+        },
+        {
+          "type": "text",
+          "id": "course_link_text",
+          "label": "Course Link Text",
+          "default": "View this iOS & Swift course"
+        },
+        {
+          "type": "url",
+          "id": "course_link_url",
+          "label": "Course Link URL",
+          "default": "\/collections\/all"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating (1-5)",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NXT Reviews Slider",
+      "category": "Testimonials Slider",
+      "blocks": [
+        {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Adams Jimmy",
+            "author_title": "Technical Co-Founder, CTO at",
+            "author_company": "Dimensional",
+            "review_text": "The classes were excellently designed, the small group sizes maximized opportunities for speaking, and the variety of class types and topics offered something for everyone. Most of the teachers were excellent, warm, and encouraging.",
+            "course_link_text": "View this iOS & Swift course"
+          }
+        },
+        {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Sarah Lee",
+            "author_title": "Product Manager",
+            "author_company": "InnovateX",
+            "review_text": "The instructors were knowledgeable and supportive, and the course content was always relevant. I appreciated the interactive sessions and the practical approach to learning.",
+            "course_link_text": "View this Product Management course"
+          }
+        },
+        {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Michael Chen",
+            "author_title": "UX Designer",
+            "author_company": "Creatify",
+            "review_text": "I loved the engaging lessons and the way the teachers encouraged participation. The community was welcoming and the support was always available when needed.",
+            "course_link_text": "View this UX Design course"
+          }
+        },
+        {
+          "type": "testimonial_card",
+          "settings": {
+            "author_name": "Priya Patel",
+            "author_title": "Data Scientist",
+            "author_company": "DataWiz",
+            "review_text": "Great community and support throughout the course. The instructors made complex topics easy to understand, and I learned a lot while making new friends.",
+            "course_link_text": "View this Data Science course"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% style %}
+  .nxt-reviews__area {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+    @media (min-width: 768px) {
+      .nxt-reviews__area {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{% endstyle %}
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"
+  crossorigin="anonymous"
+></script>
+
+<style>
+  .theme-container {
+    max-width: 1084px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .heading-area {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .main-heading {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: #131315;
+    margin: 0 0 5px;
+  }
+
+  .sub-heading {
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    color: #313135;
+    margin: 0;
+  }
+
+  .nxt-reviews__card {
+    padding: 25px 31px;
+    border: 1px #c5c5cb solid;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 30px;
+    cursor: grab;
+    transition: all 0.5s ease;
+  }
+
+  .nxt-reviews__card .nxt-reviews__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nxt-reviews__card .nxt-reviews__text {
+    color: #131315;
+    font-size: 16px;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  .nxt-reviews__card .nxt-reviews__footer {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .nxt-reviews__card .nxt-reviews__author {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .nxt-reviews__card .nxt-reviews__author-info {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nxt-reviews__card .nxt-reviews__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+  }
+
+  .nxt-reviews__card .nxt-reviews__author-details {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .nxt-reviews__card .nxt-reviews__author-name,
+  .nxt-reviews__card .nxt-reviews__author-title {
+    color: #313135;
+    font-size: 12px;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+    word-wrap: break-word;
+  }
+
+  .nxt-reviews__card .nxt-reviews__link {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #0564ff;
+    font-size: 12px;
+    font-family: 'Fustat', sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .nxt-reviews__card .nxt-reviews__link:hover {
+    text-decoration: underline;
+  }
+
+  .nxt-reviews__card .nxt-reviews__rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nxt-reviews__card .nxt-reviews__verified-text {
+    color: #131315;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .nxt-reviews__card .nxt-reviews__verified {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .nxt-reviews__card .nxt-reviews__stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  /* card end  */
+
+  .testimonial-mod-v2 .dots-left {
+    justify-content: left !important;
+  }
+
+  .testimonial-mod-v2 .dots-center {
+    justify-content: center !important;
+  }
+
+  .testimonial-mod-v2 .dots-right {
+    justify-content: right !important;
+  }
+
+  .testimonial-mod-v2 .swiper-slide:not(.swiper-slide-active):hover {
+    background: #ffffff;
+  }
+
+  .testimonials-slider-swipper .swiper {
+    overflow: visible;
+  }
+
+  .testimonials-slider-swipper .swiper-wrapper {
+    overflow: visible;
+    position: relative;
+  }
+
+  .testimonials-slider-swipper .swiper-slide {
+    max-width: calc(50% - 16px);
+  }
+
+  .testimonials-slider-swipper .swiper-pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+    position: static;
+  }
+
+  .testimonials-slider-swipper .swiper-pagination-bullet {
+    background-color: #d3d3d3;
+    border-radius: 2px;
+    height: 8px;
+    opacity: 1;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s linear;
+    width: 8px;
+  }
+
+  .testimonials-slider-swipper .swiper-pagination-bullet-active {
+    width: 30px;
+  }
+
+  .testimonials-slider-swipper .swiper-pagination-bullet-active:after {
+    animation: bulletProgress 5s linear forwards;
+    background: #000;
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left;
+    width: 100%;
+    z-index: 1;
+  }
+
+  @keyframes bulletProgress {
+    0% {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .testimonial-mod-v2 {
+    overflow: hidden;
+  }
+
+  .testimonial-mod-v2 .slider {
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active {
+    color: #fff;
+  }
+
+  .testimonial-mod-v2 .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.4;
+  }
+
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-next {
+    opacity: 1;
+  }
+
+  @media (max-width: 1919px) {
+    .testimonials-slider-swipper .swiper-slide {
+      max-width: calc(50% - 13px);
+    }
+  }
+
+  @media (max-width: 1439px) {
+    .testimonial-mod-v2 .swiper-slide.swiper-slide-active {
+      justify-content: flex-start;
+    }
+
+    .testimonials-slider-swipper .swiper-slide {
+      max-width: calc(50% - 9px);
+    }
+  }
+
+  @media (max-width: 959px) {
+    .testimonial-mod-v2 .heading-area {
+      margin-bottom: 24px;
+    }
+
+    .testimonials-slider-swipper .swiper-slide {
+      max-width: calc(100% - 6px);
+    }
+  }
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card {
+    background-color: #131315;
+    border: 1px solid #131315;
+  }
+
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__link,
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__text,
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__author-name,
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__author-title,
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__verified-text {
+    color: #ffffff;
+  }
+
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__verified svg path,
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__link svg path,
+  .testimonial-mod-v2 .swiper-slide.swiper-slide-active .nxt-reviews__card .nxt-reviews__quote-icon svg path {
+    stroke: #ffffff;
+    fill: #ffffff;
+  }
+
+  .testimonial-mod-v2 .swiper-slide .nxt-reviews__card:hover {
+    border: 1px solid transparent;
+  }
+   @media (max-width: 767px) {
+    .main-heading {
+      font-size: 28px;
+    }
+    .sub-heading {
+      font-size: 14px;
+    }
+  }
+</style>
+<div class="testimonial-mod-v2 testimonials-slider-swipper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="theme-container">
+    <div class="heading-area" style="max-width:764px;">
+      <h2 class="main-heading">{{ section.settings.title }}</h2>
+      <p class="sub-heading">{{ section.settings.subtitle }}</p>
+    </div>
+  </div>
+  <div class="theme-container">
+    <div class="swiper nxt-revies-slider swiper-initialized swiper-horizontal swiper-pointer-events">
+      <div class="swiper-wrapper" id="swiper-wrapper-10dfa0c2c3110bf5b">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="nxt-reviews__card">
+              <div class="nxt-reviews__content">
+                <div class="nxt-reviews__quote-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                        d="M6.11606 11.5327H3.55598V5.03418H11.3999V9.4845C11.3999 14.0023 8.24774 17.9162 3.82886 18.8565C3.4331 18.9407 3.19526 18.9652 3.19526 18.9652L2.3999 17.0275C5.91374 15.2755 6.11606 11.5327 6.11606 11.5327Z"
+                        fill="#0564FF" />
+                    <path
+                        d="M16.3153 11.5327H13.7552V5.03418H21.6001V9.4845C21.6001 14.0023 18.4477 17.9162 14.0288 18.8565C13.6331 18.9407 13.3955 18.9652 13.3955 18.9652L12.6001 17.0275C16.1127 15.2755 16.3153 11.5327 16.3153 11.5327Z"
+                        fill="#0564FF" />
+                  </svg>
+                </div>
+                <div class="nxt-reviews__text">
+                  {{ block.settings.review_text }}
+                </div>
+              </div>
+              <div class="nxt-reviews__footer">
+                <div class="nxt-reviews__author">
+                  <div class="nxt-reviews__author-info">
+                    {% if block.settings.author_image != blank %}
+                      <img
+                        class="nxt-reviews__avatar"
+                        src="{{ block.settings.author_image | image_url: width: 48, height: 48 }}"
+                        width="48"
+                        height="48"
+                        alt="{{ block.settings.author_name }}"
+                      >
+                    {% else %}
+                      <img
+                        class="nxt-reviews__avatar"
+                        src="https://placehold.co/48x48"
+                        width="48"
+                        height="48"
+                        alt="{{ block.settings.author_name }}"
+                      >
+                    {% endif %}
+                    <div class="nxt-reviews__author-details">
+                      <div class="nxt-reviews__author-name">{{ block.settings.author_name }}</div>
+                      <div class="nxt-reviews__author-title">{{ block.settings.author_title }}</div>
+                      <div class="nxt-reviews__author-title">{{ block.settings.author_company }}</div>
+                    </div>
+                  </div>
+                  {% if block.settings.course_link_url != blank %}
+                    <a href="{{ block.settings.course_link_url }}" class="nxt-reviews__link">
+                      <div class="nxt-reviews__link-text">{{ block.settings.course_link_text }}</div>
+                      <div data-svg-wrapper style="position: relative">
+                        <svg
+                          width="9"
+                          height="8"
+                          viewBox="0 0 9 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M3.23511 6L5.23511 4L3.23511 2" stroke="#0564FF"
+                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                    </a>
+                  {% endif %}
+                </div>
+                <div class="nxt-reviews__rating">
+                  <div class="nxt-reviews__stars">
+                    {% for i in (1..block.settings.rating) %}
+                      <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M0.247559 18.6998H18.5326V0.429688H0.247559V18.6998Z"
+                            fill="#00B67A" />
+                        <path
+                            d="M15.835 8.20257L5.46399 15.7304L6.97733 11.0779L3.01587 8.20257H7.91243L9.42546 3.5498L10.9385 8.20257H15.835ZM9.42583 12.8553L12.2582 12.26L13.3867 15.7304L9.42583 12.8553Z"
+                            fill="white" />
+                      </svg>
+                    {% endfor %}
+                  </div>
+                  {% if block.settings.verified %}
+                    <div class="nxt-reviews__verified">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.22005 14.5597C11.0834 14.5597 14.2153 11.4279 14.2153 7.56454C14.2153 3.7012 11.0834 0.569336 7.22005 0.569336C3.35671 0.569336 0.224854 3.7012 0.224854 7.56454C0.224854 11.4279 3.35671 14.5597 7.22005 14.5597ZM6.31285 8.37799L9.42165 5.26921C9.66711 5.02385 10.065 5.02385 10.3102 5.26921C10.5558 5.51458 10.5558 5.9124 10.3102 6.15776L6.8404 9.6276C6.81606 9.66592 6.78717 9.70219 6.7537 9.73561C6.50841 9.98109 6.11047 9.98109 5.865 9.73561L3.92821 7.67477C3.68294 7.42927 3.68294 7.03159 3.92821 6.78609C4.17368 6.54072 4.57155 6.54072 4.81682 6.78609L6.31285 8.37799Z"
+                            fill="#131315" />
+                      </svg>
+                      <div class="nxt-reviews__verified-text">Verified</div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+  </div>
+  <div class="theme-container">
+    <div
+      class="swiper-pagination nxt-revies-slider-pagination dots-center swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+    ></div>
+  </div>
+</div>

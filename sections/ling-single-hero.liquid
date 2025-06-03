@@ -1,0 +1,551 @@
+{% schema %}
+{
+  "name": "Single Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Recommended size: 1920x800px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ling Single Hero Section",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/background.png"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+        .single-hero-section{
+          max-width: 100%;
+          padding: 0 10px;
+      }
+      .single-hero-section .srs-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #131315;
+      border-radius: 10px;
+      padding: 55px 66px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .single-hero-section .srs-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(19, 19, 21, 0.8);
+      z-index: 1;
+  }
+
+  .single-hero-section .left-content,
+  .single-hero-section .right-content {
+      position: relative;
+      z-index: 2;
+  }
+
+      /* Left Content Styles */
+      .content-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+      }
+
+      /* Right Content Styles */
+      .right-content {
+          flex: 1;
+          max-width: 522px;
+          margin-left: 40px;
+      }
+
+      .image-container {
+          width: 100%;
+          height: 323.30px;
+          position: relative;
+      }
+
+      .image-overlay {
+          width: calc(100% - 13.47px);
+          height: calc(100% - 13.47px);
+          position: absolute;
+          left: 13.47px;
+          top: 13.47px;
+          background: white;
+          border-radius: 10px;
+      }
+
+      .image-background,
+      .image-background-secondary {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 13px;
+          top: 13px;
+          background: #fff;
+          border-radius: 10px;
+      }
+
+      .hero-image {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          object-fit: cover;
+          border-radius: 10px;
+      }
+
+      /* Breadcrumb Section */
+      .breadcrumb-section {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+      }
+
+      .breadcrumb-items {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+      }
+
+      .breadcrumb-text {
+          color: white;
+          font-size: 18px;
+          font-family: Fustat;
+          font-weight: 400;
+          line-height: 28.8px;
+        text-decoration: none;
+      }
+
+
+      .breadcrumb-arrow {
+          width: 20px;
+          height: 20px;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .breadcrumb-arrow::after {
+          content: '';
+          width: 5px;
+          height: 10px;
+          position: absolute;
+          left: 7.5px;
+          top: 5px;
+          border-radius: 0.5px;
+          outline: 1.5px white solid;
+          outline-offset: -0.75px;
+      }
+
+      /* Program Info */
+      .program-info {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          align-items: flex-start;
+      }
+
+      .program-badge {
+          display: inline-flex;
+          padding: 4px 8px;
+          background: white;
+          border-radius: 30px;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .badge-text {
+          color: #131315;
+          font-size: 14px;
+          font-family: Fustat;
+          font-weight: 500;
+          line-height: 22.4px;
+      }
+
+      .program-title {
+          color: white;
+          font-size: 56px;
+          font-family: Fustat;
+          font-weight: 500;
+          line-height: 58.24px;
+      }
+
+      /* Program Description */
+      .program-description {
+          color: white;
+          font-size: 18px;
+          font-family: Fustat;
+          font-weight: 400;
+          line-height: 28.8px;
+      }
+
+      /* Program Meta */
+      .program-meta {
+          max-width: 377px;
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+      }
+
+      .meta-items {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          flex-wrap: wrap;
+      }
+
+      .rating {
+          height: 22px;
+          display: flex;
+          align-items: center;
+      }
+
+      .stars {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .star {
+          width: 16.78px;
+          height: 16px;
+          background: #FDC353;
+      }
+
+      .rating-count {
+          width: 35px;
+          color: white;
+          font-size: 14px;
+          font-family: Fustat;
+          font-weight: 500;
+          line-height: 22.4px;
+      }
+
+      .level, .duration {
+          height: 22px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .level-icon, .duration-icon {
+          width: 20px;
+          height: 20px;
+          position: relative;
+      }
+
+      .level-text, .duration-text {
+          color: white;
+          font-size: 14px;
+          font-family: Fustat;
+          font-weight: 500;
+          line-height: 22.4px;
+      }
+
+      .last-updated {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .calendar-icon {
+          width: 20px;
+          height: 20px;
+          position: relative;
+      }
+
+      .update-text {
+          color: white;
+          font-size: 14px;
+          font-family: Fustat;
+          font-weight: 500;
+          line-height: 22.4px;
+      }
+
+      /* Action Buttons */
+      .action-buttons {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          flex-wrap: wrap;
+      }
+
+      .enroll-button, .syllabus-button {
+          padding: 10px 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 5px;
+          transition: all 0.5s ease;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+      .enroll-button:hover, .syllabus-button:hover{
+          background-color: #d2d3d5;
+      }
+      .syllabus-button:hover .button-text{
+          color:#383A3D;
+      }
+      .enroll-button {
+          background: white;
+      }
+
+      .syllabus-button {
+          outline: 1px white solid;
+          outline-offset: -1px;
+      }
+
+      .button-text {
+          color: #383A3D;
+          font-size: 16px;
+          font-family: Fustat;
+          font-weight: 500;
+        line-height: normal;
+        text-decoration: none;
+      }
+
+      .syllabus-button .button-text {
+          color: white;
+      }
+
+      .arrow-icon {
+          width: 15px;
+          height: 15px;
+          position: relative;
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 1200px) {
+          .single-hero-section .srs-container {
+              padding: 40px;
+          }
+
+          .right-content {
+              max-width: 480px;
+          }
+      }
+      @media (min-width:993px){
+        .left-content{
+          width:50%;
+        }
+      }
+      @media screen and (max-width: 992px) {
+          .single-hero-section .srs-container {
+              flex-direction: column-reverse;
+              gap: 40px;
+
+          }
+
+          .right-content {
+              max-width: 100%;
+              margin-left: 0;
+          }
+
+          .image-container {
+              /* height: auto; */
+              aspect-ratio: 508/339;
+          }
+      }
+
+      @media screen and (max-width: 768px) {
+          .single-hero-section .srs-container {
+              padding: 30px 20px;
+          }
+
+          .image-container {
+              /* height: auto; */
+          }
+      }
+
+      @media screen and (max-width: 480px) {
+          .single-hero-section .srs-container {
+              padding: 20px 15px;
+          }
+        .action-buttons{
+          gap: 10px;
+        }
+        .enroll-button, .syllabus-button{
+          padding: 10px;
+        }
+      .program-title{
+        font-size: 40px;
+        line-height:46px;
+      }
+      }
+{% endstylesheet %}
+
+<section class="single-hero-section">
+  <div
+    class="srs-container"
+    style="{% if section.settings.background_image %}background-image: url('{{ section.settings.background_image | img_url: '1920x' }}');{% endif %}"
+  >
+    <div class="left-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb-section">
+          <div class="breadcrumb-items">
+            <a href="/" class="breadcrumb-text">All Programs</a>
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 15.5L11.7929 11.2071C12.1262 10.8738 12.2929 10.7071 12.2929 10.5C12.2929 10.2929 12.1262 10.1262 11.7929 9.79289L7.5 5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            {% if product.collections.first %}
+              <a href="{{ product.collections.first.url }}" class="breadcrumb-text">
+                {{- product.collections.first.title -}}
+              </a>
+              <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 15.5L11.7929 11.2071C12.1262 10.8738 12.2929 10.7071 12.2929 10.5C12.2929 10.2929 12.1262 10.1262 11.7929 9.79289L7.5 5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            {% endif %}
+
+            <div class="breadcrumb-text">{{ product.title }}</div>
+          </div>
+          <div class="program-info">
+            {% if product.tags.size > 0 %}
+              <div class="program-badge">
+                <div class="badge-text">{{ product.tags.first }}</div>
+              </div>
+            {% endif %}
+            <div class="program-title">{{ product.title }}</div>
+          </div>
+        </div>
+        <div class="program-description">
+          {{ product.description | strip_html | truncate: 200 }}
+        </div>
+        <div class="program-meta">
+          <div class="meta-items">
+            <div class="rating">
+              <div class="stars">
+                {% assign rating = product.metafields.custom.course_rating.value | default: 0 | plus: 0 %}
+                {% for i in (1..5) %}
+                  {% if i <= rating %}
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.49757 0.550632C7.87425 -0.19908 8.94151 -0.167842 9.2868 0.550632L11.3585 4.70529L15.9415 5.36128C16.7576 5.48624 17.0715 6.48585 16.4751 7.07937L13.1792 10.2969L13.9639 14.8264C14.0895 15.6386 13.2105 16.2633 12.4886 15.8885L8.40788 13.7331L4.29579 15.8885C3.57383 16.2633 2.69491 15.6386 2.82047 14.8264L3.60522 10.2969L0.30927 7.07937C-0.28714 6.48585 0.02676 5.48624 0.842899 5.36128L5.45722 4.70529L7.49757 0.550632Z" fill="#FDC353"/>
+                    </svg>
+                  {% else %}
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.49757 0.550632C7.87425 -0.19908 8.94151 -0.167842 9.2868 0.550632L11.3585 4.70529L15.9415 5.36128C16.7576 5.48624 17.0715 6.48585 16.4751 7.07937L13.1792 10.2969L13.9639 14.8264C14.0895 15.6386 13.2105 16.2633 12.4886 15.8885L8.40788 13.7331L4.29579 15.8885C3.57383 16.2633 2.69491 15.6386 2.82047 14.8264L3.60522 10.2969L0.30927 7.07937C-0.28714 6.48585 0.02676 5.48624 0.842899 5.36128L5.45722 4.70529L7.49757 0.550632Z" fill="#D9D9D9"/>
+                    </svg>
+                  {% endif %}
+                {% endfor %}
+                <div class="rating-count">({{ product.metafields.custom.rating_count.value | default: '0' }})</div>
+              </div>
+            </div>
+            <div class="level">
+              <div class="level-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9995 3C15.5299 3 16.0387 3.21071 16.4137 3.58579C16.7888 3.96086 16.9995 4.46957 16.9995 5V15C16.9995 15.5304 16.7888 16.0391 16.4137 16.4142C16.0387 16.7893 15.5299 17 14.9995 17C14.4691 17 13.9604 16.7893 13.5853 16.4142C13.2102 16.0391 12.9995 15.5304 12.9995 15V5C12.9995 4.46957 13.2102 3.96086 13.5853 3.58579C13.9604 3.21071 14.4691 3 14.9995 3ZM15.9995 5C15.9995 4.73478 15.8942 4.48043 15.7066 4.29289C15.5191 4.10536 15.2647 4 14.9995 4C14.7343 4 14.4799 4.10536 14.2924 4.29289C14.1049 4.48043 13.9995 4.73478 13.9995 5V15C13.9995 15.2652 14.1049 15.5196 14.2924 15.7071C14.4799 15.8946 14.7343 16 14.9995 16C15.2647 16 15.5191 15.8946 15.7066 15.7071C15.8942 15.5196 15.9995 15.2652 15.9995 15V5ZM11.9995 8C11.9995 7.46957 11.7888 6.96086 11.4137 6.58579C11.0387 6.21071 10.5299 6 9.99951 6C9.46908 6 8.96037 6.21071 8.5853 6.58579C8.21023 6.96086 7.99951 7.46957 7.99951 8V15C7.99951 15.5304 8.21023 16.0391 8.5853 16.4142C8.96037 16.7893 9.46908 17 9.99951 17C10.5299 17 11.0387 16.7893 11.4137 16.4142C11.7888 16.0391 11.9995 15.5304 11.9995 15V8ZM9.99951 7C10.2647 7 10.5191 7.10536 10.7066 7.29289C10.8942 7.48043 10.9995 7.73478 10.9995 8V15C10.9995 15.2652 10.8942 15.5196 10.7066 15.7071C10.5191 15.8946 10.2647 16 9.99951 16C9.7343 16 9.47994 15.8946 9.29241 15.7071C9.10487 15.5196 8.99951 15.2652 8.99951 15V8C8.99951 7.73478 9.10487 7.48043 9.29241 7.29289C9.47994 7.10536 9.7343 7 9.99951 7ZM6.99951 11C6.99951 10.4696 6.7888 9.96086 6.41373 9.58579C6.03865 9.21071 5.52995 9 4.99951 9C4.46908 9 3.96037 9.21071 3.5853 9.58579C3.21023 9.96086 2.99951 10.4696 2.99951 11V15C2.99951 15.5304 3.21023 16.0391 3.5853 16.4142C3.96037 16.7893 4.46908 17 4.99951 17C5.52995 17 6.03865 16.7893 6.41373 16.4142C6.7888 16.0391 6.99951 15.5304 6.99951 15V11ZM4.99951 10C5.26473 10 5.51908 10.1054 5.70662 10.2929C5.89416 10.4804 5.99951 10.7348 5.99951 11V15C5.99951 15.2652 5.89416 15.5196 5.70662 15.7071C5.51908 15.8946 5.26473 16 4.99951 16C4.7343 16 4.47994 15.8946 4.29241 15.7071C4.10487 15.5196 3.99951 15.2652 3.99951 15V11C3.99951 10.7348 4.10487 10.4804 4.29241 10.2929C4.47994 10.1054 4.7343 10 4.99951 10Z" fill="white"/>
+                </svg>
+              </div>
+              <div class="level-text">{{ product.type | default: 'Intermediate' }}</div>
+            </div>
+            <div class="duration">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.99902 5V10H13.749M17.499 10C17.499 14.1421 14.1412 17.5 9.99902 17.5C5.85689 17.5 2.49902 14.1421 2.49902 10C2.49902 5.85786 5.85689 2.5 9.99902 2.5C14.1412 2.5 17.499 5.85786 17.499 10Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="duration-text">
+                {{ product.metafields.custom.course_duration.value | default: '40 hours' }}
+              </div>
+            </div>
+          </div>
+          <div class="last-updated">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.9788 11.1559V9.9918C16.9788 6.13516 13.8444 3.00782 9.97881 3.00782C8.92721 3.00652 7.88887 3.24244 6.94108 3.69801C5.99328 4.15358 5.16046 4.81706 4.50459 5.63907M2.99951 8.84219V10.0063C2.99951 13.8672 6.13232 16.9922 9.99951 16.9922C11.0481 16.9907 12.0831 16.7552 13.0292 16.303C13.9753 15.8508 14.8085 15.1932 15.4683 14.3781" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square"/>
+              <path d="M1.25 10L2.96875 8.28125L4.76562 10M18.75 10L17.0312 11.7188L15.2344 10" stroke="white" stroke-miterlimit="10" stroke-linecap="square"/>
+            </svg>
+            <div class="update-text">
+              {{ product.metafields.custom.last_update.value | default: 'February 26, 2025' }}
+            </div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button
+            type="button"
+            class="enroll-button"
+            onclick="location.href='/cart/add?id={{ product.selected_or_first_available_variant.id }}&quantity=1'"
+          >
+            <div class="button-text">Enroll Now</div>
+            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.71 8.23047H0" stroke="#383A3D"/>
+              <path d="M6.84961 1.36914C8.38961 4.04914 13.7096 8.22914 13.7096 8.22914C13.7096 8.22914 8.38961 12.4091 6.84961 15.0891" stroke="#383A3D"/>
+            </svg>
+          </button>
+          {% if product.metafields.custom.course_syllabus.value %}
+            <a href="{{ product.metafields.custom.course_syllabus.value | file_url }}" download class="syllabus-button">
+              <div class="button-text">Download syllabus</div>
+            </a>
+          {% else %}
+            <div class="syllabus-button">
+              <div class="button-text">Download syllabus</div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="image-container">
+        <div class="image-overlay"></div>
+        <div class="image-background"></div>
+        <div class="image-background-secondary"></div>
+        <img class="hero-image" src="{{ product.featured_image | img_url: '800x' }}" alt="{{ product.title }}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  <script>
+    async function addToCart(variantId) {
+      try {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            items: [{
+              id: variantId,
+              quantity: 1
+            }]
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add to cart');
+        }
+
+        // Optional: Update cart count in header
+        const cartResponse = await fetch('/cart.json');
+        const cartData = await cartResponse.json();
+        document.querySelectorAll('.cart-count').forEach(el => {
+          el.textContent = cartData.item_count;
+        });
+
+        // Redirect to cart
+        window.location.href = '/cart';
+
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Could not add item to cart. Please try again.');
+      }
+    }
+  </script>
+-->

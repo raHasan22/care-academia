@@ -1,0 +1,114 @@
+.nxt-hero__area .nxt-hero__container {
+  max-width: 1399px;
+  width: 100%;
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 75px 15px 198px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.nxt-hero__content {
+  max-width: 540px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+.nxt-hero__heading {
+  font-family: "Fustat", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 64px;
+  color: #fff;
+  margin: 0 0 15px;
+}
+.nxt-hero__featured-texts {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.nxt-hero__featured-text {
+  font-family: "Fustat", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: normal;
+  text-align: center;
+  color: #fff;
+}
+.nxt-hero__buttons {
+  margin-top: 30px;
+}
+.nxt-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 46px;
+  border-radius: 5px;
+  background: #fff;
+  color: #383a3d;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  gap: 8px;
+  font-family: "Fustat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid #fff;
+}
+.nxt-hero__btn:hover {
+  background: transparent;
+  color: #fff;
+}
+.nxt-hero__btn:hover svg {
+  width: 16px;
+  height: 16px;
+}
+.nxt-hero__btn:hover svg path {
+  stroke: #fff;
+}
+/* Tablet (≥ 768px) */
+@media (max-width: 1024px) {
+  .nxt-hero__area .nxt-hero__container {
+    padding: 60px 15px 120px;
+    max-width: 90vw;
+  }
+}
+/* Mobile (≤ 767px) */
+@media (max-width: 767px) {
+  .nxt-hero__area .nxt-hero__container {
+    padding: 32px 15px 80px;
+    max-width: 100vw;
+  }
+  .nxt-hero__content {
+    max-width: 100vw;
+  }
+  .nxt-hero__heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .nxt-hero__featured-text {
+    font-size: 14px;
+  }
+  .nxt-hero__btn {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+  .nxt-hero__btn:hover svg {
+    width: 14px;
+    height: 14px;
+  }
+  .nxt-hero__buttons {
+    margin-top: 20px;
+  }
+  .nxt-hero__featured-texts {
+    list-style-position: inside;
+  }
+}
+@media (min-width: 768px) {
+  .nxt-hero__area .nxt-hero__container {
+    min-height: 600px;
+  }
+}

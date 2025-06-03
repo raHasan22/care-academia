@@ -1,0 +1,234 @@
+{% schema %}
+{
+  "name": "Program Details Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title_override",
+      "label": "Title Override",
+      "info": "Leave blank to use product title"
+    },
+    {
+      "type": "richtext",
+      "id": "description_override",
+      "label": "Description Override",
+      "info": "Leave blank to use product description"
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "range",
+      "id": "top_margin",
+      "label": "Top Margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title Font Size",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description Font Size",
+      "min": 14,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 25
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ling Program Details",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .single-program-details {
+      max-width: 100%;
+      padding: 0 10px;
+      margin-top: {{ section.settings.top_margin }}px;
+  }
+
+  .single-program-details .srs-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 20px;
+  }
+
+  .details-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 34.21px;
+      width: 100%;
+  }
+
+  .details-content {
+      display: flex;
+      flex-direction: column;
+      gap: 34.21px;
+      width: 100%;
+  }
+
+  .details-header {
+      display: flex;
+      flex-direction: column;
+      gap: 22.81px;
+      width: 100%;
+  }
+  .details-description p{
+    margin: 0;
+  }
+  .details-title {
+      color: #131315;
+      font-size: {{ section.settings.title_size }}px;
+      font-family: Fustat;
+      font-weight: 500;
+      line-height: 1.04;
+      margin: 0;
+  }
+
+  .details-description {
+      color: #313135;
+      font-size: {{ section.settings.description_size }}px;
+      font-family: Fustat;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 1300px;
+      width: 100%;
+  }
+
+  /* Responsive Styles for Program Details */
+  @media screen and (max-width: 1200px) {
+      .details-title {
+          font-size: calc({{ section.settings.title_size }}px * 0.875);
+      }
+
+      .details-description {
+          font-size: calc({{ section.settings.description_size }}px * 0.875);
+      }
+  }
+
+  @media screen and (max-width: 992px) {
+      .single-program-details {
+          margin-top: 40px;
+      }
+
+      .details-title {
+          font-size: calc({{ section.settings.title_size }}px * 0.75);
+      }
+
+      .details-description {
+          font-size: calc({{ section.settings.description_size }}px * 0.75);
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+      .single-program-details {
+          margin-top: 30px;
+      }
+
+      .single-program-details .srs-container {
+          padding: 0 15px;
+      }
+
+      .details-wrapper {
+          gap: 25px;
+      }
+
+      .details-content {
+          gap: 25px;
+      }
+
+      .details-title {
+          font-size: calc({{ section.settings.title_size }}px * 0.66);
+      }
+
+      .details-description {
+          font-size: calc({{ section.settings.description_size }}px * 0.66);
+      }
+  }
+
+  @media screen and (max-width: 480px) {
+      .single-program-details {
+          margin-top: 20px;
+      }
+
+      .single-program-details .srs-container {
+          padding: 0 10px;
+      }
+
+      .details-wrapper {
+          gap: 20px;
+      }
+
+      .details-content {
+          gap: 20px;
+      }
+
+      .details-title {
+          font-size: calc({{ section.settings.title_size }}px * 0.58);
+      }
+
+      .details-description {
+          font-size: calc({{ section.settings.description_size }}px * 0.58);
+      }
+  }
+</style>
+
+{% if section.settings.show_section %}
+  <section class="single-program-details">
+    <div class="srs-container">
+      <div class="details-wrapper">
+        <div class="details-content">
+          <div class="details-header">
+            <h1 class="details-title">
+              {% if section.settings.title_override != blank %}
+                {{ section.settings.title_override }}
+              {% elsif product.metafields.custom.program_details_title.value != blank %}
+                {{ product.metafields.custom.program_details_title.value }}
+              {% else %}
+                About {{ product.title }}
+              {% endif %}
+            </h1>
+          </div>
+        </div>
+        <div class="details-description">
+          {% if section.settings.description_override != blank %}
+            {{ section.settings.description_override }}
+          {% elsif product.metafields.custom.program_details_description.value != blank %}
+            {{ product.metafields.custom.program_details_description | metafield_tag }}
+
+          {% else %}
+            {{ product.description }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

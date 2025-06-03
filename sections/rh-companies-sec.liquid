@@ -1,0 +1,371 @@
+<section class="rh-companies-sec">
+      <div class="container-rh">
+        <div class="companies-wrapper">
+          <h2 class="sec-title">{{ section.settings.title }}</h2>
+          <div class="companies-grid">
+            <div class="companies-row">
+              {% for block in section.blocks %}
+                <div class="company-item" {{ block.shopify_attributes }}>
+                  <div class="company-logo">
+                    {% if block.settings.company_logo %}
+                      <img 
+                        src="{{ block.settings.company_logo | img_url: '150x' }}"
+                        alt="{{ block.settings.company_name | escape }}"
+                        loading="lazy"
+                        width="150"
+                        height="66"
+                      >
+                    {% else %}
+                      <img src="https://placehold.co/150x66" alt="Company logo placeholder" />
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% style %}
+/* Companies Section Styles */
+.rh-companies-sec {
+    padding: {{ section.settings.section_padding }}px 20px;
+    background-color: {{ section.settings.background_color }};
+}
+
+.rh-companies-sec .container-rh {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+}
+
+.rh-companies-sec .companies-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: {{ section.settings.vertical_gap }}px;
+}
+
+.rh-companies-sec .sec-title {
+    text-align: center;
+    color: {{ section.settings.title_color }};
+    font-size: clamp(28px, 4vw, {{ section.settings.title_size }}px);
+    font-family: "Fustat", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 {{ section.settings.title_bottom_margin }}px;
+}
+
+.rh-companies-sec .companies-grid {
+    width: 100%;
+}
+
+.rh-companies-sec .companies-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: {{ section.settings.logo_gap }}px;
+    flex-wrap: wrap;
+}
+
+.rh-companies-sec .company-item {
+    width: {{ section.settings.logo_width }}px;
+    overflow: hidden;
+}
+
+.rh-companies-sec .company-logo {
+    width: 100%;
+    height: {{ section.settings.logo_height }}px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rh-companies-sec .company-logo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 1400px) {
+    .rh-companies-sec .container-rh {
+        max-width: 1170px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .rh-companies-sec .container-rh {
+        max-width: 960px;
+    }
+    
+    .rh-companies-sec .companies-row {
+        gap: {{ section.settings.logo_gap_tablet }}px;
+    }
+
+    .rh-companies-sec .company-item {
+        width: {{ section.settings.logo_width_tablet }}px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rh-companies-sec .container-rh {
+        max-width: 720px;
+    }
+    
+    .rh-companies-sec .company-logo {
+        height: {{ section.settings.logo_height_tablet }}px;
+    }
+}
+
+@media (max-width: 767px) {
+    .rh-companies-sec {
+        padding: {{ section.settings.section_padding_mobile }}px 20px;
+    }
+
+    .rh-companies-sec .container-rh {
+        max-width: 540px;
+    }
+
+    .rh-companies-sec .companies-row {
+        gap: {{ section.settings.logo_gap_mobile }}px;
+    }
+
+    .rh-companies-sec .company-item {
+        width: {{ section.settings.logo_width_mobile }}px;
+    }
+
+    .rh-companies-sec .company-logo {
+        height: {{ section.settings.logo_height_mobile }}px;
+    }
+}
+
+@media (max-width: 575px) {
+    .rh-companies-sec .company-item {
+        width: calc((100% - {{ section.settings.logo_gap_mobile }}px * 2) / 3);
+    }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "RH Companies Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Lingoda in the press"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#eff0f0"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#131315"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "label": "Container Width",
+      "default": 1310
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Section Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Padding (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "vertical_gap",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Vertical Gap",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "title_bottom_margin",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Title Bottom Margin",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 100,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width (Desktop)",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 40,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo Height (Desktop)",
+      "default": 66
+    },
+    {
+      "type": "range",
+      "id": "logo_gap",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo Gap (Desktop)",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "logo_width_tablet",
+      "min": 80,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width (Tablet)",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "logo_height_tablet",
+      "min": 30,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Height (Tablet)",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "logo_gap_tablet",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Gap (Tablet)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "min": 60,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width (Mobile)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "logo_height_mobile",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Height (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "logo_gap_mobile",
+      "min": 10,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Gap (Mobile)",
+      "default": 15
+    }
+  ],
+  "blocks": [
+    {
+      "type": "company",
+      "name": "Company",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "company_logo",
+          "label": "Company Logo"
+        },
+        {
+          "type": "text",
+          "id": "company_name",
+          "label": "Company Name (Alt Text)",
+          "default": "Company Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Companies Section",
+      "blocks": [
+        {
+          "type": "company"
+        },
+        {
+          "type": "company"
+        },
+        {
+          "type": "company"
+        },
+        {
+          "type": "company"
+        },
+        {
+          "type": "company"
+        },
+        {
+          "type": "company"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30
+}
+{% endschema %}

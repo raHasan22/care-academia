@@ -25,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -37,6 +38,7 @@
     },
     "header": {
       "type": "header",
+      "disabled": true,
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
@@ -53,10 +55,22 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "ling_header_pChigp": {
+      "type": "ling-header",
+      "name": "Ling Header",
+      "settings": {
+        "logo_image": "shopify://shop_images/logo_1.png",
+        "logo_text": "logo",
+        "main_menu": "main-menu",
+        "get_started_text": "Get Started",
+        "get_started_link": "shopify://collections"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "ling_header_pChigp"
   ]
 }
