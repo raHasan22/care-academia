@@ -63,6 +63,28 @@
     },
     {
       "type": "header",
+      "content": "Authentication Buttons"
+    },
+    {
+      "type": "text",
+      "id": "signin_text",
+      "label": "Sign In Button Text",
+      "default": "Sign in"
+    },
+    {
+      "type": "url",
+      "id": "signin_link",
+      "label": "Sign In Link",
+      "default": "/account/login"
+    },
+    {
+      "type": "text",
+      "id": "view_plans_text",
+      "label": "View Plans Button Text",
+      "default": "View Plans"
+    },
+    {
+      "type": "header",
       "content": "Styling"
     },
     {
@@ -130,7 +152,7 @@
     {
       "type": "cta_button",
       "name": "CTA Button",
-      "limit": 3,
+      "limit": 2,
       "settings": [
         {
           "type": "text",
@@ -164,6 +186,35 @@
           "default": "text"
         }
       ]
+    },
+    {
+      "type": "plan_option",
+      "name": "Plan Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "plan_name",
+          "label": "Plan Name",
+          "default": "Individual Plan"
+        },
+        {
+          "type": "text",
+          "id": "plan_price",
+          "label": "Plan Price",
+          "default": "$29/month"
+        },
+        {
+          "type": "textarea",
+          "id": "plan_description",
+          "label": "Plan Description",
+          "default": "Perfect for individual learners"
+        },
+        {
+          "type": "url",
+          "id": "plan_link",
+          "label": "Plan Link"
+        }
+      ]
     }
   ],
   "presets": [
@@ -178,17 +229,27 @@
           }
         },
         {
-          "type": "cta_button",
+          "type": "plan_option",
           "settings": {
-            "button_text": "Sign in",
-            "button_style": "text"
+            "plan_name": "Individual Plan",
+            "plan_price": "$29/month",
+            "plan_description": "Perfect for individual learners"
           }
         },
         {
-          "type": "cta_button",
+          "type": "plan_option",
           "settings": {
-            "button_text": "View Plans",
-            "button_style": "primary"
+            "plan_name": "Business Plan",
+            "plan_price": "$99/month",
+            "plan_description": "For teams and organizations"
+          }
+        },
+        {
+          "type": "plan_option",
+          "settings": {
+            "plan_name": "Enterprise Plan",
+            "plan_price": "Custom",
+            "plan_description": "Scalable solutions for large organizations"
           }
         }
       ]
@@ -216,13 +277,13 @@
 }
 
 .rh-header-container {
-  max-width: 1432px;
+  max-width: 1441px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 80px;
-  gap: 40px;
 }
 
 /* Logo Styles */
@@ -250,18 +311,23 @@
   line-height: 1;
 }
 
-/* Navigation Styles - Left Aligned */
+/* Navigation Styles - Left Section */
+.rh-nav-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 40px;
+}
+
 .rh-nav {
   display: flex;
   align-items: center;
-  gap: 40px;
-  flex-shrink: 0;
 }
 
 .rh-nav-menu {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -402,11 +468,11 @@
   height: 20px;
 }
 
-/* Header Actions */
+/* Header Actions - Right Section */
 .rh-header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
@@ -456,6 +522,141 @@
   color: {{ section.settings.text_color }};
   background: {{ section.settings.link_hover_color }};
   border-radius: 8px;
+}
+
+/* Authentication Buttons */
+.rh-auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(34, 40, 117, 0.15);
+}
+
+.rh-signin-btn {
+  color: {{ section.settings.text_color }};
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: normal;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.rh-signin-btn:hover {
+  color: {{ section.settings.text_color }};
+  background: {{ section.settings.link_hover_color }};
+  border-radius: 8px;
+}
+
+/* View Plans Dropdown */
+.rh-plans-dropdown {
+  position: relative;
+}
+
+.rh-plans-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: {{ section.settings.text_color }};
+  color: white;
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: normal;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.rh-plans-btn:hover {
+  background: rgba(34, 40, 117, 0.9);
+  color: white;
+}
+
+.rh-plans-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.rh-plans-dropdown.active .rh-plans-btn svg {
+  transform: rotate(180deg);
+}
+
+.rh-plans-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 8px;
+}
+
+.rh-plans-dropdown.active .rh-plans-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.rh-plan-item {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  border: 1px solid #f0f0f0;
+}
+
+.rh-plan-item:last-child {
+  margin-bottom: 0;
+}
+
+.rh-plan-item:hover {
+  background: {{ section.settings.link_hover_color }};
+  border-color: {{ section.settings.text_color }};
+}
+
+.rh-plan-name {
+  font-family: "Ghost Trial", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: normal;
+  color: {{ section.settings.text_color }};
+  margin-bottom: 4px;
+}
+
+.rh-plan-price {
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: normal;
+  color: {{ section.settings.text_color }};
+  margin-bottom: 8px;
+}
+
+.rh-plan-description {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: normal;
+  color: #666;
+  line-height: 1.4;
 }
 
 /* Mobile Menu */
@@ -623,7 +824,7 @@
 
 /* Responsive Design */
 @media (max-width: 991px) {
-  .rh-nav {
+  .rh-nav-section {
     display: none;
   }
 
@@ -635,17 +836,14 @@
     display: flex;
   }
 
-  .rh-header-actions .rh-cta-buttons {
+  .rh-header-actions .rh-cta-buttons,
+  .rh-auth-buttons {
     display: none;
   }
 
   .rh-logo-text {
     font-size: 24px;
     letter-spacing: normal;
-  }
-
-  .rh-header-container {
-    gap: 20px;
   }
 }
 
@@ -677,6 +875,10 @@
   .rh-search-container {
     max-width: 300px;
   }
+
+  .rh-header-actions {
+    gap: 16px;
+  }
 }
 </style>
 
@@ -704,6 +906,24 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = '';
     });
   }
+
+  // Plans dropdown toggle
+  const plansDropdown = document.querySelector('.rh-plans-dropdown');
+  const plansBtn = document.querySelector('.rh-plans-btn');
+  
+  if (plansBtn) {
+    plansBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      plansDropdown.classList.toggle('active');
+    });
+  }
+
+  // Close plans dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (plansDropdown && !plansDropdown.contains(e.target)) {
+      plansDropdown.classList.remove('active');
+    }
+  });
   
   // Sticky header scroll effect
   {% if section.settings.sticky_header %}
@@ -731,49 +951,52 @@ document.addEventListener('DOMContentLoaded', function() {
       {% endif %}
     </a>
 
-    <!-- Desktop Navigation - Left Aligned -->
-    <nav class="rh-nav">
-      {% if section.settings.main_menu != blank %}
-        <ul class="rh-nav-menu">
-          {% for link in section.settings.main_menu.links %}
-            <li class="rh-nav-item">
-              <a href="{{ link.url }}" class="rh-nav-link">{{ link.title }}</a>
-              {% if link.links != blank %}
-                <ul class="rh-dropdown">
-                  {% for child_link in link.links %}
-                    <li>
-                      <a href="{{ child_link.url }}" class="rh-dropdown-link">{{ child_link.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
+    <!-- Navigation Section (Left) -->
+    <div class="rh-nav-section">
+      <!-- Desktop Navigation -->
+      <nav class="rh-nav">
+        {% if section.settings.main_menu != blank %}
+          <ul class="rh-nav-menu">
+            {% for link in section.settings.main_menu.links %}
+              <li class="rh-nav-item">
+                <a href="{{ link.url }}" class="rh-nav-link">{{ link.title }}</a>
+                {% if link.links != blank %}
+                  <ul class="rh-dropdown">
+                    {% for child_link in link.links %}
+                      <li>
+                        <a href="{{ child_link.url }}" class="rh-dropdown-link">{{ child_link.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </nav>
+
+      <!-- Search Field -->
+      {% if section.settings.show_search_field %}
+        <div class="rh-search-container">
+          <form action="{{ routes.search_url }}" method="get" class="rh-search-form">
+            <input 
+              type="search" 
+              name="q" 
+              placeholder="{{ section.settings.search_placeholder }}" 
+              class="rh-search-input" 
+              autocomplete="off"
+            >
+            <button type="submit" class="rh-search-submit" aria-label="Search">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
       {% endif %}
-    </nav>
+    </div>
 
-    <!-- Search Field -->
-    {% if section.settings.show_search_field %}
-      <div class="rh-search-container">
-        <form action="{{ routes.search_url }}" method="get" class="rh-search-form">
-          <input 
-            type="search" 
-            name="q" 
-            placeholder="{{ section.settings.search_placeholder }}" 
-            class="rh-search-input" 
-            autocomplete="off"
-          >
-          <button type="submit" class="rh-search-submit" aria-label="Search">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </form>
-      </div>
-    {% endif %}
-
-    <!-- Header Actions -->
+    <!-- Header Actions (Right) -->
     <div class="rh-header-actions">
       <!-- CTA Buttons -->
       {% if section.blocks.size > 0 %}
@@ -798,8 +1021,40 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       {% endif %}
 
-      <!-- Account Icon -->
-      {% if section.settings.show_account %}
+      <!-- Authentication Buttons (Separated with border) -->
+      <div class="rh-auth-buttons">
+        <!-- Sign In Button (only show if user is not logged in) -->
+        {% unless customer %}
+          <a href="{{ section.settings.signin_link }}" class="rh-signin-btn">
+            {{ section.settings.signin_text }}
+          </a>
+        {% endunless %}
+
+        <!-- View Plans Dropdown -->
+        {% assign plan_blocks = section.blocks | where: 'type', 'plan_option' %}
+        {% if plan_blocks.size > 0 %}
+          <div class="rh-plans-dropdown">
+            <button class="rh-plans-btn">
+              {{ section.settings.view_plans_text }}
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="rh-plans-menu">
+              {% for block in plan_blocks %}
+                <a href="{{ block.settings.plan_link | default: '#' }}" class="rh-plan-item">
+                  <div class="rh-plan-name">{{ block.settings.plan_name }}</div>
+                  <div class="rh-plan-price">{{ block.settings.plan_price }}</div>
+                  <div class="rh-plan-description">{{ block.settings.plan_description }}</div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Account Icon (only show if user is logged in) -->
+      {% if customer and section.settings.show_account %}
         <a href="{{ routes.account_url }}" class="rh-header-icon">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -816,7 +1071,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #222875; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">{{ cart.item_count }}</span>
+          {% if cart.item_count > 0 %}
+            <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #222875; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">{{ cart.item_count }}</span>
+          {% endif %}
         </a>
       {% endif %}
 
@@ -863,6 +1120,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Mobile Actions -->
     <div class="rh-mobile-actions">
+      <!-- Sign In Button for Mobile -->
+      {% unless customer %}
+        <a href="{{ section.settings.signin_link }}" 
+           class="secondary-button-ca"
+           style="width: 100%; text-align: center; margin-bottom: 12px;">
+          {{ section.settings.signin_text }}
+        </a>
+      {% endunless %}
+
+      <!-- View Plans for Mobile -->
+      {% assign plan_blocks = section.blocks | where: 'type', 'plan_option' %}
+      {% if plan_blocks.size > 0 %}
+        <a href="#" 
+           class="primary-button-ca"
+           style="width: 100%; text-align: center; margin-bottom: 12px;">
+          {{ section.settings.view_plans_text }}
+        </a>
+      {% endif %}
+
+      <!-- Other CTA Buttons -->
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'cta_button' %}
