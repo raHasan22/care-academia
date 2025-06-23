@@ -53,45 +53,10 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "rh_header_nwnPGk": {
-      "type": "rh-header",
-      "blocks": {
-        "cta_button_dap4KL": {
-          "type": "cta_button",
-          "settings": {
-            "button_text": "Get Started",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "cta_button_dap4KL"
-      ],
-      "name": "RH Header",
-      "settings": {
-        "logo_text": "Care Academia",
-        "logo_width": 140,
-        "main_menu": "main-menu",
-        "show_search": true,
-        "show_cart": true,
-        "show_account": true,
-        "header_bg": "#ffffff",
-        "text_color": "#222875",
-        "link_hover_color": "#CBEFFF",
-        "sticky_header": true,
-        "show_border": true,
-        "mobile_menu_bg": "#222875",
-        "mobile_menu_text": "#ffffff",
-        "phone_number": "",
-        "email": ""
-      }
     }
   },
   "order": [
     "announcement-bar",
-    "header",
-    "rh_header_nwnPGk"
+    "header"
   ]
 }
