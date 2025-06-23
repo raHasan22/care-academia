@@ -39,9 +39,15 @@
     },
     {
       "type": "checkbox",
-      "id": "show_search",
-      "label": "Show Search Icon",
+      "id": "show_search_field",
+      "label": "Show Search Field",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search Placeholder Text",
+      "default": "what do you want to learn today?"
     },
     {
       "type": "checkbox",
@@ -124,13 +130,13 @@
     {
       "type": "cta_button",
       "name": "CTA Button",
-      "limit": 2,
+      "limit": 3,
       "settings": [
         {
           "type": "text",
           "id": "button_text",
           "label": "Button Text",
-          "default": "Get Started"
+          "default": "Contact Sales"
         },
         {
           "type": "url",
@@ -149,9 +155,13 @@
             {
               "value": "secondary",
               "label": "Secondary"
+            },
+            {
+              "value": "text",
+              "label": "Text Link"
             }
           ],
-          "default": "primary"
+          "default": "text"
         }
       ]
     }
@@ -161,7 +171,25 @@
       "name": "RH Header",
       "blocks": [
         {
-          "type": "cta_button"
+          "type": "cta_button",
+          "settings": {
+            "button_text": "Contact Sales",
+            "button_style": "text"
+          }
+        },
+        {
+          "type": "cta_button",
+          "settings": {
+            "button_text": "Sign in",
+            "button_style": "text"
+          }
+        },
+        {
+          "type": "cta_button",
+          "settings": {
+            "button_text": "View Plans",
+            "button_style": "primary"
+          }
         }
       ]
     }
@@ -193,8 +221,8 @@
   padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 80px;
+  gap: 40px;
 }
 
 /* Logo Styles */
@@ -202,6 +230,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
   z-index: 10;
 }
 
@@ -221,11 +250,12 @@
   line-height: 1;
 }
 
-/* Navigation Styles */
+/* Navigation Styles - Left Aligned */
 .rh-nav {
   display: flex;
   align-items: center;
   gap: 40px;
+  flex-shrink: 0;
 }
 
 .rh-nav-menu {
@@ -252,6 +282,7 @@
   padding: 8px 0;
   position: relative;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .rh-nav-link:hover {
@@ -313,11 +344,70 @@
   color: {{ section.settings.text_color }};
 }
 
+/* Search Field Styles */
+.rh-search-container {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 20px;
+}
+
+.rh-search-form {
+  position: relative;
+  width: 100%;
+}
+
+.rh-search-input {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  border: 1px solid #E0E0E0;
+  border-radius: 24px;
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  letter-spacing: normal;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #F8F9FA;
+}
+
+.rh-search-input:focus {
+  border-color: {{ section.settings.text_color }};
+  background: white;
+  box-shadow: 0 0 0 3px rgba(34, 40, 117, 0.1);
+}
+
+.rh-search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.rh-search-submit {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.rh-search-submit:hover {
+  color: {{ section.settings.text_color }};
+}
+
+.rh-search-submit svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* Header Actions */
 .rh-header-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .rh-header-icon {
@@ -346,8 +436,26 @@
 /* CTA Buttons */
 .rh-cta-buttons {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
+}
+
+.rh-text-link {
+  color: {{ section.settings.text_color }};
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: normal;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.rh-text-link:hover {
+  color: {{ section.settings.text_color }};
+  background: {{ section.settings.link_hover_color }};
+  border-radius: 8px;
 }
 
 /* Mobile Menu */
@@ -471,9 +579,55 @@
   height: 20px;
 }
 
+.rh-mobile-search {
+  margin-bottom: 30px;
+}
+
+.rh-mobile-search-form {
+  position: relative;
+}
+
+.rh-mobile-search-input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: {{ section.settings.mobile_menu_text }};
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  letter-spacing: normal;
+  outline: none;
+}
+
+.rh-mobile-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rh-mobile-search-submit {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: {{ section.settings.mobile_menu_text }};
+  padding: 8px;
+  cursor: pointer;
+}
+
+.rh-mobile-search-submit svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* Responsive Design */
 @media (max-width: 991px) {
   .rh-nav {
+    display: none;
+  }
+
+  .rh-search-container {
     display: none;
   }
 
@@ -488,6 +642,10 @@
   .rh-logo-text {
     font-size: 24px;
     letter-spacing: normal;
+  }
+
+  .rh-header-container {
+    gap: 20px;
   }
 }
 
@@ -511,74 +669,14 @@
   }
 }
 
-/* Search Modal Styles */
-.rh-search-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 10vh;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 2000;
-}
+@media (max-width: 1200px) {
+  .rh-nav-menu {
+    gap: 24px;
+  }
 
-.rh-search-modal.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.rh-search-content {
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
-  width: 90%;
-  max-width: 600px;
-  transform: translateY(-20px);
-  transition: transform 0.3s ease;
-}
-
-.rh-search-modal.active .rh-search-content {
-  transform: translateY(0);
-}
-
-.rh-search-form {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.rh-search-input {
-  flex: 1;
-  padding: 16px 20px;
-  border: 2px solid #eee;
-  border-radius: 8px;
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  letter-spacing: normal;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.rh-search-input:focus {
-  border-color: {{ section.settings.text_color }};
-}
-
-.rh-search-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #666;
+  .rh-search-container {
+    max-width: 300px;
+  }
 }
 </style>
 
@@ -607,42 +705,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Search modal
-  const searchIcon = document.querySelector('[data-search-trigger]');
-  const searchModal = document.querySelector('.rh-search-modal');
-  const searchClose = document.querySelector('.rh-search-close');
-  
-  if (searchIcon && searchModal) {
-    searchIcon.addEventListener('click', function(e) {
-      e.preventDefault();
-      searchModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => {
-        document.querySelector('.rh-search-input')?.focus();
-      }, 100);
-    });
-  }
-  
-  if (searchClose) {
-    searchClose.addEventListener('click', function() {
-      searchModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  }
-  
-  if (searchModal) {
-    searchModal.addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-  
   // Sticky header scroll effect
   {% if section.settings.sticky_header %}
   const header = document.querySelector('.rh-header');
-  let lastScrollY = window.scrollY;
   
   window.addEventListener('scroll', function() {
     if (window.scrollY > 100) {
@@ -666,7 +731,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {% endif %}
     </a>
 
-    <!-- Desktop Navigation -->
+    <!-- Desktop Navigation - Left Aligned -->
     <nav class="rh-nav">
       {% if section.settings.main_menu != blank %}
         <ul class="rh-nav-menu">
@@ -688,6 +753,26 @@ document.addEventListener('DOMContentLoaded', function() {
       {% endif %}
     </nav>
 
+    <!-- Search Field -->
+    {% if section.settings.show_search_field %}
+      <div class="rh-search-container">
+        <form action="{{ routes.search_url }}" method="get" class="rh-search-form">
+          <input 
+            type="search" 
+            name="q" 
+            placeholder="{{ section.settings.search_placeholder }}" 
+            class="rh-search-input" 
+            autocomplete="off"
+          >
+          <button type="submit" class="rh-search-submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    {% endif %}
+
     <!-- Header Actions -->
     <div class="rh-header-actions">
       <!-- CTA Buttons -->
@@ -697,23 +782,20 @@ document.addEventListener('DOMContentLoaded', function() {
             {% case block.type %}
               {% when 'cta_button' %}
                 {% if block.settings.button_link != blank %}
-                  <a href="{{ block.settings.button_link }}" 
-                     class="{% if block.settings.button_style == 'primary' %}primary-button-ca{% else %}secondary-button-ca{% endif %}">
-                    {{ block.settings.button_text }}
-                  </a>
+                  {% if block.settings.button_style == 'text' %}
+                    <a href="{{ block.settings.button_link }}" class="rh-text-link">
+                      {{ block.settings.button_text }}
+                    </a>
+                  {% else %}
+                    <a href="{{ block.settings.button_link }}" 
+                       class="{% if block.settings.button_style == 'primary' %}primary-button-ca{% else %}secondary-button-ca{% endif %}">
+                      {{ block.settings.button_text }}
+                    </a>
+                  {% endif %}
                 {% endif %}
             {% endcase %}
           {% endfor %}
         </div>
-      {% endif %}
-
-      <!-- Search Icon -->
-      {% if section.settings.show_search %}
-        <a href="#" class="rh-header-icon" data-search-trigger>
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
       {% endif %}
 
       <!-- Account Icon -->
@@ -749,6 +831,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Mobile Menu -->
   <nav class="rh-mobile-menu">
+    <!-- Mobile Search -->
+    {% if section.settings.show_search_field %}
+      <div class="rh-mobile-search">
+        <form action="{{ routes.search_url }}" method="get" class="rh-mobile-search-form">
+          <input 
+            type="search" 
+            name="q" 
+            placeholder="{{ section.settings.search_placeholder }}" 
+            class="rh-mobile-search-input" 
+            autocomplete="off"
+          >
+          <button type="submit" class="rh-mobile-search-submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    {% endif %}
+
     {% if section.settings.main_menu != blank %}
       <ul class="rh-mobile-nav-menu">
         {% for link in section.settings.main_menu.links %}
@@ -802,19 +904,3 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Mobile Overlay -->
   <div class="rh-mobile-overlay"></div>
 </header>
-
-<!-- Search Modal -->
-{% if section.settings.show_search %}
-  <div class="rh-search-modal">
-    <div class="rh-search-content">
-      <button class="rh-search-close">&times;</button>
-      <form action="{{ routes.search_url }}" method="get" class="rh-search-form">
-        <input type="search" name="q" placeholder="Search for courses, topics..." class="rh-search-input" autocomplete="off">
-        <button type="submit" class="primary-button-ca">Search</button>
-      </form>
-      <div class="rh-search-suggestions">
-        <p style="font-family: 'Karla', sans-serif; color: #666; margin: 0;">Popular searches: AI, Data Science, Cloud Computing</p>
-      </div>
-    </div>
-  </div>
-{% endif %}
