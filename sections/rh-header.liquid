@@ -1,0 +1,820 @@
+{% schema %}
+{
+  "name": "RH Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text (if no image)",
+      "default": "Care Academia"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width",
+      "default": 140
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Main Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show Search Icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show Cart Icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show Account Icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "header_bg",
+      "label": "Header Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#222875"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link Hover Color",
+      "default": "#CBEFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Sticky Header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show Bottom Border",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Mobile Menu"
+    },
+    {
+      "type": "color",
+      "id": "mobile_menu_bg",
+      "label": "Mobile Menu Background",
+      "default": "#222875"
+    },
+    {
+      "type": "color",
+      "id": "mobile_menu_text",
+      "label": "Mobile Menu Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Contact Info"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cta_button",
+      "name": "CTA Button",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Get Started"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Header",
+      "blocks": [
+        {
+          "type": "cta_button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.rh-header {
+  background: {{ section.settings.header_bg }};
+  {% if section.settings.sticky_header %}
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  {% endif %}
+  {% if section.settings.show_border %}
+  border-bottom: 1px solid rgba(34, 40, 117, 0.1);
+  {% endif %}
+  transition: all 0.3s ease;
+}
+
+.rh-header.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rh-header-container {
+  max-width: 1432px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Logo Styles */
+.rh-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.rh-logo img {
+  width: {{ section.settings.logo_width }}px;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.rh-logo-text {
+  font-family: "Ghost Trial", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: normal;
+  color: {{ section.settings.text_color }};
+  line-height: 1;
+}
+
+/* Navigation Styles */
+.rh-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.rh-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rh-nav-item {
+  position: relative;
+}
+
+.rh-nav-link {
+  color: {{ section.settings.text_color }};
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: normal;
+  line-height: 1.5;
+  padding: 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.rh-nav-link:hover {
+  color: {{ section.settings.text_color }};
+}
+
+.rh-nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: {{ section.settings.text_color }};
+  transition: width 0.3s ease;
+}
+
+.rh-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown Menu */
+.rh-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 16px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.rh-nav-item:hover .rh-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.rh-dropdown-link {
+  display: block;
+  padding: 12px 20px;
+  color: {{ section.settings.text_color }};
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: normal;
+  transition: all 0.2s ease;
+}
+
+.rh-dropdown-link:hover {
+  background: {{ section.settings.link_hover_color }};
+  color: {{ section.settings.text_color }};
+}
+
+/* Header Actions */
+.rh-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rh-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: {{ section.settings.text_color }};
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.rh-header-icon:hover {
+  background: {{ section.settings.link_hover_color }};
+  color: {{ section.settings.text_color }};
+}
+
+.rh-header-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* CTA Buttons */
+.rh-cta-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Mobile Menu */
+.rh-mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.rh-hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: {{ section.settings.text_color }};
+  transition: all 0.3s ease;
+}
+
+.rh-mobile-menu-toggle.active .rh-hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.rh-mobile-menu-toggle.active .rh-hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.rh-mobile-menu-toggle.active .rh-hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.rh-mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100vh;
+  background: {{ section.settings.mobile_menu_bg }};
+  padding: 100px 30px 30px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.rh-mobile-menu.active {
+  right: 0;
+}
+
+.rh-mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.rh-mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rh-mobile-nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rh-mobile-nav-item {
+  margin-bottom: 8px;
+}
+
+.rh-mobile-nav-link {
+  display: block;
+  color: {{ section.settings.mobile_menu_text }};
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: normal;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.rh-mobile-nav-link:hover {
+  color: {{ section.settings.link_hover_color }};
+  padding-left: 16px;
+}
+
+.rh-mobile-actions {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rh-mobile-contact {
+  margin-top: 30px;
+}
+
+.rh-mobile-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: {{ section.settings.mobile_menu_text }};
+  text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  letter-spacing: normal;
+  margin-bottom: 16px;
+}
+
+.rh-mobile-contact-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .rh-nav {
+    display: none;
+  }
+
+  .rh-mobile-menu-toggle {
+    display: flex;
+  }
+
+  .rh-header-actions .rh-cta-buttons {
+    display: none;
+  }
+
+  .rh-logo-text {
+    font-size: 24px;
+    letter-spacing: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .rh-header-container {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .rh-logo img {
+    max-height: 50px;
+  }
+
+  .rh-logo-text {
+    font-size: 20px;
+    letter-spacing: normal;
+  }
+
+  .rh-mobile-menu {
+    width: 280px;
+  }
+}
+
+/* Search Modal Styles */
+.rh-search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+
+.rh-search-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rh-search-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.rh-search-modal.active .rh-search-content {
+  transform: translateY(0);
+}
+
+.rh-search-form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rh-search-input {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  letter-spacing: normal;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.rh-search-input:focus {
+  border-color: {{ section.settings.text_color }};
+}
+
+.rh-search-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileToggle = document.querySelector('.rh-mobile-menu-toggle');
+  const mobileMenu = document.querySelector('.rh-mobile-menu');
+  const mobileOverlay = document.querySelector('.rh-mobile-overlay');
+  
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+    });
+  }
+  
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', function() {
+      mobileToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  // Search modal
+  const searchIcon = document.querySelector('[data-search-trigger]');
+  const searchModal = document.querySelector('.rh-search-modal');
+  const searchClose = document.querySelector('.rh-search-close');
+  
+  if (searchIcon && searchModal) {
+    searchIcon.addEventListener('click', function(e) {
+      e.preventDefault();
+      searchModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        document.querySelector('.rh-search-input')?.focus();
+      }, 100);
+    });
+  }
+  
+  if (searchClose) {
+    searchClose.addEventListener('click', function() {
+      searchModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  if (searchModal) {
+    searchModal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Sticky header scroll effect
+  {% if section.settings.sticky_header %}
+  const header = document.querySelector('.rh-header');
+  let lastScrollY = window.scrollY;
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+  {% endif %}
+});
+</script>
+
+<header class="rh-header">
+  <div class="rh-header-container">
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="rh-logo">
+      {% if section.settings.logo != blank %}
+        {{ section.settings.logo | image_url: width: 400 | image_tag: alt: shop.name, loading: 'eager' }}
+      {% else %}
+        <span class="rh-logo-text">{{ section.settings.logo_text | default: shop.name }}</span>
+      {% endif %}
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="rh-nav">
+      {% if section.settings.main_menu != blank %}
+        <ul class="rh-nav-menu">
+          {% for link in section.settings.main_menu.links %}
+            <li class="rh-nav-item">
+              <a href="{{ link.url }}" class="rh-nav-link">{{ link.title }}</a>
+              {% if link.links != blank %}
+                <ul class="rh-dropdown">
+                  {% for child_link in link.links %}
+                    <li>
+                      <a href="{{ child_link.url }}" class="rh-dropdown-link">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="rh-header-actions">
+      <!-- CTA Buttons -->
+      {% if section.blocks.size > 0 %}
+        <div class="rh-cta-buttons">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'cta_button' %}
+                {% if block.settings.button_link != blank %}
+                  <a href="{{ block.settings.button_link }}" 
+                     class="{% if block.settings.button_style == 'primary' %}primary-button-ca{% else %}secondary-button-ca{% endif %}">
+                    {{ block.settings.button_text }}
+                  </a>
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Search Icon -->
+      {% if section.settings.show_search %}
+        <a href="#" class="rh-header-icon" data-search-trigger>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      <!-- Account Icon -->
+      {% if section.settings.show_account %}
+        <a href="{{ routes.account_url }}" class="rh-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      <!-- Cart Icon -->
+      {% if section.settings.show_cart %}
+        <a href="{{ routes.cart_url }}" class="rh-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #222875; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">{{ cart.item_count }}</span>
+        </a>
+      {% endif %}
+
+      <!-- Mobile Menu Toggle -->
+      <button class="rh-mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span class="rh-hamburger-line"></span>
+        <span class="rh-hamburger-line"></span>
+        <span class="rh-hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav class="rh-mobile-menu">
+    {% if section.settings.main_menu != blank %}
+      <ul class="rh-mobile-nav-menu">
+        {% for link in section.settings.main_menu.links %}
+          <li class="rh-mobile-nav-item">
+            <a href="{{ link.url }}" class="rh-mobile-nav-link">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <!-- Mobile Actions -->
+    <div class="rh-mobile-actions">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'cta_button' %}
+            {% if block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" 
+                 class="{% if block.settings.button_style == 'primary' %}primary-button-ca{% else %}secondary-button-ca{% endif %}"
+                 style="width: 100%; text-align: center; margin-bottom: 12px;">
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <!-- Mobile Contact Info -->
+    {% if section.settings.phone_number != blank or section.settings.email != blank %}
+      <div class="rh-mobile-contact">
+        {% if section.settings.phone_number != blank %}
+          <a href="tel:{{ section.settings.phone_number | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}" class="rh-mobile-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.59531 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97366 7.27691 9.8939 7.65088C9.81415 8.02485 9.62886 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {{ section.settings.phone_number }}
+          </a>
+        {% endif %}
+        {% if section.settings.email != blank %}
+          <a href="mailto:{{ section.settings.email }}" class="rh-mobile-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {{ section.settings.email }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="rh-mobile-overlay"></div>
+</header>
+
+<!-- Search Modal -->
+{% if section.settings.show_search %}
+  <div class="rh-search-modal">
+    <div class="rh-search-content">
+      <button class="rh-search-close">&times;</button>
+      <form action="{{ routes.search_url }}" method="get" class="rh-search-form">
+        <input type="search" name="q" placeholder="Search for courses, topics..." class="rh-search-input" autocomplete="off">
+        <button type="submit" class="primary-button-ca">Search</button>
+      </form>
+      <div class="rh-search-suggestions">
+        <p style="font-family: 'Karla', sans-serif; color: #666; margin: 0;">Popular searches: AI, Data Science, Cloud Computing</p>
+      </div>
+    </div>
+  </div>
+{% endif %}
