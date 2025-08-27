@@ -87,6 +87,7 @@
         "cta_button_x7bECC",
         "cta_button_CVnxRW"
       ],
+      "disabled": true,
       "name": "RH Header",
       "settings": {
         "logo_text": "Care Academia",
@@ -98,7 +99,7 @@
         "show_account": true,
         "header_bg": "#ffffff",
         "text_color": "#222875",
-        "link_hover_color": "#CBEFFF",
+        "link_hover_color": "#cbefff",
         "sticky_header": true,
         "show_border": true,
         "mobile_menu_bg": "#222875",
