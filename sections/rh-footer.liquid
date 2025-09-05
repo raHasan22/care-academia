@@ -1,0 +1,809 @@
+{% style %}
+.__rh-footer {
+    width: 100%;
+    background-color: #222875; 
+}  
+.__rh-footer *{
+  font-family: "Ghost Trial", sans-serif;
+  text-decoration: none;
+}  
+
+.__rh-footer-container {
+    width: 100%;
+    max-width: 1602px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+
+}
+
+.__rh-footer-top {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(78, 83, 145, 1);
+}
+
+.__rh-footer-top h3 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.2; 
+    letter-spacing: 0px;
+    margin-bottom: 20px;
+}
+
+.__rh-footer-top .__rh-actions {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.__rh-footer-top .__rh-actions a {
+    min-width: 160px;
+    padding: 12px 20px;
+    border: 1px solid #fff;
+    border-radius: 999px;
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    color: rgba(74, 51, 209, 1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.__rh-footer-top .__rh-actions a:last-child {
+    background-color: transparent;
+    color: #fff;
+}
+
+.__rh-footer .__rh-footer-items {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr; 
+    gap: 30px;
+}
+
+/* Footer Column */
+.__rh-footer-col h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+    font-family: "Karla", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.2%;
+}
+
+.__rh-footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.__rh-footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.__rh-footer-col ul li a {
+    transition: color 0.3s;
+    color: rgba(255, 255, 255, 1);
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.5%;
+}
+
+.__rh-footer-col ul li a:hover {
+  color: #fff;
+}
+
+/* Validator */
+.__rh-footer-col.__rh-validator p {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.5%;
+    margin-bottom: 35px;
+}
+
+.__rh-footer-col.__rh-validator form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.__rh-footer-col.__rh-validator input {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.__rh-footer-col.__rh-validator button {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.__rh-footer-col.__rh-validator button:hover {
+    background: #fff;
+    color: #1a1b57;
+}
+
+/* footer bottom */
+.__rh-footer-bottom {
+    background-color: rgba(31, 36, 106, 1); 
+    color: white;
+    padding: 20px;
+}
+
+.__rh-footer-bottom .__rh-container{
+   width: 100%;
+   max-width: 1562px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 20px;
+}
+
+.__rh-footer-bottom .__rh-container .__rh-logo {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Karla", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.__rh-footer-bottom .__rh-container .__rh-language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: rgba(225, 187, 199, 1);
+  cursor: pointer;
+}
+
+.__rh-footer-bottom .__rh-social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.__rh-footer-bottom .__rh-social-icons a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 50%;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.__rh-footer-bottom .__rh-links {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.__rh-footer-bottom .__rh-links a {
+color: rgba(255, 255, 255, 1);
+font-family: "Karla", sans-serif;
+font-size: 16px;
+font-weight: 400;
+line-height: 19px;
+letter-spacing: 0.5%;
+}
+
+.__rh-footer-bottom .__rh-right {
+  display: flex;
+  gap: 10px;
+}
+
+.__rh-footer-bottom .__rh-right img {
+  height: 35px;
+  cursor: pointer;
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .__rh-footer-container {
+    padding: 120px 40px 60px;
+  }
+  
+  .__rh-footer .__rh-footer-items {
+    padding: 60px 40px;
+    gap: 40px;
+  }
+  
+  .__rh-footer-top h3 {
+    font-size: 60px;
+  }
+  
+  .__rh-footer-top .__rh-actions {
+    gap: 24px;
+  }
+  
+  .__rh-footer-top .__rh-actions a {
+    min-width: 200px;
+    padding: 14px 24px;
+    font-size: 18px;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .__rh-footer-container {
+    padding: 100px 30px 50px;
+  }
+  
+  .__rh-footer .__rh-footer-items {
+    padding: 50px 30px;
+    gap: 35px;
+  }
+  
+  .__rh-footer-top h3 {
+    font-size: 52px;
+  }
+  
+  .__rh-footer-top .__rh-actions a {
+    min-width: 180px;
+    font-size: 16px;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .__rh-footer-container {
+    padding: 80px 25px 40px;
+  }
+  
+  .__rh-footer .__rh-footer-items {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px 25px;
+    gap: 30px;
+  }
+  
+  .__rh-footer-top h3 {
+    font-size: 42px;
+  }
+  
+  .__rh-footer-top .__rh-actions {
+    gap: 16px;
+  }
+  
+  .__rh-footer-top .__rh-actions a {
+    min-width: 160px;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  
+  .__rh-footer-bottom .__rh-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .__rh-footer-bottom .__rh-social-icons,
+  .__rh-footer-bottom .__rh-right,
+  .__rh-footer-bottom .__rh-links {
+    justify-content: center;
+  }
+}
+
+/* Mobile Large (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .__rh-footer-container {
+    padding: 60px 20px 30px;
+  }
+  
+  .__rh-footer .__rh-footer-items {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 20px;
+    gap: 25px;
+  }
+  
+  .__rh-footer-top h3 {
+    font-size: 36px;
+  }
+  
+  .__rh-footer-top .__rh-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .__rh-footer-top .__rh-actions a {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  
+  .__rh-footer-bottom .__rh-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .__rh-footer-bottom .__rh-social-icons,
+  .__rh-footer-bottom .__rh-right,
+  .__rh-footer-bottom .__rh-links {
+    justify-content: center;
+  }
+  
+  .__rh-footer-bottom .__rh-links {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+/* Mobile Small (320px to 480px) */
+@media (max-width: 480px) {
+  .__rh-footer-container {
+    padding: 40px 15px 20px;
+  }
+  
+  .__rh-footer .__rh-footer-items {
+    grid-template-columns: 1fr;
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  
+  .__rh-footer-top {
+    padding-bottom: 30px;
+  }
+  
+  .__rh-footer-top h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .__rh-footer-top .__rh-actions {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
+  }
+  
+  .__rh-footer-top .__rh-actions a {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .__rh-footer-col h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .__rh-footer-col ul li a {
+    font-size: 14px;
+  }
+  
+  .__rh-footer-col.__rh-validator p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .__rh-footer-col.__rh-validator input,
+  .__rh-footer-col.__rh-validator button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .__rh-footer-bottom {
+    padding: 15px;
+  }
+  
+  .__rh-footer-bottom .__rh-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .__rh-footer-bottom .__rh-container .__rh-logo {
+    font-size: 20px;
+  }
+  
+  .__rh-footer-bottom .__rh-container .__rh-language {
+    font-size: 13px;
+  }
+  
+  .__rh-footer-bottom .__rh-social-icons {
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .__rh-footer-bottom .__rh-social-icons a {
+    padding: 6px;
+    font-size: 12px;
+  }
+  
+  .__rh-footer-bottom .__rh-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .__rh-footer-bottom .__rh-links a {
+    font-size: 13px;
+  }
+  
+  .__rh-footer-bottom .__rh-right {
+    justify-content: center;
+  }
+  
+  .__rh-footer-bottom .__rh-right img {
+    height: 30px;
+  }
+}
+{% endstyle %}
+
+<footer class="__rh-footer">
+        <div class="__rh-footer-container">
+            <div class="__rh-footer-top">
+            <h3>{{ section.settings.hero_title | default: 'Get started with Care academia' }}</h3>
+            <div class="__rh-actions">
+                {% if section.settings.button_1_text != blank %}
+                <a href="{{ section.settings.button_1_url | default: '#' }}">{{ section.settings.button_1_text }}</a>
+                {% endif %}
+                {% if section.settings.button_2_text != blank %}
+                <a href="{{ section.settings.button_2_url | default: '#' }}">{{ section.settings.button_2_text }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Footer items -->
+         <div class="__rh-footer-items">
+
+    <!-- Column 1 -->
+    {% if section.settings.column_1_title != blank or section.settings.column_1_menu != blank %}
+    <div class="__rh-footer-col">
+      <h3>{{ section.settings.column_1_title | default: 'Support' }}</h3>
+      {% if section.settings.column_1_menu != blank %}
+      <ul>
+        {% for link in linklists[section.settings.column_1_menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Column 2 -->
+    {% if section.settings.column_2_title != blank or section.settings.column_2_menu != blank %}
+    <div class="__rh-footer-col">
+      <h3>{{ section.settings.column_2_title | default: 'Community' }}</h3>
+      {% if section.settings.column_2_menu != blank %}
+      <ul>
+        {% for link in linklists[section.settings.column_2_menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Column 3 -->
+    {% if section.settings.column_3_title != blank or section.settings.column_3_menu != blank %}
+    <div class="__rh-footer-col">
+      <h3>{{ section.settings.column_3_title | default: 'Company' }}</h3>
+      {% if section.settings.column_3_menu != blank %}
+      <ul>
+        {% for link in linklists[section.settings.column_3_menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Column 4 -->
+    {% if section.settings.column_4_title != blank or section.settings.column_4_menu != blank %}
+    <div class="__rh-footer-col">
+      <h3>{{ section.settings.column_4_title | default: 'Industries' }}</h3>
+      {% if section.settings.column_4_menu != blank %}
+      <ul>
+        {% for link in linklists[section.settings.column_4_menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Newsletter -->
+    <div class="__rh-footer-col __rh-validator">
+      <h3>{{ section.settings.newsletter_title | default: 'Newsletter' }}</h3>
+      <p>
+        {{ section.settings.newsletter_description | default: 'Subscribe to our newsletter to stay updated with our latest courses and offers.' }}
+      </p>
+      <form>
+        <input type="email" placeholder="{{ section.settings.newsletter_placeholder | default: 'Email Address' }}" required>
+        <button type="submit">{{ section.settings.newsletter_button_text | default: 'Subscribe' }}</button>
+      </form>
+    </div>
+
+  </div>
+        </div>
+        <!-- footer bottom -->
+   <div class="__rh-footer-bottom">
+   <div class="__rh-container">
+     <!-- logo -->
+    <div class="__rh-logo">
+      <div class="__rh-logo">{{ section.settings.footer_logo | default: 'Care Academia' }}</div>
+    </div>
+
+      <div class="__rh-language">
+        {% if section.settings.language_icon != blank %}
+        <img src="{{ section.settings.language_icon | img_url: '24x24' }}" alt="Language">
+        {% endif %}
+        {{ section.settings.language_text | default: 'English' }}
+      </div>
+
+        <div class="__rh-social-icons">
+        {% if section.settings.linkedin_url != blank and section.settings.linkedin_icon != blank %}
+        <a href="{{ section.settings.linkedin_url }}"><img src="{{ section.settings.linkedin_icon | img_url: '24x24' }}" alt="LinkedIn"></a>
+        {% endif %}
+        {% if section.settings.instagram_url != blank and section.settings.instagram_icon != blank %}
+        <a href="{{ section.settings.instagram_url }}"><img src="{{ section.settings.instagram_icon | img_url: '24x24' }}" alt="Instagram"></a>
+        {% endif %}
+        {% if section.settings.facebook_url != blank and section.settings.facebook_icon != blank %}
+        <a href="{{ section.settings.facebook_url }}"><img src="{{ section.settings.facebook_icon | img_url: '24x24' }}" alt="Facebook"></a>
+        {% endif %}
+        {% if section.settings.youtube_url != blank and section.settings.youtube_icon != blank %}
+        <a href="{{ section.settings.youtube_url }}"><img src="{{ section.settings.youtube_icon | img_url: '24x24' }}" alt="YouTube"></a>
+        {% endif %}
+      </div>
+
+    <!--  Links -->
+    {% if section.settings.legal_menu != blank %}
+    <div class="__rh-links">
+      {% for link in linklists[section.settings.legal_menu].links %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Right Side -->
+    <div class="__rh-right">
+      {% if section.settings.app_store_url != blank and section.settings.app_store_image != blank %}
+      <a href="{{ section.settings.app_store_url }}"><img src="{{ section.settings.app_store_image | img_url: '120x40' }}" alt="App Store"></a>
+      {% endif %}
+      {% if section.settings.google_play_url != blank and section.settings.google_play_image != blank %}
+      <a href="{{ section.settings.google_play_url }}"><img src="{{ section.settings.google_play_image | img_url: '120x40' }}" alt="Google Play"></a>
+      {% endif %}
+    </div>
+   </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "RH Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Get started with Care academia"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "First Button Text",
+      "default": "View individual plans"
+    },
+    {
+      "type": "url",
+      "id": "button_1_url",
+      "label": "First Button URL"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Second Button Text",
+      "default": "View team plans"
+    },
+    {
+      "type": "url",
+      "id": "button_2_url",
+      "label": "Second Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Footer Columns"
+    },
+    {
+      "type": "text",
+      "id": "column_1_title",
+      "label": "Column 1 Title",
+      "default": "Support"
+    },
+    {
+      "type": "link_list",
+      "id": "column_1_menu",
+      "label": "Column 1 Menu"
+    },
+    {
+      "type": "text",
+      "id": "column_2_title",
+      "label": "Column 2 Title",
+      "default": "Community"
+    },
+    {
+      "type": "link_list",
+      "id": "column_2_menu",
+      "label": "Column 2 Menu"
+    },
+    {
+      "type": "text",
+      "id": "column_3_title",
+      "label": "Column 3 Title",
+      "default": "Company"
+    },
+    {
+      "type": "link_list",
+      "id": "column_3_menu",
+      "label": "Column 3 Menu"
+    },
+    {
+      "type": "text",
+      "id": "column_4_title",
+      "label": "Column 4 Title",
+      "default": "Industries"
+    },
+    {
+      "type": "link_list",
+      "id": "column_4_menu",
+      "label": "Column 4 Menu"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter Section"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_description",
+      "label": "Newsletter Description",
+      "default": "Subscribe to our newsletter to stay updated with our latest courses and offers."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Email Input Placeholder",
+      "default": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_text",
+      "label": "Subscribe Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "Footer Bottom"
+    },
+    {
+      "type": "text",
+      "id": "footer_logo",
+      "label": "Footer Logo Text",
+      "default": "Care Academia"
+    },
+    {
+      "type": "text",
+      "id": "language_text",
+      "label": "Language Text",
+      "default": "English"
+    },
+    {
+      "type": "image_picker",
+      "id": "language_icon",
+      "label": "Language Icon"
+    },
+    {
+      "type": "header",
+      "content": "Social Media Links"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "linkedin_icon",
+      "label": "LinkedIn Icon"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_icon",
+      "label": "Instagram Icon"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "facebook_icon",
+      "label": "Facebook Icon"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "youtube_icon",
+      "label": "YouTube Icon"
+    },
+    {
+      "type": "header",
+      "content": "Legal Links"
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Legal Links Menu"
+    },
+    {
+      "type": "header",
+      "content": "App Store Links"
+    },
+    {
+      "type": "url",
+      "id": "app_store_url",
+      "label": "App Store URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "app_store_image",
+      "label": "App Store Image"
+    },
+    {
+      "type": "url",
+      "id": "google_play_url",
+      "label": "Google Play URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "google_play_image",
+      "label": "Google Play Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RH Footer"
+    }
+  ]
+}
+{% endschema %}
