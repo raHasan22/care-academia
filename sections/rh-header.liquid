@@ -41,6 +41,18 @@
       "info": "If disabled, navigation items will be simple links without dropdowns"
     },
     {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Main Menu",
+      "info": "Select a menu for the main navigation. This will be used when dropdowns are disabled."
+    },
+    {
+      "type": "link_list",
+      "id": "dropdown_menu",
+      "label": "Dropdown Menu",
+      "info": "Select a menu for dropdown navigation. This will be used when dropdowns are enabled."
+    },
+    {
       "type": "header",
       "content": "Search Settings"
     },
@@ -85,46 +97,6 @@
   ],
   "blocks": [
     {
-      "type": "nav_item",
-      "name": "Navigation Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "nav_title",
-          "label": "Navigation Title",
-          "default": "Menu Item"
-        },
-        {
-          "type": "url",
-          "id": "nav_url",
-          "label": "Navigation URL"
-        }
-      ]
-    },
-    {
-      "type": "dropdown_item",
-      "name": "Dropdown Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "dropdown_title",
-          "label": "Dropdown Title",
-          "default": "Dropdown Item"
-        },
-        {
-          "type": "url",
-          "id": "dropdown_url",
-          "label": "Dropdown URL"
-        },
-        {
-          "type": "text",
-          "id": "parent_nav",
-          "label": "Parent Navigation Title",
-          "info": "Enter the exact title of the parent navigation item this dropdown belongs to"
-        }
-      ]
-    },
-    {
       "type": "plan_option",
       "name": "Plan Option",
       "settings": [
@@ -144,44 +116,7 @@
   ],
   "presets": [
     {
-      "name": "Header",
-      "blocks": [
-        {
-          "type": "nav_item",
-          "settings": {
-            "nav_title": "Individuals",
-            "nav_url": "#"
-          }
-        },
-        {
-          "type": "nav_item",
-          "settings": {
-            "nav_title": "Business",
-            "nav_url": "#"
-          }
-        },
-        {
-          "type": "nav_item",
-          "settings": {
-            "nav_title": "Public Sector",
-            "nav_url": "#"
-          }
-        },
-        {
-          "type": "nav_item",
-          "settings": {
-            "nav_title": "Courses",
-            "nav_url": "#"
-          }
-        },
-        {
-          "type": "nav_item",
-          "settings": {
-            "nav_title": "Resources",
-            "nav_url": "#"
-          }
-        }
-      ]
+      "name": "Header"
     }
   ]
 }
@@ -723,45 +658,48 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="desktop-nav__rh">
-                    {% for block in section.blocks %}
-                        {% if block.type == 'nav_item' %}
-                            {% assign nav_id = block.settings.nav_title | handle %}
-                            {% assign has_dropdown = false %}
-                            {% assign dropdown_items = '' %}
-                            
-                            {% comment %} Check if this nav item has dropdown items {% endcomment %}
-                            {% for dropdown_block in section.blocks %}
-                                {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
-                                    {% assign has_dropdown = true %}
-                                    {% break %}
-                                {% endif %}
-                            {% endfor %}
-                            
-                            <div class="nav-item__rh" data-dropdown="{{ nav_id }}">
-                                {% if section.settings.enable_dropdowns and has_dropdown %}
-                                    <button class="nav-button__rh" aria-expanded="false" aria-haspopup="true">
-                                        <span>{{ block.settings.nav_title }}</span>
-                                        <div class="dropdown-arrow__rh">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <polyline points="6,9 12,15 18,9"></polyline>
-                                            </svg>
+                    {% if section.settings.enable_dropdowns %}
+                        {% comment %} Use dropdown menu when dropdowns are enabled {% endcomment %}
+                        {% assign menu = linklists[section.settings.dropdown_menu] %}
+                        {% if menu.links.size > 0 %}
+                            {% for link in menu.links %}
+                                {% assign nav_id = link.title | handle %}
+                                <div class="nav-item__rh" data-dropdown="{{ nav_id }}">
+                                    {% if link.links.size > 0 %}
+                                        <button class="nav-button__rh" aria-expanded="false" aria-haspopup="true">
+                                            <span>{{ link.title }}</span>
+                                            <div class="dropdown-arrow__rh">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="6,9 12,15 18,9"></polyline>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <div class="dropdown-menu__rh" id="dropdown-{{ nav_id }}">
+                                            {% for child_link in link.links %}
+                                                <a href="{{ child_link.url }}" class="dropdown-item__rh">{{ child_link.title }}</a>
+                                            {% endfor %}
                                         </div>
-                                    </button>
-                                    <div class="dropdown-menu__rh" id="dropdown-{{ nav_id }}">
-                                        {% for dropdown_block in section.blocks %}
-                                            {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
-                                                <a href="{{ dropdown_block.settings.dropdown_url | default: '#' }}" class="dropdown-item__rh">{{ dropdown_block.settings.dropdown_title }}</a>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                {% else %}
-                                    <a href="{{ block.settings.nav_url | default: '#' }}" class="nav-button__rh nav-link__rh">
-                                        <span>{{ block.settings.nav_title }}</span>
-                                    </a>
-                                {% endif %}
-                            </div>
+                                    {% else %}
+                                        <a href="{{ link.url }}" class="nav-button__rh nav-link__rh">
+                                            <span>{{ link.title }}</span>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
                         {% endif %}
-                    {% endfor %}
+                    {% else %}
+                        {% comment %} Use main menu when dropdowns are disabled {% endcomment %}
+                        {% assign menu = linklists[section.settings.main_menu] %}
+                        {% if menu.links.size > 0 %}
+                            {% for link in menu.links %}
+                                <div class="nav-item__rh">
+                                    <a href="{{ link.url }}" class="nav-button__rh nav-link__rh">
+                                        <span>{{ link.title }}</span>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
                 </nav>
             </div>
 
@@ -844,44 +782,48 @@
 
             <!-- Mobile Navigation -->
             <nav class="mobile-nav__rh">
-                {% for block in section.blocks %}
-                    {% if block.type == 'nav_item' %}
-                        {% assign nav_id = block.settings.nav_title | handle %}
-                        {% assign has_dropdown = false %}
-                        
-                        {% comment %} Check if this nav item has dropdown items {% endcomment %}
-                        {% for dropdown_block in section.blocks %}
-                            {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
-                                {% assign has_dropdown = true %}
-                                {% break %}
-                            {% endif %}
-                        {% endfor %}
-                        
-                        <div class="mobile-nav-item__rh">
-                            {% if section.settings.enable_dropdowns and has_dropdown %}
-                                <button class="mobile-nav-button__rh" data-mobile-dropdown="{{ nav_id }}">
-                                    <span>{{ block.settings.nav_title }}</span>
-                                    <div class="dropdown-arrow__rh">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="6,9 12,15 18,9"></polyline>
-                                        </svg>
+                {% if section.settings.enable_dropdowns %}
+                    {% comment %} Use dropdown menu when dropdowns are enabled {% endcomment %}
+                    {% assign menu = linklists[section.settings.dropdown_menu] %}
+                    {% if menu.links.size > 0 %}
+                        {% for link in menu.links %}
+                            {% assign nav_id = link.title | handle %}
+                            <div class="mobile-nav-item__rh">
+                                {% if link.links.size > 0 %}
+                                    <button class="mobile-nav-button__rh" data-mobile-dropdown="{{ nav_id }}">
+                                        <span>{{ link.title }}</span>
+                                        <div class="dropdown-arrow__rh">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="6,9 12,15 18,9"></polyline>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <div class="mobile-dropdown__rh" id="mobile-dropdown-{{ nav_id }}">
+                                        {% for child_link in link.links %}
+                                            <a href="{{ child_link.url }}" class="mobile-dropdown-item__rh">{{ child_link.title }}</a>
+                                        {% endfor %}
                                     </div>
-                                </button>
-                                <div class="mobile-dropdown__rh" id="mobile-dropdown-{{ nav_id }}">
-                                    {% for dropdown_block in section.blocks %}
-                                        {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
-                                            <a href="{{ dropdown_block.settings.dropdown_url | default: '#' }}" class="mobile-dropdown-item__rh">{{ dropdown_block.settings.dropdown_title }}</a>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                <a href="{{ block.settings.nav_url | default: '#' }}" class="mobile-nav-button__rh mobile-nav-link__rh">
-                                    <span>{{ block.settings.nav_title }}</span>
-                                </a>
-                            {% endif %}
-                        </div>
+                                {% else %}
+                                    <a href="{{ link.url }}" class="mobile-nav-button__rh mobile-nav-link__rh">
+                                        <span>{{ link.title }}</span>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     {% endif %}
-                {% endfor %}
+                {% else %}
+                    {% comment %} Use main menu when dropdowns are disabled {% endcomment %}
+                    {% assign menu = linklists[section.settings.main_menu] %}
+                    {% if menu.links.size > 0 %}
+                        {% for link in menu.links %}
+                            <div class="mobile-nav-item__rh">
+                                <a href="{{ link.url }}" class="mobile-nav-button__rh mobile-nav-link__rh">
+                                    <span>{{ link.title }}</span>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
             </nav>
 
             <!-- Mobile Actions -->
