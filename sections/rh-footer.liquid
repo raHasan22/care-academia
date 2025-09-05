@@ -529,7 +529,7 @@ letter-spacing: 0.5%;
       <p>
         {{ section.settings.newsletter_description | default: 'Subscribe to our newsletter to stay updated with our latest courses and offers.' }}
       </p>
-      {% form 'customer' %}
+      {% form 'customer', id: 'footer-newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <input type="email" 
                name="contact[email]" 
