@@ -1,6 +1,6 @@
 {% schema %}
 {
-  "name": "RH Header",
+  "name": "Header",
   "settings": [
     {
       "type": "header",
@@ -8,182 +8,119 @@
     },
     {
       "type": "image_picker",
-      "id": "logo",
-      "label": "Logo Image"
+      "id": "logo_image",
+      "label": "Logo Image",
+      "info": "Upload a logo image. If no image is provided, the logo text will be used."
     },
     {
       "type": "text",
       "id": "logo_text",
-      "label": "Logo Text (if no image)",
-      "default": "Care Academia"
+      "label": "Logo Text",
+      "default": "care academia",
+      "info": "Fallback text if no logo image is provided"
     },
     {
       "type": "range",
       "id": "logo_width",
-      "min": 80,
+      "label": "Logo Width",
+      "min": 50,
       "max": 300,
       "step": 10,
-      "unit": "px",
-      "label": "Logo Width",
-      "default": 140
+      "default": 150,
+      "unit": "px"
     },
     {
       "type": "header",
-      "content": "Navigation"
-    },
-    {
-      "type": "link_list",
-      "id": "main_menu",
-      "label": "Main Menu",
-      "default": "main-menu"
+      "content": "Navigation Settings"
     },
     {
       "type": "checkbox",
-      "id": "show_search_field",
-      "label": "Show Search Field",
-      "default": true
+      "id": "enable_dropdowns",
+      "label": "Enable Dropdown Menus",
+      "default": true,
+      "info": "If disabled, navigation items will be simple links without dropdowns"
+    },
+    {
+      "type": "header",
+      "content": "Search Settings"
     },
     {
       "type": "text",
       "id": "search_placeholder",
-      "label": "Search Placeholder Text",
-      "default": "what do you want to learn today?"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_cart",
-      "label": "Show Cart Icon",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_account",
-      "label": "Show Account Icon",
-      "default": true
+      "label": "Search Placeholder",
+      "default": "What do you want to learn today?"
     },
     {
       "type": "header",
-      "content": "Authentication Buttons"
+      "content": "Action Buttons"
     },
     {
       "type": "text",
-      "id": "signin_text",
-      "label": "Sign In Button Text",
+      "id": "contact_sales_text",
+      "label": "Contact Sales Text",
+      "default": "Contact Sales"
+    },
+    {
+      "type": "url",
+      "id": "contact_sales_url",
+      "label": "Contact Sales URL"
+    },
+    {
+      "type": "text",
+      "id": "sign_in_text",
+      "label": "Sign In Text",
       "default": "Sign in"
     },
     {
       "type": "url",
-      "id": "signin_link",
-      "label": "Sign In Link",
-      "default": "/account/login"
+      "id": "sign_in_url",
+      "label": "Sign In URL"
     },
     {
       "type": "text",
       "id": "view_plans_text",
-      "label": "View Plans Button Text",
+      "label": "View Plans Text",
       "default": "View Plans"
-    },
-    {
-      "type": "header",
-      "content": "Styling"
-    },
-    {
-      "type": "color",
-      "id": "header_bg",
-      "label": "Header Background",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#222875"
-    },
-    {
-      "type": "color",
-      "id": "link_hover_color",
-      "label": "Link Hover Color",
-      "default": "#CBEFFF"
-    },
-    {
-      "type": "checkbox",
-      "id": "sticky_header",
-      "label": "Sticky Header",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_border",
-      "label": "Show Bottom Border",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Mobile Menu"
-    },
-    {
-      "type": "color",
-      "id": "mobile_menu_bg",
-      "label": "Mobile Menu Background",
-      "default": "#222875"
-    },
-    {
-      "type": "color",
-      "id": "mobile_menu_text",
-      "label": "Mobile Menu Text",
-      "default": "#ffffff"
-    },
-    {
-      "type": "header",
-      "content": "Contact Info"
-    },
-    {
-      "type": "text",
-      "id": "phone_number",
-      "label": "Phone Number"
-    },
-    {
-      "type": "text",
-      "id": "email",
-      "label": "Email Address"
     }
   ],
   "blocks": [
     {
-      "type": "cta_button",
-      "name": "CTA Button",
-      "limit": 2,
+      "type": "nav_item",
+      "name": "Navigation Item",
       "settings": [
         {
           "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "Contact Sales"
+          "id": "nav_title",
+          "label": "Navigation Title",
+          "default": "Menu Item"
         },
         {
           "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
+          "id": "nav_url",
+          "label": "Navigation URL"
+        }
+      ]
+    },
+    {
+      "type": "dropdown_item",
+      "name": "Dropdown Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "dropdown_title",
+          "label": "Dropdown Title",
+          "default": "Dropdown Item"
         },
         {
-          "type": "select",
-          "id": "button_style",
-          "label": "Button Style",
-          "options": [
-            {
-              "value": "primary",
-              "label": "Primary"
-            },
-            {
-              "value": "secondary",
-              "label": "Secondary"
-            },
-            {
-              "value": "text",
-              "label": "Text Link"
-            }
-          ],
-          "default": "text"
+          "type": "url",
+          "id": "dropdown_url",
+          "label": "Dropdown URL"
+        },
+        {
+          "type": "text",
+          "id": "parent_nav",
+          "label": "Parent Navigation Title",
+          "info": "Enter the exact title of the parent navigation item this dropdown belongs to"
         }
       ]
     },
@@ -193,63 +130,55 @@
       "settings": [
         {
           "type": "text",
-          "id": "plan_name",
-          "label": "Plan Name",
-          "default": "Individual Plan"
-        },
-        {
-          "type": "text",
-          "id": "plan_price",
-          "label": "Plan Price",
-          "default": "$29/month"
-        },
-        {
-          "type": "textarea",
-          "id": "plan_description",
-          "label": "Plan Description",
-          "default": "Perfect for individual learners"
+          "id": "plan_title",
+          "label": "Plan Title",
+          "default": "Plan Option"
         },
         {
           "type": "url",
-          "id": "plan_link",
-          "label": "Plan Link"
+          "id": "plan_url",
+          "label": "Plan URL"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "RH Header",
+      "name": "Header",
       "blocks": [
         {
-          "type": "cta_button",
+          "type": "nav_item",
           "settings": {
-            "button_text": "Contact Sales",
-            "button_style": "text"
+            "nav_title": "Individuals",
+            "nav_url": "#"
           }
         },
         {
-          "type": "plan_option",
+          "type": "nav_item",
           "settings": {
-            "plan_name": "Individual Plan",
-            "plan_price": "$29/month",
-            "plan_description": "Perfect for individual learners"
+            "nav_title": "Business",
+            "nav_url": "#"
           }
         },
         {
-          "type": "plan_option",
+          "type": "nav_item",
           "settings": {
-            "plan_name": "Business Plan",
-            "plan_price": "$99/month",
-            "plan_description": "For teams and organizations"
+            "nav_title": "Public Sector",
+            "nav_url": "#"
           }
         },
         {
-          "type": "plan_option",
+          "type": "nav_item",
           "settings": {
-            "plan_name": "Enterprise Plan",
-            "plan_price": "Custom",
-            "plan_description": "Scalable solutions for large organizations"
+            "nav_title": "Courses",
+            "nav_url": "#"
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "nav_title": "Resources",
+            "nav_url": "#"
           }
         }
       ]
@@ -258,927 +187,1021 @@
 }
 {% endschema %}
 
-<style>
-.rh-header {
-  background: {{ section.settings.header_bg }};
-  {% if section.settings.sticky_header %}
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  {% endif %}
-  {% if section.settings.show_border %}
-  border-bottom: 1px solid rgba(34, 40, 117, 0.1);
-  {% endif %}
-  transition: all 0.3s ease;
-}
-
-.rh-header.scrolled {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.rh-header-container {
-  max-width: 1441px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  height: 80px;
-  gap: 40px;
-}
-
-/* Logo Styles */
-.rh-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  z-index: 10;
-}
-
-.rh-logo img {
-  width: {{ section.settings.logo_width }}px;
-  height: auto;
-  max-height: 60px;
-  object-fit: contain;
-}
-
-.rh-logo-text {
-  font-family: "Ghost Trial", sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  letter-spacing: normal;
-  color: {{ section.settings.text_color }};
-  line-height: 1;
-}
-
-/* Navigation Styles - Left Section */
-.rh-nav-section {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  gap: 40px;
-}
-
-.rh-nav {
-  display: flex;
-  align-items: center;
-}
-
-.rh-nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
+{% style %}
+.header__rh *{
   margin: 0;
   padding: 0;
-}
-
-.rh-nav-item {
-  position: relative;
-}
-
-.rh-nav-link {
-  color: {{ section.settings.text_color }};
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: normal;
-  line-height: 1.5;
-  padding: 8px 0;
-  position: relative;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.rh-nav-link:hover {
-  color: {{ section.settings.text_color }};
-}
-
-.rh-nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: {{ section.settings.text_color }};
-  transition: width 0.3s ease;
-}
-
-.rh-nav-link:hover::after {
-  width: 100%;
-}
-
-/* Dropdown Menu */
-.rh-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  padding: 16px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  z-index: 1000;
-}
-
-.rh-nav-item:hover .rh-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.rh-dropdown-link {
-  display: block;
-  padding: 12px 20px;
-  color: {{ section.settings.text_color }};
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: normal;
-  transition: all 0.2s ease;
-}
-
-.rh-dropdown-link:hover {
-  background: {{ section.settings.link_hover_color }};
-  color: {{ section.settings.text_color }};
-}
-
-/* Search Field Styles */
-.rh-search-container {
-  flex: 1;
-  max-width: 400px;
-  margin: 0 20px;
-}
-
-.rh-search-form {
-  position: relative;
-  width: 100%;
-}
-
-.rh-search-input {
-  width: 100%;
-  padding: 12px 45px 12px 20px;
-  border: 1px solid #E0E0E0;
-  border-radius: 24px;
-  font-family: "Karla", sans-serif;
-  font-size: 14px;
-  letter-spacing: normal;
-  outline: none;
-  transition: all 0.3s ease;
-  background: #F8F9FA;
-}
-
-.rh-search-input:focus {
-  border-color: {{ section.settings.text_color }};
-  background: white;
-  box-shadow: 0 0 0 3px rgba(34, 40, 117, 0.1);
-}
-
-.rh-search-input::placeholder {
-  color: #999;
-  font-style: italic;
-}
-
-.rh-search-submit {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  color: #999;
-  transition: color 0.3s ease;
-}
-
-.rh-search-submit:hover {
-  color: {{ section.settings.text_color }};
-}
-
-.rh-search-submit svg {
-  width: 20px;
-  height: 20px;
-}
-
-/* Header Actions - Right Section */
-.rh-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-.rh-header-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  color: {{ section.settings.text_color }};
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.rh-header-icon:hover {
-  background: {{ section.settings.link_hover_color }};
-  color: {{ section.settings.text_color }};
-}
-
-.rh-header-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* CTA Buttons */
-.rh-cta-buttons {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.rh-text-link {
-  color: {{ section.settings.text_color }};
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: normal;
-  padding: 8px 16px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.rh-text-link:hover {
-  color: {{ section.settings.text_color }};
-  background: {{ section.settings.link_hover_color }};
-  border-radius: 8px;
-}
-
-/* Authentication Buttons */
-.rh-auth-buttons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-left: 20px;
-  border-left: 1px solid rgba(34, 40, 117, 0.15);
-}
-
-.rh-signin-btn {
-  color: {{ section.settings.text_color }};
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: normal;
-  padding: 8px 16px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.rh-signin-btn:hover {
-  color: {{ section.settings.text_color }};
-  background: {{ section.settings.link_hover_color }};
-  border-radius: 8px;
-}
-
-/* View Plans Dropdown */
-.rh-plans-dropdown {
-  position: relative;
-}
-
-.rh-plans-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: {{ section.settings.text_color }};
-  color: white;
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: normal;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  white-space: nowrap;
-}
-
-.rh-plans-btn:hover {
-  background: rgba(34, 40, 117, 0.9);
-  color: white;
-}
-
-.rh-plans-btn svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-}
-
-.rh-plans-dropdown.active .rh-plans-btn svg {
-  transform: rotate(180deg);
-}
-
-.rh-plans-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  min-width: 320px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  margin-top: 8px;
-}
-
-.rh-plans-dropdown.active .rh-plans-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.rh-plan-item {
-  padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: block;
-  border: 1px solid #f0f0f0;
-}
-
-.rh-plan-item:last-child {
-  margin-bottom: 0;
-}
-
-.rh-plan-item:hover {
-  background: {{ section.settings.link_hover_color }};
-  border-color: {{ section.settings.text_color }};
-}
-
-.rh-plan-name {
-  font-family: "Ghost Trial", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: normal;
-  color: {{ section.settings.text_color }};
-  margin-bottom: 4px;
-}
-
-.rh-plan-price {
-  font-family: "Karla", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: normal;
-  color: {{ section.settings.text_color }};
-  margin-bottom: 8px;
-}
-
-.rh-plan-description {
-  font-family: "Karla", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: normal;
-  color: #666;
-  line-height: 1.4;
-}
-
-/* Mobile Menu */
-.rh-mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 1001;
-}
-
-.rh-hamburger-line {
-  width: 24px;
-  height: 2px;
-  background: {{ section.settings.text_color }};
-  transition: all 0.3s ease;
-}
-
-.rh-mobile-menu-toggle.active .rh-hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.rh-mobile-menu-toggle.active .rh-hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.rh-mobile-menu-toggle.active .rh-hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-.rh-mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 320px;
-  height: 100vh;
-  background: {{ section.settings.mobile_menu_bg }};
-  padding: 100px 30px 30px;
-  transition: right 0.3s ease;
-  z-index: 1000;
-  overflow-y: auto;
-}
-
-.rh-mobile-menu.active {
-  right: 0;
-}
-
-.rh-mobile-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-.rh-mobile-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.rh-mobile-nav-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.rh-mobile-nav-item {
-  margin-bottom: 8px;
-}
-
-.rh-mobile-nav-link {
-  display: block;
-  color: {{ section.settings.mobile_menu_text }};
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: normal;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.rh-mobile-nav-link:hover {
-  color: {{ section.settings.link_hover_color }};
-  padding-left: 16px;
-}
-
-.rh-mobile-actions {
-  margin-top: 40px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.rh-mobile-contact {
-  margin-top: 30px;
-}
-
-.rh-mobile-contact-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: {{ section.settings.mobile_menu_text }};
-  text-decoration: none;
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  letter-spacing: normal;
-  margin-bottom: 16px;
-}
-
-.rh-mobile-contact-item svg {
-  width: 20px;
-  height: 20px;
-}
-
-.rh-mobile-search {
-  margin-bottom: 30px;
-}
-
-.rh-mobile-search-form {
-  position: relative;
-}
-
-.rh-mobile-search-input {
-  width: 100%;
-  padding: 12px 40px 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: {{ section.settings.mobile_menu_text }};
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  letter-spacing: normal;
-  outline: none;
-}
-
-.rh-mobile-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.rh-mobile-search-submit {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: {{ section.settings.mobile_menu_text }};
-  padding: 8px;
-  cursor: pointer;
-}
-
-.rh-mobile-search-submit svg {
-  width: 20px;
-  height: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 991px) {
-  .rh-nav-section {
-    display: none;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+.header__rh {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(34, 40, 117, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 20px;
   }
-
-  .rh-search-container {
-    display: none;
-  }
-
-  .rh-mobile-menu-toggle {
+  
+  .header-container__rh {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
   }
-
-  .rh-header-actions .rh-cta-buttons,
-  .rh-auth-buttons {
+  
+  /* Logo */
+  .logo__rh {
+    font-weight: 700;
+    color: hsl(237, 67%, 29%);
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+  }
+  
+  .logo-link__rh {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+  }
+  
+  .logo-link__rh:hover {
+    opacity: 0.8;
+  }
+  
+  .logo-image__rh {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .logo-text__rh {
+    color: hsl(237, 67%, 29%);
+    font-weight: 700;
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+  }
+  
+  /* Header Sections */
+  .header-left__rh {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.5vw, 40px);
+  }
+  
+  .header-right__rh {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 16px);
+  }
+  
+  /* Desktop Navigation */
+  .desktop-nav__rh {
+    display: none;
+    align-items: center;
+    gap: clamp(16px, 2vw, 24px);
+  }
+  
+  @media (min-width: 1024px) {
+    .desktop-nav__rh {
+      display: flex;
+    }
+  }
+  
+  .nav-item__rh {
+    position: relative;
+  }
+  
+  .nav-button__rh {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 8px);
+    color: hsl(237, 67%, 29%);
+    font-size: clamp(14px, 1.6vw, 16px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.08px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  
+  .nav-button__rh:hover {
+    opacity: 0.8;
+  }
+  
+  .nav-link__rh {
+    text-decoration: none;
+  }
+  
+  .nav-link__rh:hover {
+    opacity: 0.8;
+  }
+  
+  .dropdown-arrow__rh {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(237, 67%, 29%);
+    transition: transform 0.2s ease;
+  }
+  
+  .nav-button__rh[aria-expanded="true"] .dropdown-arrow__rh {
+    transform: rotate(180deg);
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu__rh {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    background: white;
+    border: 1px solid hsl(0, 0%, 93%);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    min-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-menu__rh.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-item__rh {
+    display: block;
+    padding: 8px 16px;
+    color: hsl(237, 67%, 29%);
+    font-size: clamp(14px, 1.6vw, 16px);
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+  
+  .dropdown-item__rh:hover {
+    background-color: hsl(0, 0%, 96%);
+  }
+  
+  /* Search Container */
+  .search-container__rh {
     display: none;
   }
-
-  .rh-logo-text {
-    font-size: 24px;
-    letter-spacing: normal;
-  }
-}
-
-@media (max-width: 767px) {
-  .rh-header-container {
-    height: 70px;
-    padding: 0 16px;
-  }
-
-  .rh-logo img {
-    max-height: 50px;
-  }
-
-  .rh-logo-text {
-    font-size: 20px;
-    letter-spacing: normal;
-  }
-
-  .rh-mobile-menu {
-    width: 280px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .rh-nav-menu {
-    gap: 24px;
-  }
-
-  .rh-search-container {
-    max-width: 300px;
-  }
-
-  .rh-header-actions {
-    gap: 16px;
-  }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
-  const mobileToggle = document.querySelector('.rh-mobile-menu-toggle');
-  const mobileMenu = document.querySelector('.rh-mobile-menu');
-  const mobileOverlay = document.querySelector('.rh-mobile-overlay');
   
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', function() {
-      this.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      mobileOverlay.classList.toggle('active');
-      document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
-    });
-  }
-  
-  if (mobileOverlay) {
-    mobileOverlay.addEventListener('click', function() {
-      mobileToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      this.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  }
-
-  // Plans dropdown toggle
-  const plansDropdown = document.querySelector('.rh-plans-dropdown');
-  const plansBtn = document.querySelector('.rh-plans-btn');
-  
-  if (plansBtn) {
-    plansBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      plansDropdown.classList.toggle('active');
-    });
-  }
-
-  // Close plans dropdown when clicking outside
-  document.addEventListener('click', function(e) {
-    if (plansDropdown && !plansDropdown.contains(e.target)) {
-      plansDropdown.classList.remove('active');
+  @media (min-width: 768px) {
+    .search-container__rh {
+      display: block;
     }
-  });
+  }
   
-  // Sticky header scroll effect
-  {% if section.settings.sticky_header %}
-  const header = document.querySelector('.rh-header');
+  .search-input__rh {
+    display: flex;
+    align-items: center;
+    background-color: hsl(0, 0%, 96%);
+    border: 1px solid hsl(0, 0%, 93%);
+    border-radius: 9999px;
+    padding: 8px 12px;
+    max-width: 320px;
+    height: 36px;
+  }
   
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+  .search-icon__rh {
+    margin-right: 8px;
+    flex-shrink: 0;
+    color: hsl(0, 0%, 43%);
+  }
+  
+  .search-field__rh {
+    background: transparent;
+    border: none;
+    outline: none;
+    flex: 1;
+    color: hsl(237, 67%, 29%);
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.07px;
+  }
+  
+  .search-field__rh::placeholder {
+    color: hsl(0, 0%, 71%);
+  }
+  
+  /* Divider */
+  .divider__rh {
+    display: none;
+    width: 1px;
+    height: 36px;
+    background-color: hsl(0, 0%, 93%);
+  }
+  
+  @media (min-width: 1024px) {
+    .divider__rh {
+      display: block;
     }
-  });
-  {% endif %}
-});
-</script>
+  }
+  
+  /* Actions */
+  .actions__rh {
+    display: none;
+    align-items: center;
+    gap: clamp(16px, 2vw, 24px);
+  }
+  
+  @media (min-width: 1024px) {
+    .actions__rh {
+      display: flex;
+    }
+  }
+  
+  .action-link__rh {
+    color: hsl(0, 0%, 43%);
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.07px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .action-link__rh:hover {
+    color: hsl(237, 67%, 29%);
+  }
+  
+  .view-plans-button__rh {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.5vw, 8px);
+    background-color: hsl(0, 0%, 5%);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    height: 36px;
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0.07px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  
+  .view-plans-button__rh:hover {
+    opacity: 0.9;
+  }
+  
+  .view-plans-button__rh .dropdown-arrow__rh {
+    color: white;
+  }
+  
+  /* Mobile Menu Button */
+  .mobile-menu-button__rh {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 1024px) {
+    .mobile-menu-button__rh {
+      display: none;
+    }
+  }
+  
+  .hamburger__rh {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+    height: 16px;
+    justify-content: space-between;
+  }
+  
+  .hamburger__rh span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: hsl(237, 67%, 29%);
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-button__rh.active .hamburger__rh span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .mobile-menu-button__rh.active .hamburger__rh span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-button__rh.active .hamburger__rh span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu__rh {
+    display: none;
+    background: white;
+    border-top: 1px solid hsl(0, 0%, 93%);
+    padding: 16px clamp(120px, 15vw, 244px);
+  }
+  
+  @media (min-width: 1024px) {
+    .mobile-menu__rh {
+      display: none !important;
+    }
+  }
+  
+  .mobile-menu__rh.show {
+    display: block;
+  }
+  
+  .mobile-search__rh {
+    display: flex;
+    align-items: center;
+    background-color: hsl(0, 0%, 96%);
+    border: 1px solid hsl(0, 0%, 93%);
+    border-radius: 9999px;
+    padding: 8px 12px;
+    margin-bottom: 24px;
+    height: 36px;
+  }
+  
+  .mobile-nav__rh {
+    margin-bottom: 24px;
+  }
+  
+  .mobile-nav-item__rh {
+    border-bottom: 1px solid hsl(0, 0%, 93%);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .mobile-nav-button__rh {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    color: hsl(237, 67%, 29%);
+    font-size: clamp(14px, 1.6vw, 16px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .mobile-nav-link__rh {
+    text-decoration: none;
+    justify-content: flex-start;
+  }
+  
+  .mobile-dropdown__rh {
+    margin-top: 8px;
+    padding-left: 16px;
+    display: none;
+  }
+  
+  .mobile-dropdown__rh.show {
+    display: block;
+  }
+  
+  .mobile-dropdown-item__rh {
+    display: block;
+    padding: 4px 0;
+    color: hsl(0, 0%, 43%);
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+  }
+  
+  .mobile-actions__rh {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .mobile-action-link__rh {
+    display: block;
+    padding: 8px 0;
+    color: hsl(0, 0%, 43%);
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+  }
+  
+  .mobile-view-plans__rh {
+    width: 100%;
+    background-color: hsl(0, 0%, 5%);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 12px;
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .header-container__rh {
+      padding-left: clamp(8px, 1vw, 16px);
+      padding-right: clamp(8px, 1vw, 16px);
+    }
+    
+    .header-left__rh {
+      gap: clamp(8px, 1vw, 16px);
+    }
+    
+    .mobile-menu__rh {
+      padding-left: clamp(8px, 1vw, 16px);
+      padding-right: clamp(8px, 1vw, 16px);
+    }
+  }
+  
+  
+  /* Focus states for accessibility */
+  .nav-button__rh:focus,
+  .action-link__rh:focus,
+  .view-plans-button__rh:focus,
+  .mobile-nav-button__rh:focus {
+    outline: none;
+  }
+  
+  .search-field__rh:focus {
+    outline: none;
+  }
+  
+  /* Animation keyframes */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width:1390px) and (min-width:1024px){
+    .desktop-nav__rh{
+        gap: 5px ;
+    }
+    .header-container__rh{
+        gap: 10px;
+    }
+    .header-right__rh{
+        gap: 5px;
+    }
+    .actions__rh{
+    gap: 5px;
+    }
+    .header-left__rh{
+        gap: 10px;
+    }
+    .nav-button__rh, .action-link__rh{
+        font-size: 12px;
+        white-space: nowrap
+    }
+    .search-input__rh{
+        max-width: 250px;
+        overflow: hidden;
+    }
+    .view-plans-button__rh{
+        font-size: 12px;
+        padding: 4px 8px;
+        height: 28px
+    }
+}
 
-<header class="rh-header">
-  <div class="rh-header-container">
-    <!-- Logo -->
-    <a href="{{ routes.root_url }}" class="rh-logo">
-      {% if section.settings.logo != blank %}
-        {{ section.settings.logo | image_url: width: 400 | image_tag: alt: shop.name, loading: 'eager' }}
-      {% else %}
-        <span class="rh-logo-text">{{ section.settings.logo_text | default: shop.name }}</span>
-      {% endif %}
-    </a>
 
-    <!-- Navigation Section (Left) -->
-    <div class="rh-nav-section">
-      <!-- Desktop Navigation -->
-      <nav class="rh-nav">
-        {% if section.settings.main_menu != blank %}
-          <ul class="rh-nav-menu">
-            {% for link in section.settings.main_menu.links %}
-              <li class="rh-nav-item">
-                <a href="{{ link.url }}" class="rh-nav-link">{{ link.title }}</a>
-                {% if link.links != blank %}
-                  <ul class="rh-dropdown">
-                    {% for child_link in link.links %}
-                      <li>
-                        <a href="{{ child_link.url }}" class="rh-dropdown-link">{{ child_link.title }}</a>
-                      </li>
+{% endstyle %}
+
+<header class="header__rh">
+        <div class="header-container__rh">
+            <!-- Logo and Navigation -->
+            <div class="header-left__rh">
+                <div class="logo__rh">
+                    {% if section.settings.logo_image != blank %}
+                        <a href="{{ routes.root_url }}" class="logo-link__rh">
+                            {{ section.settings.logo_image | image_url: width: section.settings.logo_width | image_tag: 
+                               alt: section.settings.logo_text | default: 'Logo',
+                               class: 'logo-image__rh',
+                               loading: 'eager',
+                               width: section.settings.logo_width,
+                               height: 'auto' }}
+                        </a>
+                    {% else %}
+                        <a href="{{ routes.root_url }}" class="logo-link__rh logo-text__rh">
+                            {{ section.settings.logo_text | default: 'care academia' }}
+                        </a>
+                    {% endif %}
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav__rh">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'nav_item' %}
+                            {% assign nav_id = block.settings.nav_title | handle %}
+                            {% assign has_dropdown = false %}
+                            {% assign dropdown_items = '' %}
+                            
+                            {% comment %} Check if this nav item has dropdown items {% endcomment %}
+                            {% for dropdown_block in section.blocks %}
+                                {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
+                                    {% assign has_dropdown = true %}
+                                    {% break %}
+                                {% endif %}
+                            {% endfor %}
+                            
+                            <div class="nav-item__rh" data-dropdown="{{ nav_id }}">
+                                {% if section.settings.enable_dropdowns and has_dropdown %}
+                                    <button class="nav-button__rh" aria-expanded="false" aria-haspopup="true">
+                                        <span>{{ block.settings.nav_title }}</span>
+                                        <div class="dropdown-arrow__rh">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="6,9 12,15 18,9"></polyline>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <div class="dropdown-menu__rh" id="dropdown-{{ nav_id }}">
+                                        {% for dropdown_block in section.blocks %}
+                                            {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
+                                                <a href="{{ dropdown_block.settings.dropdown_url | default: '#' }}" class="dropdown-item__rh">{{ dropdown_block.settings.dropdown_title }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <a href="{{ block.settings.nav_url | default: '#' }}" class="nav-button__rh nav-link__rh">
+                                        <span>{{ block.settings.nav_title }}</span>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </nav>
-
-      <!-- Search Field -->
-      {% if section.settings.show_search_field %}
-        <div class="rh-search-container">
-          <form action="{{ routes.search_url }}" method="get" class="rh-search-form">
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="{{ section.settings.search_placeholder }}" 
-              class="rh-search-input" 
-              autocomplete="off"
-            >
-            <button type="submit" class="rh-search-submit" aria-label="Search">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </form>
-        </div>
-      {% endif %}
-    </div>
-
-    <!-- Header Actions (Right) -->
-    <div class="rh-header-actions">
-      <!-- CTA Buttons -->
-      {% if section.blocks.size > 0 %}
-        <div class="rh-cta-buttons">
-          {% for block in section.blocks %}
-            {% case block.type %}
-              {% when 'cta_button' %}
-                {% if block.settings.button_link != blank %}
-                  {% if block.settings.button_style == 'text' %}
-                    <a href="{{ block.settings.button_link }}" class="rh-text-link">
-                      {{ block.settings.button_text }}
-                    </a>
-                  {% else %}
-                    <a href="{{ block.settings.button_link }}" 
-                       class="{% if block.settings.button_style == 'primary' %}primary-button-ca{% else %}secondary-button-ca{% endif %}">
-                      {{ block.settings.button_text }}
-                    </a>
-                  {% endif %}
-                {% endif %}
-            {% endcase %}
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      <!-- Authentication Buttons (Separated with border) -->
-      <div class="rh-auth-buttons">
-        <!-- Sign In Button (only show if user is not logged in) -->
-        {% unless customer %}
-          <a href="{{ section.settings.signin_link }}" class="rh-signin-btn">
-            {{ section.settings.signin_text }}
-          </a>
-        {% endunless %}
-
-        <!-- View Plans Dropdown -->
-        {% assign plan_blocks = section.blocks | where: 'type', 'plan_option' %}
-        {% if plan_blocks.size > 0 %}
-          <div class="rh-plans-dropdown">
-            <button class="rh-plans-btn">
-              {{ section.settings.view_plans_text }}
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <div class="rh-plans-menu">
-              {% for block in plan_blocks %}
-                <a href="{{ block.settings.plan_link | default: '#' }}" class="rh-plan-item">
-                  <div class="rh-plan-name">{{ block.settings.plan_name }}</div>
-                  <div class="rh-plan-price">{{ block.settings.plan_price }}</div>
-                  <div class="rh-plan-description">{{ block.settings.plan_description }}</div>
-                </a>
-              {% endfor %}
+                </nav>
             </div>
-          </div>
-        {% endif %}
-      </div>
 
-      <!-- Account Icon (only show if user is logged in) -->
-      {% if customer and section.settings.show_account %}
-        <a href="{{ routes.account_url }}" class="rh-header-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      {% endif %}
+            <!-- Right Section -->
+            <div class="header-right__rh">
+                <!-- Search Bar -->
+                <div class="search-container__rh">
+                    <div class="search-input__rh">
+                        <svg class="search-icon__rh" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input
+                            type="text"
+                            placeholder="{{ section.settings.search_placeholder | default: 'What do you want to learn today?' }}"
+                            class="search-field__rh"
+                        />
+                    </div>
+                </div>
 
-      <!-- Cart Icon -->
-      {% if section.settings.show_cart %}
-        <a href="{{ routes.cart_url }}" class="rh-header-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          {% if cart.item_count > 0 %}
-            <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #222875; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">{{ cart.item_count }}</span>
-          {% endif %}
-        </a>
-      {% endif %}
+                <!-- Divider -->
+                <div class="divider__rh"></div>
 
-      <!-- Mobile Menu Toggle -->
-      <button class="rh-mobile-menu-toggle" aria-label="Toggle mobile menu">
-        <span class="rh-hamburger-line"></span>
-        <span class="rh-hamburger-line"></span>
-        <span class="rh-hamburger-line"></span>
-      </button>
-    </div>
-  </div>
+                <!-- Action Items -->
+                <div class="actions__rh">
+                    {% if section.settings.contact_sales_url != blank %}
+                        <a href="{{ section.settings.contact_sales_url }}" class="action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
+                    {% endif %}
+                    
+                    {% unless customer %}
+                        {% if section.settings.sign_in_url != blank %}
+                            <a href="{{ section.settings.sign_in_url }}" class="action-link__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
+                        {% endif %}
+                    {% endunless %}
+                    
+                    <div class="nav-item__rh" data-dropdown="view-plans">
+                        <button class="view-plans-button__rh" aria-expanded="false" aria-haspopup="true">
+                            <span>{{ section.settings.view_plans_text | default: 'View Plans' }}</span>
+                            <div class="dropdown-arrow__rh">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6,9 12,15 18,9"></polyline>
+                                </svg>
+                            </div>
+                        </button>
+                        <div class="dropdown-menu__rh" id="dropdown-view-plans">
+                            {% for block in section.blocks %}
+                                {% if block.type == 'plan_option' %}
+                                    <a href="{{ block.settings.plan_url | default: '#' }}" class="dropdown-item__rh">{{ block.settings.plan_title }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Mobile Menu -->
-  <nav class="rh-mobile-menu">
-    <!-- Mobile Search -->
-    {% if section.settings.show_search_field %}
-      <div class="rh-mobile-search">
-        <form action="{{ routes.search_url }}" method="get" class="rh-mobile-search-form">
-          <input 
-            type="search" 
-            name="q" 
-            placeholder="{{ section.settings.search_placeholder }}" 
-            class="rh-mobile-search-input" 
-            autocomplete="off"
-          >
-          <button type="submit" class="rh-mobile-search-submit" aria-label="Search">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </form>
-      </div>
-    {% endif %}
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button__rh" aria-label="Toggle mobile menu">
+                <div class="hamburger__rh">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
 
-    {% if section.settings.main_menu != blank %}
-      <ul class="rh-mobile-nav-menu">
-        {% for link in section.settings.main_menu.links %}
-          <li class="rh-mobile-nav-item">
-            <a href="{{ link.url }}" class="rh-mobile-nav-link">{{ link.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+        <!-- Mobile Menu -->
+        <div class="mobile-menu__rh" id="mobile-menu">
+            <!-- Mobile Search -->
+            <div class="mobile-search__rh">
+                <svg class="search-icon__rh" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input
+                    type="text"
+                    placeholder="{{ section.settings.search_placeholder | default: 'What do you want to learn today?' }}"
+                    class="search-field__rh"
+                />
+            </div>
 
-    <!-- Mobile Actions -->
-    <div class="rh-mobile-actions">
-      <!-- Sign In Button for Mobile -->
-      {% unless customer %}
-        <a href="{{ section.settings.signin_link }}" 
-           class="secondary-button-ca"
-           style="width: 100%; text-align: center; margin-bottom: 12px;">
-          {{ section.settings.signin_text }}
-        </a>
-      {% endunless %}
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav__rh">
+                {% for block in section.blocks %}
+                    {% if block.type == 'nav_item' %}
+                        {% assign nav_id = block.settings.nav_title | handle %}
+                        {% assign has_dropdown = false %}
+                        
+                        {% comment %} Check if this nav item has dropdown items {% endcomment %}
+                        {% for dropdown_block in section.blocks %}
+                            {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
+                                {% assign has_dropdown = true %}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                        
+                        <div class="mobile-nav-item__rh">
+                            {% if section.settings.enable_dropdowns and has_dropdown %}
+                                <button class="mobile-nav-button__rh" data-mobile-dropdown="{{ nav_id }}">
+                                    <span>{{ block.settings.nav_title }}</span>
+                                    <div class="dropdown-arrow__rh">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6,9 12,15 18,9"></polyline>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="mobile-dropdown__rh" id="mobile-dropdown-{{ nav_id }}">
+                                    {% for dropdown_block in section.blocks %}
+                                        {% if dropdown_block.type == 'dropdown_item' and dropdown_block.settings.parent_nav == block.settings.nav_title %}
+                                            <a href="{{ dropdown_block.settings.dropdown_url | default: '#' }}" class="mobile-dropdown-item__rh">{{ dropdown_block.settings.dropdown_title }}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <a href="{{ block.settings.nav_url | default: '#' }}" class="mobile-nav-button__rh mobile-nav-link__rh">
+                                    <span>{{ block.settings.nav_title }}</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </nav>
 
-      <!-- View Plans for Mobile -->
-      {% assign plan_blocks = section.blocks | where: 'type', 'plan_option' %}
-      {% if plan_blocks.size > 0 %}
-        <a href="#" 
-           class="primary-button-ca"
-           style="width: 100%; text-align: center; margin-bottom: 12px;">
-          {{ section.settings.view_plans_text }}
-        </a>
-      {% endif %}
+            <!-- Mobile Actions -->
+            <div class="mobile-actions__rh">
+                {% if section.settings.contact_sales_url != blank %}
+                    <a href="{{ section.settings.contact_sales_url }}" class="mobile-action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
+                {% endif %}
+                
+                {% unless customer %}
+                    {% if section.settings.sign_in_url != blank %}
+                        <a href="{{ section.settings.sign_in_url }}" class="mobile-action-link__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
+                    {% endif %}
+                {% endunless %}
+                
+            </div>
+        </div>
+    </header>
+    <script>
+        class CareAcademiaHeader {
+    constructor() {
+        this.activeDropdown = null;
+        this.isMobileMenuOpen = false;
+        this.init();
+    }
 
-      <!-- Other CTA Buttons -->
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'cta_button' %}
-            {% if block.settings.button_link != blank %}
-              <a href="{{ block.settings.button_link }}" 
-                 class="{% if block.settings.button_style == 'primary' %}primary-button-ca{% else %}secondary-button-ca{% endif %}"
-                 style="width: 100%; text-align: center; margin-bottom: 12px;">
-                {{ block.settings.button_text }}
-              </a>
-            {% endif %}
-        {% endcase %}
-      {% endfor %}
-    </div>
+    init() {
+        this.bindEvents();
+        this.setupClickOutside();
+    }
 
-    <!-- Mobile Contact Info -->
-    {% if section.settings.phone_number != blank or section.settings.email != blank %}
-      <div class="rh-mobile-contact">
-        {% if section.settings.phone_number != blank %}
-          <a href="tel:{{ section.settings.phone_number | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}" class="rh-mobile-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.59531 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97366 7.27691 9.8939 7.65088C9.81415 8.02485 9.62886 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            {{ section.settings.phone_number }}
-          </a>
-        {% endif %}
-        {% if section.settings.email != blank %}
-          <a href="mailto:{{ section.settings.email }}" class="rh-mobile-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            {{ section.settings.email }}
-          </a>
-        {% endif %}
-      </div>
-    {% endif %}
-  </nav>
+    bindEvents() {
+        // Desktop dropdown buttons
+        const desktopNavButtons = document.querySelectorAll('.desktop-nav__rh .nav-button__rh');
+        desktopNavButtons.forEach(button => {
+            button.addEventListener('click', (e) => this.handleDesktopDropdown(e));
+        });
 
-  <!-- Mobile Overlay -->
-  <div class="rh-mobile-overlay"></div>
-</header>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button__rh');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => this.toggleMobileMenu());
+        }
+
+        // Mobile dropdown buttons
+        const mobileNavButtons = document.querySelectorAll('.mobile-nav-button__rh');
+        mobileNavButtons.forEach(button => {
+            button.addEventListener('click', (e) => this.handleMobileDropdown(e));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+
+        // Close dropdowns on window resize
+        window.addEventListener('resize', () => this.closeAllDropdowns());
+    }
+
+    handleDesktopDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const button = event.currentTarget;
+        const navItem = button.closest('.nav-item__rh');
+        const dropdownId = navItem.getAttribute('data-dropdown');
+        const dropdown = document.getElementById(`dropdown-${dropdownId}`);
+        
+        // Check if this is a simple link (no dropdown)
+        if (button.classList.contains('nav-link__rh')) {
+            return; // Let the link work normally
+        }
+        
+        if (!dropdown) return;
+
+        // Close other dropdowns
+        this.closeAllDropdowns();
+
+        // Toggle current dropdown
+        if (this.activeDropdown === dropdownId) {
+            this.closeDropdown(dropdownId);
+        } else {
+            this.openDropdown(dropdownId);
+        }
+    }
+
+    handleMobileDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const button = event.currentTarget;
+        
+        // Check if this is a simple link (no dropdown)
+        if (button.classList.contains('mobile-nav-link__rh')) {
+            return; // Let the link work normally
+        }
+        
+        const dropdownId = button.getAttribute('data-mobile-dropdown');
+        const dropdown = document.getElementById(`mobile-dropdown-${dropdownId}`);
+        
+        if (!dropdown) return;
+
+        const isOpen = dropdown.classList.contains('show');
+        
+        // Close all mobile dropdowns
+        const allMobileDropdowns = document.querySelectorAll('.mobile-dropdown__rh');
+        allMobileDropdowns.forEach(dd => {
+            dd.classList.remove('show');
+        });
+
+        // Reset all mobile dropdown arrows
+        const allMobileButtons = document.querySelectorAll('.mobile-nav-button__rh .dropdown-arrow__rh');
+        allMobileButtons.forEach(arrow => {
+            arrow.style.transform = 'rotate(0deg)';
+        });
+
+        // Toggle current dropdown
+        if (!isOpen) {
+            dropdown.classList.add('show');
+            const arrow = button.querySelector('.dropdown-arrow__rh');
+            if (arrow) {
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+    }
+
+    openDropdown(dropdownId) {
+        const dropdown = document.getElementById(`dropdown-${dropdownId}`);
+        const button = document.querySelector(`[data-dropdown="${dropdownId}"] .nav-button__rh`);
+        
+        if (dropdown && button) {
+            dropdown.classList.add('show');
+            button.setAttribute('aria-expanded', 'true');
+            this.activeDropdown = dropdownId;
+        }
+    }
+
+    closeDropdown(dropdownId) {
+        const dropdown = document.getElementById(`dropdown-${dropdownId}`);
+        const button = document.querySelector(`[data-dropdown="${dropdownId}"] .nav-button__rh`);
+        
+        if (dropdown && button) {
+            dropdown.classList.remove('show');
+            button.setAttribute('aria-expanded', 'false');
+        }
+        
+        if (this.activeDropdown === dropdownId) {
+            this.activeDropdown = null;
+        }
+    }
+
+    closeAllDropdowns() {
+        // Close desktop dropdowns
+        const allDropdowns = document.querySelectorAll('.dropdown-menu__rh');
+        allDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+
+        const allButtons = document.querySelectorAll('.nav-button__rh');
+        allButtons.forEach(button => {
+            button.setAttribute('aria-expanded', 'false');
+        });
+
+        // Close mobile dropdowns
+        const allMobileDropdowns = document.querySelectorAll('.mobile-dropdown__rh');
+        allMobileDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+
+        const allMobileArrows = document.querySelectorAll('.mobile-nav-button__rh .dropdown-arrow__rh');
+        allMobileArrows.forEach(arrow => {
+            arrow.style.transform = 'rotate(0deg)';
+        });
+
+        this.activeDropdown = null;
+    }
+
+    toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.querySelector('.mobile-menu-button__rh');
+        
+        if (!mobileMenu || !mobileMenuButton) return;
+
+        this.isMobileMenuOpen = !this.isMobileMenuOpen;
+        
+        if (this.isMobileMenuOpen) {
+            mobileMenu.classList.add('show');
+            mobileMenuButton.classList.add('active');
+            mobileMenuButton.setAttribute('aria-expanded', 'true');
+            // Prevent body scroll when mobile menu is open
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.remove('show');
+            mobileMenuButton.classList.remove('active');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            // Close all mobile dropdowns when closing mobile menu
+            this.closeAllDropdowns();
+        }
+    }
+
+    closeMobileMenu() {
+        if (this.isMobileMenuOpen) {
+            this.toggleMobileMenu();
+        }
+    }
+
+    setupClickOutside() {
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            
+            // Check if click is outside header
+            const header = document.querySelector('.header__rh');
+            if (!header.contains(target)) {
+                this.closeAllDropdowns();
+                return;
+            }
+
+            // Check if click is outside dropdown areas
+            const isDropdownClick = target.closest('.nav-item__rh') || 
+                                  target.closest('.dropdown-menu__rh') ||
+                                  target.closest('.mobile-nav-item__rh') ||
+                                  target.closest('.mobile-dropdown__rh');
+            
+            if (!isDropdownClick) {
+                this.closeAllDropdowns();
+            }
+        });
+    }
+
+    handleKeyboard(event) {
+        switch (event.key) {
+            case 'Escape':
+                this.closeAllDropdowns();
+                this.closeMobileMenu();
+                break;
+            case 'Tab':
+                // Close dropdowns when tabbing away
+                setTimeout(() => {
+                    const activeElement = document.activeElement;
+                    const header = document.querySelector('.header__rh');
+                    if (!header.contains(activeElement)) {
+                        this.closeAllDropdowns();
+                    }
+                }, 0);
+                break;
+        }
+    }
+
+    // Public methods for external use
+    openDesktopDropdown(dropdownId) {
+        this.closeAllDropdowns();
+        this.openDropdown(dropdownId);
+    }
+
+    closeDesktopDropdown(dropdownId) {
+        this.closeDropdown(dropdownId);
+    }
+
+    toggleDesktopDropdown(dropdownId) {
+        if (this.activeDropdown === dropdownId) {
+            this.closeDropdown(dropdownId);
+        } else {
+            this.openDesktopDropdown(dropdownId);
+        }
+    }
+}
+
+// Initialize header when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.careAcademiaHeader = new CareAcademiaHeader();
+});
+
+// Handle window resize for mobile menu
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+        // Close mobile menu on desktop
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.querySelector('.mobile-menu-button__rh');
+        
+        if (mobileMenu && mobileMenu.classList.contains('show')) {
+            mobileMenu.classList.remove('show');
+            mobileMenuButton.classList.remove('active');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+});
+
+// Search functionality (optional enhancement)
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInputs = document.querySelectorAll('.search-field__rh');
+    
+    searchInputs.forEach(input => {
+        input.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const searchTerm = input.value.trim();
+                if (searchTerm) {
+                    // Handle search - you can customize this
+                    console.log('Searching for:', searchTerm);
+                    // Example: window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        });
+
+        // Clear search on escape
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                input.value = '';
+                input.blur();
+            }
+        });
+    });
+});
+
+// Smooth scroll prevention during mobile menu animation
+document.addEventListener('touchmove', (event) => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu && mobileMenu.classList.contains('show')) {
+        if (!mobileMenu.contains(event.target)) {
+            event.preventDefault();
+        }
+    }
+}, { passive: false });
+    </script>
