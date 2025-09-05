@@ -31,16 +31,16 @@
         "padding_bottom": 20
       }
     },
-    "rh_header_K4XWpj": {
+    "rh_header_dEmtGk": {
       "type": "rh-header",
-      "name": "RH Header",
+      "name": "Header",
       "settings": {
-        "logo_text": "Care Academia",
-        "logo_width": 140,
+        "logo_text": "care academia",
+        "logo_width": 150,
         "enable_dropdowns": false,
         "main_menu": "main-menu",
         "dropdown_menu": "",
-        "search_placeholder": "what do you want to learn today?",
+        "search_placeholder": "What do you want to learn today?",
         "contact_sales_text": "Contact Sales",
         "contact_sales_url": "",
         "sign_in_text": "Sign in",
@@ -51,6 +51,6 @@
   },
   "order": [
     "header",
-    "rh_header_K4XWpj"
+    "rh_header_dEmtGk"
   ]
 }
