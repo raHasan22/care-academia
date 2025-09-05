@@ -47,7 +47,7 @@
     border-radius: 999px;
     background-color: #fff;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.2px;
     color: rgba(74, 51, 209, 1);
     cursor: pointer;
@@ -529,10 +529,15 @@ letter-spacing: 0.5%;
       <p>
         {{ section.settings.newsletter_description | default: 'Subscribe to our newsletter to stay updated with our latest courses and offers.' }}
       </p>
-      <form>
-        <input type="email" placeholder="{{ section.settings.newsletter_placeholder | default: 'Email Address' }}" required>
+      {% form 'customer' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" 
+               name="contact[email]" 
+               placeholder="{{ section.settings.newsletter_placeholder | default: 'Email Address' }}" 
+               required
+               aria-label="{{ section.settings.newsletter_placeholder | default: 'Email Address' }}">
         <button type="submit">{{ section.settings.newsletter_button_text | default: 'Subscribe' }}</button>
-      </form>
+      {% endform %}
     </div>
 
   </div>
