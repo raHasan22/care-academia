@@ -11,12 +11,51 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "rh_footer_FX6Vb3": {
+      "type": "rh-footer",
+      "name": "RH Footer",
+      "settings": {
+        "hero_title": "Get started with Care academia",
+        "button_1_text": "View individual plans",
+        "button_1_url": "",
+        "button_2_text": "View team plans",
+        "button_2_url": "",
+        "column_1_title": "Support",
+        "column_1_menu": "main-menu",
+        "column_2_title": "Community",
+        "column_2_menu": "main-menu",
+        "column_3_title": "Company",
+        "column_3_menu": "main-menu",
+        "column_4_title": "Industries",
+        "column_4_menu": "main-menu",
+        "newsletter_title": "Newsletter",
+        "newsletter_description": "Subscribe to our newsletter to stay updated with our latest courses and offers.",
+        "newsletter_placeholder": "Email Address",
+        "newsletter_button_text": "Subscribe",
+        "footer_logo": "Care Academia",
+        "language_text": "",
+        "linkedin_url": "#",
+        "linkedin_icon": "shopify://shop_images/linkedin.svg",
+        "instagram_url": "#",
+        "instagram_icon": "shopify://shop_images/insta.svg",
+        "facebook_url": "#",
+        "facebook_icon": "shopify://shop_images/fb.svg",
+        "youtube_url": "#",
+        "youtube_icon": "shopify://shop_images/yt.svg",
+        "legal_menu": "main-menu",
+        "app_store_url": "#",
+        "app_store_image": "shopify://shop_images/app-store.svg",
+        "google_play_url": "#",
+        "google_play_image": "shopify://shop_images/google-play.svg"
+      }
+    },
     "footer": {
       "type": "footer",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
@@ -30,6 +69,7 @@
     }
   },
   "order": [
+    "rh_footer_FX6Vb3",
     "footer"
   ]
 }
