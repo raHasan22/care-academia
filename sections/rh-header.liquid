@@ -725,17 +725,13 @@
 
                 <!-- Action Items -->
                 <div class="actions__rh">
-                    {% if section.settings.contact_sales_url != blank %}
-                        <a href="{{ section.settings.contact_sales_url }}" class="action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
-                    {% endif %}
+                    <a href="{{ section.settings.contact_sales_url | default: '/pages/contact' }}" class="action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
                     
                     {% unless customer %}
-                        {% if section.settings.sign_in_url != blank %}
-                            <a href="{{ section.settings.sign_in_url }}" class="action-link__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
-                        {% endif %}
+                        <a href="{{ section.settings.sign_in_url | default: routes.account_login_url }}" class="action-link__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
                     {% endunless %}
                     
-                    <div class="nav-item__rh" data-dropdown="view-plans">
+                    {% comment %} <div class="nav-item__rh" data-dropdown="view-plans">
                         <button class="view-plans-button__rh" aria-expanded="false" aria-haspopup="true">
                             <span>{{ section.settings.view_plans_text | default: 'View Plans' }}</span>
                             <div class="dropdown-arrow__rh">
@@ -751,7 +747,7 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
 
@@ -828,14 +824,10 @@
 
             <!-- Mobile Actions -->
             <div class="mobile-actions__rh">
-                {% if section.settings.contact_sales_url != blank %}
-                    <a href="{{ section.settings.contact_sales_url }}" class="mobile-action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
-                {% endif %}
+                <a href="{{ section.settings.contact_sales_url | default: '/pages/contact' }}" class="mobile-action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
                 
                 {% unless customer %}
-                    {% if section.settings.sign_in_url != blank %}
-                        <a href="{{ section.settings.sign_in_url }}" class="mobile-action-link__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
-                    {% endif %}
+                    <a href="{{ section.settings.sign_in_url | default: routes.account_login_url }}" class="mobile-action-link__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
                 {% endunless %}
                 
             </div>
