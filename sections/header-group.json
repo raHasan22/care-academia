@@ -32,56 +32,19 @@
     },
     "rh_header_K4XWpj": {
       "type": "rh-header",
-      "blocks": {
-        "cta_button_PiUUwC": {
-          "type": "cta_button",
-          "settings": {
-            "button_text": "Contact Sales",
-            "button_link": "",
-            "button_style": "text"
-          }
-        },
-        "cta_button_x7bECC": {
-          "type": "cta_button",
-          "settings": {
-            "button_text": "Sign in",
-            "button_link": "",
-            "button_style": "text"
-          }
-        },
-        "cta_button_CVnxRW": {
-          "type": "cta_button",
-          "settings": {
-            "button_text": "View Plans",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "cta_button_PiUUwC",
-        "cta_button_x7bECC",
-        "cta_button_CVnxRW"
-      ],
-      "disabled": true,
       "name": "RH Header",
       "settings": {
         "logo_text": "Care Academia",
         "logo_width": 140,
+        "enable_dropdowns": false,
         "main_menu": "main-menu",
-        "show_search_field": true,
+        "dropdown_menu": "",
         "search_placeholder": "what do you want to learn today?",
-        "show_cart": true,
-        "show_account": true,
-        "header_bg": "#ffffff",
-        "text_color": "#222875",
-        "link_hover_color": "#cbefff",
-        "sticky_header": true,
-        "show_border": true,
-        "mobile_menu_bg": "#222875",
-        "mobile_menu_text": "#ffffff",
-        "phone_number": "",
-        "email": ""
+        "contact_sales_text": "Contact Sales",
+        "contact_sales_url": "",
+        "sign_in_text": "Sign in",
+        "sign_in_url": "",
+        "view_plans_text": "View Plans"
       }
     }
   },
