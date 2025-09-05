@@ -787,7 +787,7 @@
                     <a href="{{ section.settings.contact_sales_url | default: '/pages/contact' }}" class="action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
                     
                     {% unless customer %}
-                        <a href="{{ section.settings.sign_in_url | default: routes.account_url }}" class="action-link__rh sign-in-button__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
+                        <a href="{{ section.settings.sign_in_url | default: routes.account_login_url | default: routes.account_url }}" class="action-link__rh sign-in-button__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
                     {% endunless %}
                     
                     {% comment %} <div class="nav-item__rh" data-dropdown="view-plans">
@@ -889,7 +889,7 @@
                 <a href="{{ section.settings.contact_sales_url | default: '/pages/contact' }}" class="mobile-action-link__rh">{{ section.settings.contact_sales_text | default: 'Contact Sales' }}</a>
                 
                 {% unless customer %}
-                    <a href="{{ section.settings.sign_in_url | default: routes.account_login_url }}" class="mobile-action-link__rh sign-in-button__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
+                    <a href="{{ section.settings.sign_in_url | default: routes.account_login_url | default: routes.account_url }}" class="mobile-action-link__rh sign-in-button__rh">{{ section.settings.sign_in_text | default: 'Sign in' }}</a>
                 {% endunless %}
                 
             </div>
