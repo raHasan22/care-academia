@@ -17,9 +17,9 @@
       "settings": {
         "hero_title": "Get started with Care academia",
         "button_1_text": "View individual plans",
-        "button_1_url": "",
+        "button_1_url": "shopify://collections/all",
         "button_2_text": "View team plans",
-        "button_2_url": "",
+        "button_2_url": "shopify://collections/all",
         "column_1_title": "Support",
         "column_1_menu": "main-menu",
         "column_2_title": "Community",
