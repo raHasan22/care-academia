@@ -35,7 +35,7 @@
       "type": "rh-header",
       "name": "Header",
       "settings": {
-        "logo_text": "care academia",
+        "logo_text": "Care Academia",
         "logo_width": 150,
         "enable_dropdowns": false,
         "main_menu": "main-menu",
