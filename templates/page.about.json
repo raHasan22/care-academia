@@ -11,13 +11,26 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "rh_about_hero_RFfL7Y": {
+      "type": "rh-about-hero",
+      "name": "About Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/hero-bg.png",
+        "title": "Turn potential into progress, one tech skill at a time",
+        "description": "By closing tech skill gaps, Pluralsight keeps technologists on the cutting edge of their areas of focus. We are the premier leader in tech learning, fostering innovation and future-forward thinking.",
+        "button_text": "Watch the video",
+        "video_url": "https://www.youtube.com/embed/rgZU5pDf6mw?si=34cDvfYuF4HbjS6b"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rh_about_hero_RFfL7Y"
   ]
 }
