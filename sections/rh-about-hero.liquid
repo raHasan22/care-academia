@@ -1,0 +1,472 @@
+{% style %}
+
+.mh-about-hero *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.mh-about-hero .mh-container {
+  max-width: 1426px;
+  margin: 0 auto;
+}
+
+.mh-about-hero .mh-section-title {
+  font-family: "Ghost Trial", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 60px;
+}
+
+.mh-about-hero .mh-section-subtitle {
+  color: rgba(34, 40, 117, 1);
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2%;
+}
+
+.mh-about-hero .mh-section-description {
+  font-family: "Karla", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.mh-about-hero .mh-btn-primary {
+  font-family: "Karla", sans-serif;
+  display: inline-block;
+  border: 1px solid rgba(34, 40, 117, 1);
+  border-radius: 50px;
+  text-decoration: none;
+  color: rgba(34, 40, 117, 1);
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mh-about-hero .mh-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(34, 40, 117, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.mh-about-hero .mh-btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.mh-about-hero .mh-btn-primary:hover {
+  background-color: rgba(34, 40, 117, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 40, 117, 0.3);
+}
+
+.mh-about-hero .mh-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(34, 40, 117, 0.2);
+}
+
+/* Reuse classes responsive styles */
+
+@media screen and (max-width: 1024px) {
+  .mh-about-hero .mh-section-title {
+    font-size: 40px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .mh-about-hero .mh-btn-primary {
+    font-size: 14px;
+  }
+  .mh-about-hero .mh-section-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .mh-about-hero .mh-section-title {
+    font-size: 26px;
+  }
+}
+
+.mh-about-hero {
+  width: 100%;
+  background-color: #000000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+{% if section.settings.background_image %}
+.mh-about-hero {
+  background-image: url('{{ section.settings.background_image | img_url: '1920x1080' }}');
+}
+{% endif %}
+
+.mh-about-hero .hero-content {
+  max-width: 560px;
+  padding: 100px 0;
+}
+
+.mh-about-hero .hero-content .hero-title {
+  font-family: "Ghost Trial", sans-serif;
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 24px;
+}
+
+.mh-about-hero .hero-content .hero-description {
+  font-family: "Karla", sans-serif;
+  color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.2%;
+  margin-bottom: 24px;
+}
+
+.mh-about-hero .hero-content .hero-btn {
+  font-family: "Karla", sans-serif;
+  max-width: 248px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 50px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mh-about-hero .hero-content .hero-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.mh-about-hero .hero-content .hero-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.mh-about-hero .hero-content .hero-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(34, 40, 117, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.mh-about-hero .hero-content .hero-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+}
+
+.mh-about-hero .hero-content .hero-btn .play-icon {
+  transition: transform 0.3s ease;
+}
+
+.mh-about-hero .hero-content .hero-btn:hover .play-icon {
+  transform: scale(1.1);
+}
+
+/* About Hero Section Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .mh-about-hero .hero-content {
+    margin: 0 auto;
+    text-align: center;
+    padding: 150px 0;
+  }
+  .mh-about-hero .hero-content .hero-btn {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mh-about-hero .hero-content .hero-title {
+    font-size: 56px;
+  }
+
+  .mh-about-hero .hero-content .hero-description {
+    font-size: 18px;
+  }
+
+  .mh-about-hero .hero-content .hero-btn {
+    height: 54px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mh-about-hero .hero-content .hero-title {
+    font-size: 46px;
+  }
+
+  .mh-about-hero .hero-content .hero-description {
+    font-size: 16px;
+  }
+
+  .mh-about-hero .hero-content .hero-btn {
+    height: 52px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .mh-about-hero .hero-content .hero-title {
+    font-size: 33px;
+  }
+  .mh-about-hero .hero-content .hero-btn {
+    height: 48px;
+  }
+}
+
+/* Video Popup Styles */
+.mh-video-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mh-video-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mh-video-popup-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mh-video-popup-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: color 0.3s ease;
+}
+
+.mh-video-popup-close:hover {
+  color: #ccc;
+}
+
+.mh-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.mh-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .mh-video-popup-content {
+    width: 95%;
+  }
+  
+  .mh-video-popup-close {
+    top: -35px;
+    font-size: 25px;
+  }
+}
+
+{% endstyle %}
+
+
+    <div class="mh-container">
+      <div class="mh-about-hero-container">
+        <!-- Left Content -->
+        <div class="hero-content">
+          {% if section.settings.title != blank %}
+            <h1 class="hero-title">
+              {{ section.settings.title }}
+            </h1>
+          {% endif %}
+          
+          {% if section.settings.description != blank %}
+            <p class="hero-description">
+              {{ section.settings.description }}
+            </p>
+          {% endif %}
+          
+          {% if section.settings.button_text != blank and section.settings.video_url != blank %}
+            <a href="#" class="hero-btn" data-video-url="{{ section.settings.video_url }}">
+              <img
+                src="{{ 'Play.svg' | asset_url }}"
+                alt="play-icon"
+                class="play-icon"
+                height="auto"
+                width="auto"
+              />
+              <span class="btn-icon">{{ section.settings.button_text }}</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+
+  
+  <div id="mhVideoPopup" class="mh-video-popup-overlay">
+    <div class="mh-video-popup-content">
+      <span class="mh-video-popup-close">&times;</span>
+      <div class="mh-video-container">
+        <iframe 
+          id="mhVideoFrame"
+          width="100%" 
+          height="100%" 
+          src="" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function initVideoPopup() {
+  const heroBtn = document.querySelector('.hero-btn');
+  const videoPopup = document.getElementById('mhVideoPopup');
+  const videoFrame = document.getElementById('mhVideoFrame');
+  const closeBtn = document.querySelector('.mh-video-popup-close');
+  
+  // Open popup when hero button is clicked
+  if (heroBtn) {
+    heroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const videoUrl = heroBtn.getAttribute('data-video-url');
+      if (videoUrl) {
+        videoFrame.src = videoUrl;
+        videoPopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      }
+    });
+  }
+  
+  // Close popup when close button is clicked
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      closeVideoPopup();
+    });
+  }
+  
+  // Close popup when clicking outside the video content
+  if (videoPopup) {
+    videoPopup.addEventListener('click', (e) => {
+      if (e.target === videoPopup) {
+        closeVideoPopup();
+      }
+    });
+  }
+  
+  // Close popup with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoPopup.classList.contains('active')) {
+      closeVideoPopup();
+    }
+  });
+  
+  function closeVideoPopup() {
+    videoPopup.classList.remove('active');
+    videoFrame.src = ''; // Stop video playback
+    document.body.style.overflow = 'auto'; // Restore background scrolling
+  }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize video popup
+  initVideoPopup();
+});
+  </script>
+
+{% schema %}
+{
+  "name": "About Hero",
+  "tag": "section",
+  "class": "mh-about-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Recommended size: 1920x1080px"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "Turn potential into progress, one tech skill at a time"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Hero Description",
+      "default": "By closing tech skill gaps, Pluralsight keeps technologists on the cutting edge of their areas of focus. We are the premier leader in tech learning, fostering innovation and future-forward thinking."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Watch the video"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Enter the full embed URL (e.g., https://www.youtube.com/embed/VIDEO_ID)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Hero"
+    }
+  ]
+}
+{% endschema %}
