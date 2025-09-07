@@ -172,6 +172,19 @@
         "button_url": "shopify://collections/all",
         "layout": "reverse"
       }
+    },
+    "rh_about_feature_section_hfMMP6": {
+      "type": "rh-about-feature-section",
+      "name": "About Feature Section",
+      "settings": {
+        "image": "shopify://shop_images/diversity.png",
+        "subtitle": "Meet the team",
+        "title": "Diversity and belonging",
+        "description": "Breaking barriers and increasing equal access to opportunity is inherent in our mission to advance the world’s tech workforce. And it's crucial to our own culture and teams.",
+        "button_text": "Learn More",
+        "button_url": "shopify://collections/all",
+        "layout": "normal"
+      }
     }
   },
   "order": [
@@ -181,6 +194,7 @@
     "rh_about_story_section_AFVV4d",
     "rh_about_stat_section_ztz8na",
     "rh_about_feature_section_i4ntyj",
-    "rh_about_feature_section_mGLnRR"
+    "rh_about_feature_section_mGLnRR",
+    "rh_about_feature_section_hfMMP6"
   ]
 }
