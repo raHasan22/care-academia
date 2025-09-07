@@ -146,6 +146,19 @@
         "title": "Care Academia at a glance",
         "claims_title": "Claims to fame"
       }
+    },
+    "rh_about_feature_section_i4ntyj": {
+      "type": "rh-about-feature-section",
+      "name": "About Feature Section",
+      "settings": {
+        "image": "shopify://shop_images/leader-ship.png",
+        "subtitle": "Meet the team",
+        "title": "Our leadership",
+        "description": "Our executives lead by example and guide us to accomplish great things every day. With experience across industries, their breadth and depth of expertise enable us to solve problems, realize our vision, and better serve our customers—and each other.",
+        "button_text": "Learn more",
+        "button_url": "shopify://collections/all",
+        "layout": "normal"
+      }
     }
   },
   "order": [
@@ -153,6 +166,7 @@
     "rh_about_hero_RFfL7Y",
     "rh_about_missoin_section_BaefKa",
     "rh_about_story_section_AFVV4d",
-    "rh_about_stat_section_ztz8na"
+    "rh_about_stat_section_ztz8na",
+    "rh_about_feature_section_i4ntyj"
   ]
 }
