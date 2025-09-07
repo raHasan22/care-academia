@@ -39,11 +39,22 @@
         "button_text": "View our courses",
         "button_url": "shopify://collections/all"
       }
+    },
+    "rh_about_story_section_AFVV4d": {
+      "type": "rh-about-story-section",
+      "name": "About Story Section",
+      "settings": {
+        "image": "shopify://shop_images/story.png",
+        "subtitle": "Our story",
+        "title": "A long time ago, in a classroom far, far away...",
+        "description": "From humble beginnings teaching tech skills in classrooms to becoming an end-to-end tech workforce development solution, our journey has always revolved around delivering what our customers need to solve their most crucial problems. And this isn't even our final form."
+      }
     }
   },
   "order": [
     "main",
     "rh_about_hero_RFfL7Y",
-    "rh_about_missoin_section_BaefKa"
+    "rh_about_missoin_section_BaefKa",
+    "rh_about_story_section_AFVV4d"
   ]
 }
