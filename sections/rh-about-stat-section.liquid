@@ -1,0 +1,505 @@
+{% style %}
+   .mh-care-academia .mh-container {
+  max-width: 1426px;
+  margin: 0 auto;
+}
+
+.mh-care-academia .mh-section-title {
+  font-family: "GhostTRIAL", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 60px;
+}
+
+.mh-care-academia .mh-section-subtitle {
+  color: rgba(34, 40, 117, 1);
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2%;
+}
+
+.mh-care-academia .mh-section-description {
+  font-family: "Karla", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.mh-care-academia .mh-btn-primary {
+  font-family: "Karla", sans-serif;
+  display: inline-block;
+  border: 1px solid rgba(34, 40, 117, 1);
+  border-radius: 50px;
+  text-decoration: none;
+  color: rgba(34, 40, 117, 1);
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mh-care-academia .mh-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(34, 40, 117, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.mh-care-academia .mh-btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.mh-care-academia .mh-btn-primary:hover {
+  background-color: rgba(34, 40, 117, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 40, 117, 0.3);
+}
+
+.mh-care-academia .mh-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(34, 40, 117, 0.2);
+}
+
+
+@media screen and (max-width: 1024px) {
+  .mh-care-academia .mh-section-title {
+    font-size: 40px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .mh-care-academia .mh-btn-primary {
+    font-size: 14px;
+  }
+  .mh-care-academia .mh-section-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .mh-care-academia .mh-section-title {
+    font-size: 26px;
+  }
+}
+
+.mh-care-academia {
+  margin-bottom: 100px;
+  padding: 50px 0;
+}
+
+.mh-care-academia .mh-section-title {
+  text-align: center;
+  margin: 0 0 44px;
+}
+
+.mh-care-academia .care {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mh-care-academia .care .claims {
+  max-width: 64%;
+  border-right: 1px solid rgba(13, 13, 13, 1);
+}
+
+.mh-care-academia .care .claims-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 72px;
+  text-align: center;
+  padding-right: 26px;
+}
+
+.mh-care-academia .care .claims-title {
+  margin: 0 0 60px;
+}
+
+.mh-care-academia .care .claim-item {
+  max-width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mh-care-academia .care .claim-text {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  color: rgba(13, 13, 13, 1);
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.mh-care-academia .care .stats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mh-care-academia .care .stats .stat-item {
+  border-bottom: 1px solid rgba(13, 13, 13, 1);
+  padding-bottom: 32px;
+}
+
+.mh-care-academia .care .stats .stat-number {
+  font-family: "GhostTRIAL", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 60px;
+  font-weight: 400;
+}
+
+.mh-care-academia .care .stats .stat-text {
+  font-family: "Karla", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+@media screen and (max-width: 1400px) {
+  .mh-care-academia .care .claims {
+    max-width: 68%;
+  }
+  .mh-care-academia .care .stats .stat-number {
+    font-size: 46px;
+  }
+  .mh-care-academia .care .stats .stat-text {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .mh-care-academia .care .claims {
+    max-width: 70%;
+  }
+  .mh-care-academia .care .stats {
+    padding-left: 26px;
+  }
+  .mh-care-academia .care .stats .stat-number {
+    font-size: 42px;
+  }
+  .mh-care-academia .care .stats .stat-text {
+    font-size: 16px;
+  }
+  .mh-care-academia .care .claim-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mh-care-academia .care .claims {
+    max-width: 64%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .mh-care-academia .care {
+    flex-direction: column;
+    gap: 26px;
+  }
+  .mh-care-academia .care .claims {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(13, 13, 13, 1);
+    padding-bottom: 26px;
+  }
+  .mh-care-academia .care .stats {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .mh-care-academia .care .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mh-care-academia .care .claim-text {
+    font-size: 16px;
+  }
+
+  .mh-care-academia .care .stats .stat-number {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 604px) {
+  .mh-care-academia .care .claims-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .mh-care-academia .care .claims-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .mh-care-academia .care .claim-item {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mh-care-academia .care {
+    flex-direction: column;
+    gap: 26px;
+  }
+  .mh-care-academia .care .claims {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(13, 13, 13, 1);
+    padding-bottom: 26px;
+  }
+
+  .mh-care-academia .care .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mh-care-academia .care .stats .stat-item {
+    max-width: 210px;
+  }
+  .mh-care-academia .care .stats {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+{% endstyle %}
+
+
+<section class="mh-care-academia">
+    {% if section.settings.title != blank %}
+    <h2 class="mh-section-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    <div class="mh-container">
+      <div class="care">
+        <!-- Left Side -->
+        <div class="claims">
+          {% if section.settings.claims_title != blank %}
+          <h3 class="mh-section-title claims-title">{{ section.settings.claims_title }}</h3>
+          {% endif %}
+          <div class="claims-grid">
+            {% for block in section.blocks %}
+              {% if block.type == 'claim' %}
+              <div class="claim-item">
+                {% if block.settings.icon != blank %}
+                <img
+                  src="{{ block.settings.icon | asset_url }}"
+                  alt="{{ block.settings.icon.alt | default: 'Claim icon' }}"
+                  class="claim-icon"
+                />
+                {% endif %}
+                {% if block.settings.text != blank %}
+                <p class="claim-text">
+                  {{ block.settings.text }}
+                </p>
+                {% endif %}
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="stats">
+          {% for block in section.blocks %}
+            {% if block.type == 'stat' %}
+            <div class="stat-item">
+              <h4 class="stat-number" data-target="{{ block.settings.number }}" data-suffix="{{ block.settings.suffix }}">0</h4>
+              {% if block.settings.text != blank %}
+              <p class="stat-text">{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function counterUp(element, target, duration) {
+  let start = 0;
+  let step = Math.ceil(target / (duration / 16)); 
+
+  let timer = setInterval(() => {
+    start += step;
+    if (start >= target) {
+      element.textContent = target + (element.dataset.suffix || "");
+      clearInterval(timer);
+    } else {
+      element.textContent = start + (element.dataset.suffix || "");
+    }
+  }, 16); // ~60fps
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize counter animation
+  const counters = document.querySelectorAll(".stat-number");
+  counters.forEach(counter => {
+    let target = parseInt(counter.dataset.target);
+    counterUp(counter, target, 2000); 
+  });
+});
+  </script>
+
+{% schema %}
+{
+  "name": "Our Stats Section",
+  "tag": "section",
+  "class": "mh-care-academia",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Care Academia at a glance"
+    },
+    {
+      "type": "text",
+      "id": "claims_title",
+      "label": "Claims Title",
+      "default": "Claims to fame"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "claim",
+      "name": "Claim Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon File Name",
+          "info": "Enter the icon filename (e.g., fortune.svg)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Claim Text"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Statistic Item",
+      "settings": [
+        {
+          "type": "number",
+          "id": "number",
+          "label": "Number",
+          "default": 1000
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix",
+          "info": "Optional suffix (e.g., +, K, %, etc.)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Statistic Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Stats Section",
+      "blocks": [
+        {
+          "type": "claim",
+          "settings": {
+            "icon": "fortune.svg",
+            "text": "Named a 2020 Fortune 100 Best Companies to Work For®"
+          }
+        },
+        {
+          "type": "claim",
+          "settings": {
+            "icon": "ranked.svg",
+            "text": "Ranked No. 10 on FORTUNE's Best Workplaces in Technology 2020 List"
+          }
+        },
+        {
+          "type": "claim",
+          "settings": {
+            "icon": "women.svg",
+            "text": "Named a 2020 Best Workplaces for Women by Great Place to Work® and FORTUNE"
+          }
+        },
+        {
+          "type": "claim",
+          "settings": {
+            "icon": "parents.svg",
+            "text": "Named a 2020 Best Workplaces for Parents by Great Place to Work®"
+          }
+        },
+        {
+          "type": "claim",
+          "settings": {
+            "icon": "millennials.svg",
+            "text": "Named a 2020 Best Workplaces for Millennials by Great Place to Work® and FORTUNE"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": 1000,
+            "suffix": "+",
+            "text": "expert authors"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": 22,
+            "suffix": "K",
+            "text": "business customers across the globe"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": 22,
+            "suffix": "K",
+            "text": "employees supporting our customers"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": 180,
+            "suffix": "",
+            "text": "countries we do business in today"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": 70,
+            "suffix": "%",
+            "text": "Trusted by 70% of the Fortune 500"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
