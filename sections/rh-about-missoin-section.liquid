@@ -318,10 +318,8 @@
         {% if section.settings.image != blank %}
         <div class="mh-info-image">
           <img
-            src="{{ section.settings.image | img_url: '976x600' }}"
+            src="{{ section.settings.image | img_url: '1200x800' }}"
             alt="{{ section.settings.image.alt | default: 'Mission image' }}"
-            height="auto"
-            width="auto"
           />
         </div>
         {% endif %}
@@ -360,7 +358,7 @@
       "type": "image_picker",
       "id": "image",
       "label": "Mission Image",
-      "info": "Recommended size: 976x600px"
+      "info": "Recommended size: 1200x800px"
     },
     {
       "type": "text",
