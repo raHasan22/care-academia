@@ -307,6 +307,8 @@
                   src="{{ block.settings.icon | img_url: '100x100' }}"
                   alt="{{ block.settings.icon.alt | default: 'Claim icon' }}"
                   class="claim-icon"
+                  width="auto"
+                  height="auto"
                 />
                 {% endif %}
                 {% if block.settings.text != blank %}
