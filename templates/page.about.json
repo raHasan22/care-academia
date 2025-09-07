@@ -196,6 +196,18 @@
         "button2_text": "View team plans",
         "button2_url": "shopify://collections/all"
       }
+    },
+    "rh_about_access_section_wtzThB": {
+      "type": "rh-about-access-section",
+      "name": "About Access Section",
+      "settings": {
+        "image": "shopify://shop_images/access.png",
+        "subtitle": "care academia",
+        "title": "Access to technology creates change",
+        "description": "At Care Academia, we see firsthand how technology makes the impossible possible. That's why Pluralsight One exists: to accelerate our mission of advancing the world's tech workforce by unlocking opportunity for the underrepresented, increasing access to tech skill development, and promoting diversity in the tech workforce.",
+        "button_text": "For non-profits",
+        "button_url": "shopify://collections/all"
+      }
     }
   },
   "order": [
@@ -207,6 +219,7 @@
     "rh_about_feature_section_i4ntyj",
     "rh_about_feature_section_mGLnRR",
     "rh_about_feature_section_hfMMP6",
-    "rh_about_join_section_zdBbRJ"
+    "rh_about_join_section_zdBbRJ",
+    "rh_about_access_section_wtzThB"
   ]
 }
