@@ -1,0 +1,258 @@
+{% style %}
+.tech-access-section *{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-access-section .mh-container {
+  max-width: 1426px;
+  margin: 0 auto;
+}
+
+.tech-access-section .mh-section-title {
+  font-family: "Ghost Trial", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-weight: 500;
+  font-size: 60px;
+}
+
+.tech-access-section .mh-section-subtitle {
+  color: rgba(34, 40, 117, 1);
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2%;
+}
+
+.tech-access-section .mh-section-description {
+  font-family: "Karla", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.tech-access-section .mh-btn-primary {
+  font-family: "Karla", sans-serif;
+  display: inline-block;
+  border: 1px solid rgba(34, 40, 117, 1);
+  border-radius: 50px;
+  text-decoration: none;
+  color: rgba(34, 40, 117, 1);
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-access-section .mh-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(34, 40, 117, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.tech-access-section .mh-btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.tech-access-section .mh-btn-primary:hover {
+  background-color: rgba(34, 40, 117, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 40, 117, 0.3);
+}
+
+.tech-access-section .mh-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(34, 40, 117, 0.2);
+}
+
+
+@media screen and (max-width: 1024px) {
+  .tech-access-section .mh-section-title {
+    font-size: 40px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .tech-access-section .mh-btn-primary {
+    font-size: 14px;
+  }
+  .tech-access-section .mh-section-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .tech-access-section .mh-section-title {
+    font-size: 26px;
+  }
+}
+.tech-access-section {
+  padding: 50px 0;
+}
+
+.tech-access-section .tech-access-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tech-access-section .tech-access-content .text-content {
+  max-width: 42%;
+}
+
+.tech-access-section .tech-access-content .section-title {
+  margin: 0 0 24px;
+}
+
+.tech-access-section .tech-access-content .section-subtitle {
+  font-family: "Karla", sans-serif;
+  margin: 0 0 22px;
+  font-size: 36px;
+  font-weight: 400;
+  color: rgba(34, 40, 117, 1);
+}
+
+.tech-access-section .tech-access-content .text-content .action {
+  padding: 16px 32px;
+  margin: 24px 0 0;
+}
+
+.tech-access-section .tech-access-content .image-gallery {
+  max-width: 40%;
+}
+
+.tech-access-section .tech-access-content .image-gallery img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1560px) {
+  .tech-access-section .tech-access-content .text-content {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .tech-access-section .tech-access-content .section-subtitle {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .tech-access-section .tech-access-content .section-subtitle {
+    font-size: 24px;
+    margin: 0 0 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tech-access-section .tech-access-content {
+    flex-direction: column;
+    gap: 36px;
+  }
+  .tech-access-section .tech-access-content .text-content {
+    max-width: 100%;
+  }
+  .tech-access-section .tech-access-content .image-gallery {
+    max-width: 100%;
+  }
+}
+{% endstyle %}
+
+<section class="tech-access-section">
+    <div class="mh-container">
+      <div class="tech-access-content">
+        <!-- Left Side (Text) -->
+        <div class="text-content">
+          {% if section.settings.subtitle != blank %}
+          <h4 class="section-subtitle">{{ section.settings.subtitle }}</h4>
+          {% endif %}
+          
+          {% if section.settings.title != blank %}
+          <h2 class="mh-section-title section-title">
+            {{ section.settings.title }}
+          </h2>
+          {% endif %}
+          
+          {% if section.settings.description != blank %}
+          <p class="mh-section-description section-description">
+            {{ section.settings.description }}
+          </p>
+          {% endif %}
+          
+          {% if section.settings.button_text != blank and section.settings.button_url != blank %}
+          <a href="{{ section.settings.button_url }}" class="mh-btn-primary action">{{ section.settings.button_text }}</a>
+          {% endif %}
+        </div>
+
+        <!-- Right Side (Image) -->
+        {% if section.settings.image != blank %}
+        <div class="image-gallery">
+          <img src="{{ section.settings.image | img_url: '800x600' }}" alt="{{ section.settings.image.alt | default: 'Access image' }}">
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+{% schema %}
+{
+  "name": "About Access Section",
+  "tag": "section",
+  "class": "tech-access-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Access Image",
+      "info": "Recommended size: 800x600px"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "care academia"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Access to technology creates change"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "At Care Academia, we see firsthand how technology makes the impossible possible. That's why Pluralsight One exists: to accelerate our mission of advancing the world's tech workforce by unlocking opportunity for the underrepresented, increasing access to tech skill development, and promoting diversity in the tech workforce."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "For non-profits"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Access Section"
+    }
+  ]
+}
+{% endschema %}
