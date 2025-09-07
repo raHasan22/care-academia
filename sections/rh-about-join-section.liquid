@@ -1,0 +1,235 @@
+{% style %}
+.mh-care-academia-cta-section *{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.mh-care-academia-cta-section .mh-container {
+  max-width: 1426px;
+  margin: 0 auto;
+}
+
+.mh-care-academia-cta-section .mh-section-title {
+  font-family: "Ghost Trial", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 60px;
+}
+
+.mh-care-academia-cta-section .mh-section-subtitle {
+  color: rgba(34, 40, 117, 1);
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2%;
+}
+
+.mh-care-academia-cta-section .mh-section-description {
+  font-family: "Karla", sans-serif;
+  color: rgba(13, 13, 13, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.mh-care-academia-cta-section .mh-btn-primary {
+  font-family: "Karla", sans-serif;
+  display: inline-block;
+  border: 1px solid rgba(34, 40, 117, 1);
+  border-radius: 50px;
+  text-decoration: none;
+  color: rgba(34, 40, 117, 1);
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mh-care-academia-cta-section .mh-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(34, 40, 117, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.mh-care-academia-cta-section .mh-btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.mh-care-academia-cta-section .mh-btn-primary:hover {
+  background-color: rgba(34, 40, 117, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 40, 117, 0.3);
+}
+
+.mh-care-academia-cta-section .mh-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(34, 40, 117, 0.2);
+}
+
+
+@media screen and (max-width: 1024px) {
+  .mh-care-academia-cta-section .mh-section-title {
+    font-size: 40px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .mh-care-academia-cta-section .mh-btn-primary {
+    font-size: 14px;
+  }
+  .mh-care-academia-cta-section .mh-section-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .mh-care-academia-cta-section .mh-section-title {
+    font-size: 26px;
+  }
+}
+.mh-care-academia-cta-section {
+  padding: 50px 0;
+}
+
+.mh-care-academia-cta-section .mh-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 0;
+  border-radius: 8px;
+  background: rgba(203, 239, 255, 1);
+}
+
+.mh-care-academia-cta-section .content .section-title {
+  margin: 0 0 24px;
+}
+
+.mh-care-academia-cta-section .content .button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.mh-care-academia-cta-section .content .btn-individual {
+  background: rgba(13, 13, 13, 1);
+  padding: 16px 32px;
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+}
+
+.mh-care-academia-cta-section .content .btn-individual:hover {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(13, 13, 13, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.mh-care-academia-cta-section .content .btn-individual:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mh-care-academia-cta-section .content .btn-team {
+  padding: 16px 55px;
+  transition: all 0.3s ease;
+}
+
+.mh-care-academia-cta-section .content .btn-team:hover {
+  background-color: rgba(34, 40, 117, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 40, 117, 0.3);
+}
+
+.mh-care-academia-cta-section .content .btn-team:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(34, 40, 117, 0.2);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 455px) {
+  .mh-care-academia-cta-section .content .button-group {
+    flex-direction: column;
+  }
+}
+{% endstyle %}
+
+    <div class="mh-container">
+      <div class="content">
+        {% if section.settings.title != blank %}
+        <h2 class="mh-section-title section-title">
+          {{ section.settings.title }}
+        </h2>
+        {% endif %}
+        
+        <div class="button-group">
+          {% if section.settings.button1_text != blank and section.settings.button1_url != blank %}
+          <a href="{{ section.settings.button1_url }}" class="mh-btn-primary btn-individual">
+            {{ section.settings.button1_text }}
+          </a>
+          {% endif %}
+          
+          {% if section.settings.button2_text != blank and section.settings.button2_url != blank %}
+          <a href="{{ section.settings.button2_url }}" class="mh-btn-primary btn-team">
+            {{ section.settings.button2_text }}
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+{% schema %}
+{
+  "name": "Join to Academy CTA",
+  "tag": "section",
+  "class": "mh-care-academia-cta-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Join Care Academia today"
+    },
+    {
+      "type": "text",
+      "id": "button1_text",
+      "label": "First Button Text",
+      "default": "View individual plans"
+    },
+    {
+      "type": "url",
+      "id": "button1_url",
+      "label": "First Button URL"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "Second Button Text",
+      "default": "View team plans"
+    },
+    {
+      "type": "url",
+      "id": "button2_url",
+      "label": "Second Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Join to Academy"
+    }
+  ]
+}
+{% endschema %}
