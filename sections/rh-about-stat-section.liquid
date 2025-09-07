@@ -287,7 +287,6 @@
 {% endstyle %}
 
 
-<section class="mh-care-academia">
     {% if section.settings.title != blank %}
     <h2 class="mh-section-title">{{ section.settings.title }}</h2>
     {% endif %}
@@ -307,8 +306,6 @@
                   src="{{ block.settings.icon | img_url: '100x100' }}"
                   alt="{{ block.settings.icon.alt | default: 'Claim icon' }}"
                   class="claim-icon"
-                  width="auto"
-                  height="auto"
                 />
                 {% endif %}
                 {% if block.settings.text != blank %}
@@ -337,7 +334,6 @@
         </div>
       </div>
     </div>
-  </section>
 
   <script>
     function counterUp(element, target, duration) {
