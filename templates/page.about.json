@@ -159,6 +159,19 @@
         "button_url": "shopify://collections/all",
         "layout": "normal"
       }
+    },
+    "rh_about_feature_section_mGLnRR": {
+      "type": "rh-about-feature-section",
+      "name": "About Feature Section",
+      "settings": {
+        "image": "shopify://shop_images/careers.png",
+        "subtitle": "Meet the team",
+        "title": "Careers at Care Academia",
+        "description": "Calling all learners, innovators, and problem solvers. If you're committed to serious growth, embrace change, and are ready to take your career up a notch or three, you've come to the right place.",
+        "button_text": "Open Options",
+        "button_url": "shopify://collections/all",
+        "layout": "reverse"
+      }
     }
   },
   "order": [
@@ -167,6 +180,7 @@
     "rh_about_missoin_section_BaefKa",
     "rh_about_story_section_AFVV4d",
     "rh_about_stat_section_ztz8na",
-    "rh_about_feature_section_i4ntyj"
+    "rh_about_feature_section_i4ntyj",
+    "rh_about_feature_section_mGLnRR"
   ]
 }
