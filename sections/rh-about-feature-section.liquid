@@ -226,7 +226,7 @@
 }
 {% endstyle %}
 
-<section class="mh-feature-block{% if section.settings.layout == 'reverse' %} feature-reverse{% endif %}" id="{{ section.id }}">
+<div class="mh-feature-block{% if section.settings.layout == 'reverse' %} feature-reverse{% endif %}" id="{{ section.id }}">
     <div class="mh-container">
       <div class="feature-wrapper">
         {% if section.settings.image != blank %}
@@ -255,7 +255,7 @@
         </div>
       </div>
     </div>
-  </section>
+</div>
 
 {% schema %}
 {
