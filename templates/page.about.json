@@ -185,6 +185,17 @@
         "button_url": "shopify://collections/all",
         "layout": "normal"
       }
+    },
+    "rh_about_join_section_zdBbRJ": {
+      "type": "rh-about-join-section",
+      "name": "About Join to Academy",
+      "settings": {
+        "title": "Join Care Academia today",
+        "button1_text": "View individual plans",
+        "button1_url": "shopify://collections/all",
+        "button2_text": "View team plans",
+        "button2_url": "shopify://collections/all"
+      }
     }
   },
   "order": [
@@ -195,6 +206,7 @@
     "rh_about_stat_section_ztz8na",
     "rh_about_feature_section_i4ntyj",
     "rh_about_feature_section_mGLnRR",
-    "rh_about_feature_section_hfMMP6"
+    "rh_about_feature_section_hfMMP6",
+    "rh_about_join_section_zdBbRJ"
   ]
 }
