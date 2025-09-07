@@ -27,10 +27,23 @@
         "button_text": "Watch the video",
         "video_url": "https://www.youtube.com/embed/rgZU5pDf6mw?si=34cDvfYuF4HbjS6b"
       }
+    },
+    "rh_about_missoin_section_BaefKa": {
+      "type": "rh-about-missoin-section",
+      "name": "About Mission Section",
+      "settings": {
+        "image": "shopify://shop_images/mission.png",
+        "subtitle": "Our mission",
+        "title": "Inspire and empower the tech workforce to achieve their goals",
+        "description": "We're dreaming big, but our work is all about the details. After all, we get to a better tech workforce one skill, one process improvement, one technologist at a time. Find out how we're solving tech workforce challenges, boosting careers, and creating opportunity.",
+        "button_text": "View our courses",
+        "button_url": "shopify://collections/all"
+      }
     }
   },
   "order": [
     "main",
-    "rh_about_hero_RFfL7Y"
+    "rh_about_hero_RFfL7Y",
+    "rh_about_missoin_section_BaefKa"
   ]
 }
