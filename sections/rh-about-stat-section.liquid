@@ -1,9 +1,10 @@
 {% style %}
- .mh-care-academia *{
-  margin: 0;
-  padding: 0; 
+.mh-care-academia *{
   box-sizing: border-box;
- }
+  padding: 0;
+  margin: 0;
+}
+
    .mh-care-academia .mh-container {
   max-width: 1426px;
   margin: 0 auto;
@@ -303,7 +304,7 @@
               <div class="claim-item">
                 {% if block.settings.icon != blank %}
                 <img
-                  src="{{ block.settings.icon | asset_url }}"
+                  src="{{ block.settings.icon | img_url: '100x100' }}"
                   alt="{{ block.settings.icon.alt | default: 'Claim icon' }}"
                   class="claim-icon"
                 />
@@ -388,10 +389,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "name": "Claim Item",
       "settings": [
         {
-          "type": "text",
+          "type": "image_picker",
           "id": "icon",
-          "label": "Icon File Name",
-          "info": "Enter the icon filename (e.g., fortune.svg)"
+          "label": "Icon Image",
+          "info": "Upload an icon image (recommended size: 100x100px)"
         },
         {
           "type": "textarea",
@@ -426,40 +427,35 @@ document.addEventListener("DOMContentLoaded", () => {
   ],
   "presets": [
     {
-      "name": "Our Stats Section",
+      "name": "About Stats Section",
       "blocks": [
         {
           "type": "claim",
           "settings": {
-            "icon": "fortune.svg",
             "text": "Named a 2020 Fortune 100 Best Companies to Work For®"
           }
         },
         {
           "type": "claim",
           "settings": {
-            "icon": "ranked.svg",
             "text": "Ranked No. 10 on FORTUNE's Best Workplaces in Technology 2020 List"
           }
         },
         {
           "type": "claim",
           "settings": {
-            "icon": "women.svg",
             "text": "Named a 2020 Best Workplaces for Women by Great Place to Work® and FORTUNE"
           }
         },
         {
           "type": "claim",
           "settings": {
-            "icon": "parents.svg",
             "text": "Named a 2020 Best Workplaces for Parents by Great Place to Work®"
           }
         },
         {
           "type": "claim",
           "settings": {
-            "icon": "millennials.svg",
             "text": "Named a 2020 Best Workplaces for Millennials by Great Place to Work® and FORTUNE"
           }
         },
