@@ -49,12 +49,110 @@
         "title": "A long time ago, in a classroom far, far away...",
         "description": "From humble beginnings teaching tech skills in classrooms to becoming an end-to-end tech workforce development solution, our journey has always revolved around delivering what our customers need to solve their most crucial problems. And this isn't even our final form."
       }
+    },
+    "rh_about_stat_section_ztz8na": {
+      "type": "rh-about-stat-section",
+      "blocks": {
+        "claim_UNzXaG": {
+          "type": "claim",
+          "settings": {
+            "icon": "shopify://shop_images/fortune.svg",
+            "text": "Named a 2020 Fortune 100 Best Companies to Work For®"
+          }
+        },
+        "claim_zbxbTp": {
+          "type": "claim",
+          "settings": {
+            "icon": "shopify://shop_images/ranked.svg",
+            "text": "Ranked No. 10 on FORTUNE's Best Workplaces in Technology 2020 List"
+          }
+        },
+        "claim_CpVfdP": {
+          "type": "claim",
+          "settings": {
+            "icon": "shopify://shop_images/women.svg",
+            "text": "Named a 2020 Best Workplaces for Women by Great Place to Work® and FORTUNE"
+          }
+        },
+        "claim_rPHNHR": {
+          "type": "claim",
+          "settings": {
+            "icon": "shopify://shop_images/parents.svg",
+            "text": "Named a 2020 Best Workplaces for Parents by Great Place to Work®"
+          }
+        },
+        "claim_e93p37": {
+          "type": "claim",
+          "settings": {
+            "icon": "shopify://shop_images/millennials.svg",
+            "text": "Named a 2020 Best Workplaces for Millennials by Great Place to Work® and FORTUNE"
+          }
+        },
+        "stat_nefmEn": {
+          "type": "stat",
+          "settings": {
+            "number": 1000,
+            "suffix": "+",
+            "text": "expert authors"
+          }
+        },
+        "stat_n9VzHx": {
+          "type": "stat",
+          "settings": {
+            "number": 22,
+            "suffix": "K",
+            "text": "business customers across the globe"
+          }
+        },
+        "stat_DfPgME": {
+          "type": "stat",
+          "settings": {
+            "number": 22,
+            "suffix": "K",
+            "text": "employees supporting our customers"
+          }
+        },
+        "stat_tiwFaP": {
+          "type": "stat",
+          "settings": {
+            "number": 180,
+            "suffix": "",
+            "text": "countries we do business in today"
+          }
+        },
+        "stat_q6hwVr": {
+          "type": "stat",
+          "settings": {
+            "number": 70,
+            "suffix": "%",
+            "text": "Trusted by 70% of the Fortune 500"
+          }
+        }
+      },
+      "block_order": [
+        "claim_UNzXaG",
+        "claim_zbxbTp",
+        "claim_CpVfdP",
+        "claim_rPHNHR",
+        "claim_e93p37",
+        "stat_nefmEn",
+        "stat_n9VzHx",
+        "stat_DfPgME",
+        "stat_tiwFaP",
+        "stat_q6hwVr"
+      ],
+      "name": "About Stats Section",
+      "settings": {
+        "title": "Care Academia at a glance",
+        "claims_title": "Claims to fame"
+      }
     }
   },
   "order": [
     "main",
     "rh_about_hero_RFfL7Y",
     "rh_about_missoin_section_BaefKa",
-    "rh_about_story_section_AFVV4d"
+    "rh_about_story_section_AFVV4d",
+    "rh_about_stat_section_ztz8na"
   ]
 }
